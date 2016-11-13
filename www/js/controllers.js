@@ -1,23 +1,29 @@
 angular.module('starter.controllers', [])
 
-.controller('lgctrl', function ($scope, $state) {
+//zyssm4 nav-funktionen & isels1 aufteilung und nav-bar-logik
+.controller('homeCtrl', function ($scope, $state) {
+    $scope.opentel = function () {
+            $state.go('tel');
+    }
+    $scope.openmedi = function () {
+            $state.go('medplan');
+    }
+})
 
-  $scope.opentel = function () {
-
-    $state.go('tel');
-
-  }
-
+.controller('telCtrl', function ($scope, $state) {
   $scope.openmedi = function () {
-
-    $state.go('medi');
-
+    $state.go('medplan');
   }
-
-  $scope.opendash = function () {
-
-    $state.go('dash');
-
+  $scope.openhome = function () {
+    $state.go('home');
   }
+})
 
+.controller('medplanCtrl', function ($scope, $state) {
+    $scope.opentel = function () {
+        $state.go('tel');
+    }
+    $scope.openhome = function () {
+        $state.go('home');
+    }
 });

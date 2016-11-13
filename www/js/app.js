@@ -29,30 +29,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  $stateProvider.state('dash', {
-            url: '/dash',
-            templateUrl: 'templates/tab-dash.html',
-            controller : 'lgctrl'
-
-        });
-
-        $stateProvider.state('tel', {
+  //zyssm4 einteilung & isels1 controller
+  $stateProvider
+        .state('home', {
+            url: '/',
+            templateUrl: 'templates/home.html',
+            controller : 'homeCtrl'
+        })
+        .state('tel', {
         url: '/tel',
-        templateUrl: 'templates/tab-chats.html',
-          controller : 'lgctrl'
-        }
-      );
-
-
-      $stateProvider.state('medi', {
-        url: '/medi',
-        templateUrl: 'templates/tab-account.html',
-          controller : 'lgctrl'
-        }
-      );
+        templateUrl: 'templates/tel.html',
+          controller : 'telCtrl'
+        })
+        .state('medplan', {
+        url: '/medplan',
+        templateUrl: 'templates/medplan.html',
+          controller : 'medplanCtrl'
+        });
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/dash');
+  $urlRouterProvider.otherwise('/');
 
 });
