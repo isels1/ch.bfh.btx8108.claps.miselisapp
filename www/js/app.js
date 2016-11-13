@@ -5,7 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+
+//isels1 ionic login dingens
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic-datepicker', 'ionic-timepicker', 'formlyIonic', 'nvd3', 'i4mi','jsonFormatter'])
+
+.constant('APPNAME', 'HelloI4MI')
+.constant('APPSECRET', '8385bee7542099b10315dcb7b803b61a')
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -29,6 +34,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
+  
   //zyssm4 einteilung & isels1 controller
   $stateProvider
         .state('home', {
@@ -45,6 +51,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         url: '/medplan',
         templateUrl: 'templates/medplan.html',
           controller : 'medplanCtrl'
+        })
+        .state('login', {
+               url: '/login',
+               templateUrl: 'templates/login.html',
+               controller: 'loginCtrl'
         });
 
 
