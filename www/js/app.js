@@ -9,8 +9,8 @@
 //isels1 ionic login dingens
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ionic-datepicker', 'ionic-timepicker', 'formlyIonic', 'nvd3', 'i4mi','jsonFormatter'])
 
-.constant('APPNAME', 'HelloI4MI')
-.constant('APPSECRET', '8385bee7542099b10315dcb7b803b61a')
+.constant('APPNAME', 'MIAU')
+.constant('APPSECRET', '39gxbt9ge8zdz3s940ftb4fwhnl634uu')
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
