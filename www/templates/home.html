@@ -5,14 +5,32 @@
         </button>
     </ion-nav-buttons>
   <ion-content>
-    <div class="body">
-      <img id="logo" src="img\logo.PNG"></img>
-      <button id="NavButton"  ng-click="opentel()" >
-        <img id="tel" src="img\Tel.PNG"></img>
-      </button >
-      <button id="NavButton"  ng-click="openmedi()" >
-        <img id="tel" src="img\medi.PNG"></img>
-      </button >
+  <!--Logo row-->
+  <div class="row">
+    <div class="col">
+        <div id="logo">
+          <img src="img\logo.PNG"/>
+        </div>
   </div>
+
+  <!--Button Row-->
+  <div class="row">
+    <div class="col"/>
+    <!--TelButton-->
+    <div class="col">
+      <button id="NavButton" ng-click="opentel()" >
+        <img class="ImgButton" src="img\Tel.PNG"/>
+      </button>
+    </div>
+    <div class="colSpacer"/>
+    <!--MediButon-->
+    <div class="col">
+      <button id="NavButton" ng-click="openmedi()" >
+        <img class="ImgButton" src="img\medi.PNG"/>
+      </button>
+    </div>
+    <div class="col"/>
+  </div>
+
 </ion-content>
 </ion-view>

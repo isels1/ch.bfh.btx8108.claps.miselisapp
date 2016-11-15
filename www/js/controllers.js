@@ -44,7 +44,7 @@ angular.module('starter.controllers', [])
     $scope.openhome = function () {
         $state.go('home');
     }
-    
+
     var isLoggedIn = I4MIMidataService.loggedIn();
         if (isLoggedIn) {
             $scope.logout = function() {
@@ -60,35 +60,35 @@ angular.module('starter.controllers', [])
             var un = window.localStorage.getItem("username");
             var pw = window.localStorage.getItem("password");
             var srv = window.localStorage.getItem("server");
-            
+
             if(un != (undefined || "") &&
                pw != (undefined || "") &&
                srv != (undefined || "")) {
-            
+
             $scope.user = {
             username: un,
             password: pw,
             server: srv
             }
-            
+
             I4MIMidataService.login(un, pw, srv);
-            
+
             } else {
-            
+
             // Use for testing the development environment
             $scope.user = {
-            username: 'stefandaniel.iseli@gmail.com',
+            username: 'miau.claps@gmail.com',
             server: 'https://test.midata.coop:9000'
             }
-            
-            } 
-            
+
+            }
+
             // Connect with MIDATA
             $scope.loggedIn = I4MIMidataService.loggedIn();
-            
+
             var timer = $timeout(function refresh() {
                 if (I4MIMidataService.loggedIn()) {
-                                 
+
                     window.localStorage.setItem("username", $scope.user.username);
                     window.localStorage.setItem("password", $scope.user.password);
                     window.localStorage.setItem("server", $scope.user.server);
