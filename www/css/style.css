@@ -23,27 +23,22 @@
 }
 
 #sideButtonright{
-  position: absolute; /* or absolute */
-  top: 50%;
-  left: 0%;
-  margin-top: 175px;
-  width: 10%x;
-  height: 10%;
-     background: transparent;
-    border: none !important;
-    font-size:0;
+  width: 150px;
+  height: 250px;
+  background: transparent;
+  border: none !important;
+  font-size:0;
+  float: left;
+
 }
 
 #sideButtonleft{
-  position: absolute; /* or absolute */
-  top: 50%;
-  right: 0;
-  margin-top: 175px;
-  width: 200px;
-  height: 350px;
-     background: transparent;
-    border: none !important;
-    font-size:0;
+  width: 150px;
+  height: 250px;
+  background: transparent;
+  border: none !important;
+  font-size:0;
+  float: right;
 }
 
 /* Empty. Add your own CSS if you like */
