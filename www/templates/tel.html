@@ -4,12 +4,31 @@
             Logout
         </button>
     </ion-nav-buttons>
-  <ion-content  class="wrapper">
-          <button id="sideButtonleft" ng-click="openmedi()" >
-            <img id="sideButtonleft" src="img\ButtonMediLeft.PNG"></img>
-          </button >
-          <button id="sideButtonright" ng-click="openhome()">
-            <img id="tel" src="img\HomeButtonRight.PNG"></img>
-          </button >
+  <ion-content class="wrapper">
+      <div class="row">
+          <div class="col col-33">Roland</div>
+          <div class="col col-33">Jolanda</div>
+          <div class="col col-33">Christoph</div>
+      </div>
+
+      <div class="row responsive-sm">
+          <div class="col col-25">
+              <button id="sideButtonright" ng-click="openmedi()">
+                  <img id="tel" src="img\ButtonMediLeft.PNG"></img>
+              </button>
+          </div>
+          <div class="col col-25"> Karin </div>
+          <div class="col col-25"> Markus </div>
+          <div class="col col-25"> 
+              <button id="sideButtonleft" ng-click="openhome()">
+                  <img id="tel" src="img\HomeButtonRight.PNG"></img>
+              </button>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col col-33"> Hausarzt </div>
+          <div class="col col-33"> Notruf </div>
+          <div class="col col-33"> Spitex </div>
+      </div>
   </ion-content>
 </ion-view>
