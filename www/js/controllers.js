@@ -61,9 +61,9 @@ angular.module('starter.controllers', [])
             var pw = window.localStorage.getItem("password");
             var srv = window.localStorage.getItem("server");
 
-            if(un != (undefined || "") &&
-               pw != (undefined || "") &&
-               srv != (undefined || "")) {
+            if(un != (undefined || "" || null) &&
+               pw != (undefined || "" || null) &&
+               srv != (undefined || "" || null)) {
 
             $scope.user = {
             username: un,
