@@ -22,23 +22,24 @@
   padding-left: 25%;
 }
 
-#sideButtonright{
-  width: 150px;
-  height: 250px;
-  background: transparent;
-  border: none !important;
-  font-size:0;
-  float: left;
-
-}
-
 #sideButtonleft{
   width: 150px;
   height: 250px;
   background: transparent;
   border: none !important;
   font-size:0;
+  float: left;
+  margin-top: 15%;
+}
+
+#sideButtonright{
+  width: 150px;
+  height: 250px;
+  background: transparent;
+  border: none !important;
+  font-size:0;
   float: right;
+  margin-top: 15%;
 }
 
 /* Empty. Add your own CSS if you like */
