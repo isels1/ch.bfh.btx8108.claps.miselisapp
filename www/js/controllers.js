@@ -1,7 +1,7 @@
 angular.module('starter.controllers', [])
 
 //zyssm4 nav-funktionen & isels1 aufteilung und login/logout
-.controller('homeCtrl', function ($scope, $state, I4MIMidataService) {
+.controller('homeCtrl', function ($scope, $state, I4MIMidataService,$cordovaNativeAudio) {
     $scope.opentel = function () {
             $state.go('tel');
     }
@@ -17,6 +17,14 @@ angular.module('starter.controllers', [])
         } else {
             $state.go('login')
         }
+    
+            //SOUND TEST
+    $cordovaNativeAudio.preloadSimple('miau', '../sounds/Sad-cat.mp3');
+    
+            $scope.playMiau = function (sound) {
+             $cordovaNativeAudio.play(sound);
+            }
+
 })
 
 .controller('telCtrl', function ($scope, $state, I4MIMidataService) {
