@@ -18,13 +18,6 @@ angular.module('starter.controllers', [])
             $state.go('login')
         }
     
-            //SOUND TEST
-    $cordovaNativeAudio.preloadSimple('miau', '../sounds/Sad-cat.mp3');
-    
-            $scope.playMiau = function (sound) {
-             $cordovaNativeAudio.play(sound);
-            }
-
 })
 
 .controller('telCtrl', function ($scope, $state, I4MIMidataService) {
