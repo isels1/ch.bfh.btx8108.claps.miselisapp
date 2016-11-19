@@ -8,6 +8,19 @@ angular.module('starter.controllers', [])
     $scope.openmedi = function () {
             $state.go('medplan');
     }
+
+    $scope.openeinstellungen = function () {
+        $state.go('menu.einstellungen');
+    }
+
+    $scope.openimpressum = function () {
+        $state.go('menu.impressum');
+    }
+
+    $scope.openhome = function () {
+        $state.go('menu.home');
+    }
+
     var isLoggedIn = I4MIMidataService.loggedIn();
         if (isLoggedIn) {
             $scope.logout = function() {

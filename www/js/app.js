@@ -53,6 +53,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }}
     })
 
+    //Side-Menus Views
+
+    .state('menu.einstellungen', {
+      url: '/einstellungen',
+      views: {
+      'menuContent' :{
+        templateUrl: 'templates/einstellungen.html',
+        controller : 'homeCtrl'
+      }}
+    })
+
+    .state('menu.impressum', {
+      url: '/impressum',
+      views: {
+      'menuContent' :{
+        templateUrl: 'templates/impressum.html',
+        controller : 'homeCtrl'
+      }}
+    })
+
+    //Views
         .state('tel', {
         url: '/tel',
         templateUrl: 'templates/tel.html',
