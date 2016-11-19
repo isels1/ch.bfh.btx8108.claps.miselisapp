@@ -34,14 +34,25 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  
+
   //zyssm4 einteilung & isels1 controller
   $stateProvider
-        .state('home', {
-            url: '/',
-            templateUrl: 'templates/home.html',
-            controller : 'homeCtrl'
-        })
+    .state('menu', {
+      url: "/",
+      abstract: true,
+      templateUrl: "templates/menu.html",
+      controller : 'homeCtrl'
+    })
+
+    .state('menu.home', {
+      url: '/home',
+      views: {
+      'menuContent' :{
+        templateUrl: 'templates/home.html',
+        controller : 'homeCtrl'
+      }}
+    })
+
         .state('tel', {
         url: '/tel',
         templateUrl: 'templates/tel.html',
@@ -60,6 +71,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
 
 });

@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
         } else {
             $state.go('login')
         }
-    
+
 })
 
 .controller('telCtrl', function ($scope, $state, I4MIMidataService) {
@@ -25,7 +25,7 @@ angular.module('starter.controllers', [])
         $state.go('medplan');
     }
     $scope.openhome = function () {
-        $state.go('home');
+        $state.go('menu.home');
     }
     var isLoggedIn = I4MIMidataService.loggedIn();
         if (isLoggedIn) {
@@ -43,7 +43,7 @@ angular.module('starter.controllers', [])
         $state.go('tel');
     }
     $scope.openhome = function () {
-        $state.go('home');
+        $state.go('menu.home');
     }
 
     var isLoggedIn = I4MIMidataService.loggedIn();
@@ -94,7 +94,7 @@ angular.module('starter.controllers', [])
                     window.localStorage.setItem("password", $scope.user.password);
                     window.localStorage.setItem("server", $scope.user.server);
 
-                    $state.go('home');
+                    $state.go('menu.home');
                 } else {
                     timer = $timeout(refresh, 1000);}
                 }, 1000);
