@@ -75,25 +75,25 @@ angular.module('starter.controllers', [])
             var pw = window.localStorage.getItem("password");
             var srv = window.localStorage.getItem("server");
 
-            if(un != (undefined || "" || null) &&
-               pw != (undefined || "" || null) &&
-               srv != (undefined || "" || null)) {
+            if(un == undefined || un == "" || un == null ||
+               pw == undefined || pw == "" || pw == null ||
+               srv == undefined || srv == "" || srv == null) {
 
-            $scope.user = {
-            username: un,
-            password: pw,
-            server: srv
-            }
-
-            I4MIMidataService.login(un, pw, srv);
-
-            } else {
-
+            
             // Use for testing the development environment
             $scope.user = {
             username: 'miau.claps@gmail.com',
             server: 'https://test.midata.coop:9000'
             }
+            
+            } else {
+            $scope.user = {
+            username: un,
+            password: pw,
+            server: srv
+            }
+            
+            I4MIMidataService.login(un, pw, srv);
 
             }
 
