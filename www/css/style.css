@@ -4,6 +4,60 @@
    height:100%;
 }
 
+.scroll {
+    height:100%;
+}
+
+
+/*----------------------------------*/
+/*-----------            -----------*/
+/*----------- NAVIGATION -----------*/
+/*-----------            -----------*/
+/*----------------------------------*/
+
+.leftNavigation {
+    height: 100%;
+    width: 15%;
+    float: left;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rightNavigation {
+    height: 100%;
+    width: 15%;
+    float: right;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navImg {
+    width:100%;
+    height:auto;
+}
+
+.navButton {
+    width: 100%;
+    height:auto;
+     
+    background: transparent;
+    border: none !important;
+    font-size:0;
+    padding: 0;
+
+    /* Firefox */
+    /*margin-top: -moz-calc(100%);
+    /* WebKit */
+    /*margin-top: -webkit-calc(100%);
+    /* Opera */
+    /*margin-top: -o-calc(100%);
+    /* Standard */
+    /*margin-top: calc(100%);*/
+}
 
 #NavButton {
     background: transparent;
@@ -23,23 +77,9 @@
 }
 
 #sideButtonleft{
-  width: 150px;
-  height: 250px;
-  background: transparent;
-  border: none !important;
-  font-size:0;
   float: left;
-  margin-top: 15%;
 }
 
 #sideButtonright{
-  width: 150px;
-  height: 250px;
-  background: transparent;
-  border: none !important;
-  font-size:0;
   float: right;
-  margin-top: 15%;
 }
-
-/* Empty. Add your own CSS if you like */

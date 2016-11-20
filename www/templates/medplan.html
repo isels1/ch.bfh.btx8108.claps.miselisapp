@@ -1,10 +1,14 @@
 <ion-view view-title="Medikationsplan">
   <ion-content  class="wrapper">
-    <button id="sideButtonleft"  ng-click="openhome()" >
-      <img id="tel" src="img\ButtonHomeLeft.PNG"></img>
+    <div class="leftNavigation">
+    <button id="sideButtonleft" class="navButton" ng-click="openhome()" >
+      <img class="navImg" src="img\ButtonHomeLeft.PNG"></img>
     </button >
-    <button id="sideButtonright"  ng-click="opentel()" >
-      <img id="tel" src="img\ButtonTelRight.PNG"></img>
+    </div>
+    <div class="rightNavigation">
+    <button id="sideButtonright" class="navButton" ng-click="opentel()" >
+      <img class="navImg" src="img\ButtonTelRight.PNG"></img>
     </button >
+    </div>
   </ion-content>
 </ion-view>
