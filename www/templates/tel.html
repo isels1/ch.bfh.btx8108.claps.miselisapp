@@ -1,29 +1,30 @@
-<ion-view view-title="Telefonbuch">
-  <ion-content class="wrapper">
-      <div class="row">
-          <div class="col col-33">Roland</div>
-          <div class="col col-33">Jolanda</div>
-          <div class="col col-33">Christoph</div>
-      </div>
+<link href="css/styleTel.css" rel="stylesheet">
 
-      <div class="row responsive-sm">
-          <div class="col col-25">
-              <button id="sideButtonright" ng-click="openmedi()">
-                  <img id="tel" src="img\ButtonMediLeft.PNG"></img>
-              </button>
-          </div>
-          <div class="col col-25"> Karin </div>
-          <div class="col col-25"> Markus </div>
-          <div class="col col-25">
-              <button id="sideButtonleft" ng-click="openhome()">
-                  <img id="tel" src="img\HomeButtonRight.PNG"></img>
-              </button>
-          </div>
-      </div>
-      <div class="row">
-          <div class="col col-33"> Hausarzt </div>
-          <div class="col col-33"> Notruf </div>
-          <div class="col col-33"> Spitex </div>
-      </div>
-  </ion-content>
+<ion-view view-title="Telefonbuch">
+    <ion-content class="wrapper">
+        <div class="leftNavigation">
+            <button id="sideButtonleft" class="navButton" ng-click="openhome()">
+                <img class="navImg" src="img\ButtonHomeLeft.PNG"></img>
+            </button>
+        </div>
+        <div class="rightNavigation">
+            <button id="sideButtonright" class="navButton" ng-click="opentel()">
+                <img class="navImg" src="img\ButtonTelRight.PNG"></img>
+            </button>
+        </div>
+        <div class="row">
+            <div class="col-1" ng-click="dialNumber()"></div>
+            <div class="col-2">Jolanda</div>
+            <div class="col-3">Christoph</div>
+        </div>
+        <div class="row">
+            <div class="col-4"> Karin </div>
+            <div class="col-5"> Markus </div>
+        </div>
+        <div class="row">
+            <div class="col-6"> Hausarzt </div>
+            <div class="col-7"> Notruf </div>
+            <div class="col-8"> Spitex </div>
+        </div>
+    </ion-content>
 </ion-view>

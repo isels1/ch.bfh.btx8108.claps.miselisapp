@@ -21,6 +21,14 @@ angular.module('starter.controllers', [])
         $state.go('menu.home');
     }
 
+    $scope.data = {
+        phoneNumber: "041788722744"
+    };
+
+    $scope.dialNumber = function (number) {
+        window.open('tel:' + number, '_system');
+    }
+
     var isLoggedIn = I4MIMidataService.loggedIn();
         if (isLoggedIn) {
             $scope.logout = function() {
