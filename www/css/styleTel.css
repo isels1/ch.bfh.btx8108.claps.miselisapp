@@ -1,0 +1,51 @@
+﻿.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+.col-1{
+    width:33%;
+    background-color:red;
+}
+
+.col-2{
+    width:33%;
+    background-color:red;
+}
+
+.col-3{
+    width:33%;
+    background-color:red;
+}
+
+.col-4{
+    width:33%;
+    background-color:red;
+}
+
+.col-5{
+    width:33%;
+    background-color:red;
+}
+
+.col-6{
+    width:33%;
+    background-color:red;
+}
+
+.col-7{
+    width:33%;
+    background-color:red;
+}
+
+.col-8{
+    width:33%;
+    background-color:red;
+}
