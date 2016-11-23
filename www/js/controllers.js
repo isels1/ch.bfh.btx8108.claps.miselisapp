@@ -1,7 +1,9 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ngCordova'])
 
 //zyssm4 nav-funktionen & isels1 aufteilung und login/logout
-.controller('homeCtrl', function ($scope, $state, I4MIMidataService,$cordovaNativeAudio) {
+.controller('homeCtrl', function ($scope, $state, I4MIMidataService) {
+
+
     $scope.opentel = function () {
             $state.go('tel');
     }
@@ -41,7 +43,28 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('telCtrl', function ($scope, $state, I4MIMidataService) {
+.controller('telCtrl', function ($scope, $state, I4MIMidataService, $cordovaContacts, $cordovaNativeAudio) {
+
+        $scope.getContacts = function () {
+            $scope.phoneContacts = [];
+            function onSuccess(contacts) {
+                for (var i = 0; i < contacts.length; i++) {
+                    var contact = contacts[i];
+                    $scope.phoneContacts.push(contact);
+                    console.log("ITS ALLIVVVEEEEEEE!!!!!!!¨");
+                    console.log(contact);
+                }
+            };
+            function onError(contactError) {
+                alert(contactError);
+                console.log("ITS NOT ALLIVVVEEEEEEE!!!!!!!¨");
+            };
+            var options = {};
+            options.multiple = true;
+            $cordovaContacts.find(options).then(onSuccess, onError);
+        };
+      
+
     $scope.openmedi = function () {
         $state.go('medplan');
     }
