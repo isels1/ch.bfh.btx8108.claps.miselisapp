@@ -2,41 +2,74 @@
 
 <ion-view view-title="Telefonbuch">
     <ion-content class="wrapper">
-        <div class="leftNavigation">
+        <!--Row 1-->
+        <div class="row responsive">
+          <div class="col btn_size">
+            <button class="callButton" ng-click="addContact()">
+                <img class="imgTel" src="img/addCross.png"></img>
+                <span class="telLabel">Roland</span>
+            </button>
+          </div>
+          <div class="col btn_size">
+            <button class="callButton" ng-click="getAllContacts()">
+              <img class="imgTel" src="img/addCross.png"></img>
+                <span class="telLabel">Jolanda</span>
+            </button>
+          </div>
+          <div class="col btn_size">
+            <button class="callButton" ng-click="findContact()">
+                <img class="imgTel" src="img/addCross.png"></img>
+                <span class="telLabel">Christoph</span>
+            </button>
+          </div>
+        </div>
+
+        <!--Row 2 with Nav-->
+        <div class="row  responsive">
+          <div class="col leftNavigation">
             <button id="sideButtonleft" class="navButton" ng-click="openmedi()">
                 <img class="navImg" src="img\ButtonMediLeft.PNG"></img>
             </button>
-        </div>
-        <div class="rightNavigation">
+          </div>
+          <div class="col btn_size">
+            <button class="callButton" ng-click="dialNumber()">
+                <img class="imgTel" src="img/addCross.png"></img>
+                <span class="telLabel">Karin</span>
+            </button>
+          </div>
+          <div class="col btn_size">
+            <button class="callButton" ng-click="dialNumber()">
+                <img class="imgTel" src="img/addCross.png"></img>
+                <span class="telLabel" >Markus</span>
+            </button>
+          </div>
+          <div class="col rightNavigation">
             <button id="sideButtonright" class="navButton" ng-click="openhome()">
                 <img class="navImg" src="img\HomeButtonRight.PNG"></img>
             </button>
+          </div>
         </div>
-        <div class="Contacts">
-            <button id="btn_FamilyPerson1" ng-click="dialNumber()">
-            <span style='position:absolute; bottom:0px;align-items:center; margin-left:-13%'>Roland</span> 
+
+        <!--Row 3-->
+        <div class="row  responsive">
+          <div class="col btn_size">
+            <button class="callButton" ng-click="dialNumber()">
+                <img class="imgTel" src="img/addCross.png"></img>
+                <span class="telLabel" style='margin-left:-17%'>Hausarzt</span>
             </button>
-            <button id="btn_FamilyPerson2" ng-click="dialNumber()">
-                <span style='position:absolute; bottom:0px;align-items:center; margin-left:-13%'>Jolanda</span>
+          </div>
+          <div class="col btn_size">
+            <button class="callButton" ng-click="dialNumber()">
+                <img class="imgTel" src="img/addCross.png"></img>
+                <span class="telLabel" style='margin-left:-13%'>Notruf</span>
             </button>
-            <button id="btn_FamilyPerson3" ng-click="dialNumber()">
-                <span style='position:absolute; bottom:0px;align-items:center; margin-left:-17%'>Christoph</span>
+          </div>
+          <div class="col btn_size">
+            <button class="callButton" ng-click="dialNumber()">
+              <img class="imgTel" src="img/addCross.png"></img>
+                <span class="telLabel" style='margin-left:-12%'>Spitex</span>
             </button>
-            <button id="btn_FamilyPerson4" ng-click="dialNumber()">
-                <span style='position:absolute; bottom:0px;align-items:center; margin-left:-11%'>Karin</span>
-            </button>
-            <button id="btn_FamilyPerson5" ng-click="dialNumber()">
-                <span style='position:absolute; bottom:0px;align-items:center; margin-left:-13%'>Markus</span>
-            </button>
-            <button id="btn_Doctor" ng-click="dialNumber()">
-                <span style='position:absolute; bottom:0px;align-items:center; margin-left:-17%'>Hausarzt</span>
-            </button>
-            <button id="btn_Emergency" ng-click="dialNumber()">
-                <span style='position:absolute; bottom:0px;align-items:center; margin-left:-13%'>Notruf</span>
-            </button>
-            <button id="btn_Spitex" ng-click="dialNumber()">
-                <span style='position:absolute; bottom:0px;align-items:center; margin-left:-12%'>Spitex</span>
-            </button>
+          </div>
         </div>
     </ion-content>
 </ion-view>

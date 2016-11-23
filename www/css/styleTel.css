@@ -1,140 +1,37 @@
 ﻿/*Portrait: width 601px height 881px
-Landscape: width 962px height 529px*/ 
-
-#btn_FamilyPerson1{
-    background-color:#008A9D;
-    background-image: url("http://images.clipartpanda.com/person-clipart-dc85kMGMi.svg");
-    background-size: 290px 150px;
-    background-position: top;
-    background-repeat: no-repeat;
-    font-size: 200%;
-    color:white;
-    width: 320px;
-    height:190px;
-    position:absolute;
-    left:80px;
-    top:20px;
-    border: 2px solid #f5f5f5;
-    border-radius: 5%;
+Landscape: width 962px height 529px*/
+.telLabel{
+padding-bottom:0 !important;
 }
 
-
-
-#btn_FamilyPerson2{
-    background-color:#008A9D;
-    background-image: url("https://www.pnl-maroc.com/wp-content/uploads/2014/11/53791.png");
-    background-size: 290px 150px;
-    background-position: top;
-    background-repeat: no-repeat;
-    font-size: 200%;
-    color:white;
-    width: 320px;
-    height:190px;
-    position:absolute;
-    left:470px;
-    top:20px;
-    border: 2px solid #f5f5f5;
-    border-radius: 5%;
+.col.btn_size{
+  width: 100%;
+  height: 100%;
 }
 
-#btn_FamilyPerson3{
-    background-color:#008A9D;
-    background-image: url("http://www.apdconsumo.pt/person.png");
-    background-size: 290px 150px;
-    background-position: top;
-    background-repeat: no-repeat;
-    font-size: 200%;
-    color:white;
-    width: 320px;
-    height:190px;
-    position:absolute;
-    right:80px;
-    top:20px;
-    border: 2px solid #f5f5f5;
-    border-radius: 5%;
+.callButton{
+  background-color:#008A9D;
+  background-position: top;
+  background-repeat: no-repeat;
+  font-size: 200%;
+  color:white;
+  position: relative;
+  border: none;
+  border-radius: 5%;
+
 }
 
-#btn_FamilyPerson4{
-    background-color:#008A9D;
-    background-image: url("http://lgschool2.ru/Kartinki/no_foto_woman.png");
-    background-size: 290px 150px;
-    background-position: top;
-    background-repeat: no-repeat;
-    font-size: 200%;
-    color:white;
-    width: 320px;
-    height:190px;
-    position:absolute;
-    left:280px;
-    top:305px;
-    border: 2px solid #f5f5f5;
-    border-radius: 5%;
+.row{
+  max-height: 33%;
+  max-width: 100%;
 }
 
-#btn_FamilyPerson5{
-    background-color:#008A9D;
-    background-image: url("http://bsccongress.com/wp-content/uploads/2016/06/man-in-blue-shirt-clip-art.png");
-    background-size: 290px 150px;
-    background-position: top;
-    background-repeat: no-repeat;
-    font-size: 200%;
-    color:white;
-    width: 320px;
-    height:190px;
-    position:absolute;
-    left:655px;
-    top:305px;
-    border: 2px solid #f5f5f5;
-    border-radius: 5%;
+.col{
+  height: 33%;
+  width: 100%;
 }
 
-#btn_Doctor{
-    background-color:#008A9D;
-    background-image: url("https://openclipart.org/download/216846/doctor_white_coat.svg");
-    background-size: 290px 150px;
-    background-position: top;
-    background-repeat: no-repeat;
-    font-size: 200%;
-    color:white;
-    width: 320px;
-    height:190px;
-    position:absolute;
-    left:80px;
-    bottom:20px;
-    border: 2px solid #f5f5f5;
-    border-radius: 5%;
-}
-
-#btn_Emergency{
-    background-color:forestgreen;
-    background-image: url("https://www.esska-dk.com/esska_dk/bilder/lbilder/701336_1370348668_z.jpg");
-    background-size: 290px 150px;
-    background-position: top;
-    background-repeat: no-repeat;
-    font-size: 200%;
-    color:white;
-    width: 320px;
-    height:190px;
-    position:absolute;
-    left:470px;
-    bottom:20px;
-    border: 2px solid #f5f5f5;
-    border-radius: 5%;
-}
-
-#btn_Spitex{
-    background-color:#008A9D;
-    background-image: url("https://www.spitex.ch/img/spitex2014/default/logo_de.png");
-    background-size: 290px 150px;
-    background-position: top;
-    background-repeat: no-repeat;
-    font-size: 200%;
-    color:white;
-    width: 320px;
-    height:190px;
-    position:absolute;
-    right:80px;
-    bottom:20px;
-    border: 2px solid #f5f5f5;
-    border-radius: 5%;
+.imgTel{
+  width: 100%;
+  height: 100%;
 }
