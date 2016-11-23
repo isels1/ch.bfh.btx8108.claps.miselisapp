@@ -2,7 +2,25 @@
 
 <ion-view view-title="Telefonbuch">
     <ion-content class="wrapper">
-        <!--Row 1-->
+        <!--NavCol-->
+        <div class="row  responsive">
+          <div class="col">
+            <button  class="navButton leftNavigation" ng-click="openmedi()">
+                <img class="navImg" src="img\ButtonMediLeft.PNG"></img>
+            </button>
+          </div>
+
+          <!--NavCol-->
+          <div class="col">
+            <button class="navButton rightNavigation" ng-click="openhome()">
+                <img class="navImg" src="img\HomeButtonRight.PNG"></img>
+            </button>
+          </div>
+        </div>
+
+
+
+      <!--Row-->
         <div class="row responsive">
           <div class="col btn_size">
             <button class="callButton" ng-click="getContacts()">
@@ -25,30 +43,27 @@
         </div>
 
         <!--Row 2 with Nav-->
-        <div class="row  responsive">
-          <div class="col leftNavigation">
-            <button id="sideButtonleft" class="navButton" ng-click="openmedi()">
-                <img class="navImg" src="img\ButtonMediLeft.PNG"></img>
+        <div class="row responsive">
+          <div class="col btn_size">
+            <button class="callButton" ng-click="getContacts()">
+                <img class="imgTel" src="img/addCross.png"></img>
+                <span class="telLabel">Markus</span>
             </button>
           </div>
           <div class="col btn_size">
             <button class="callButton" ng-click="getContacts()">
-                <img class="imgTel" src="img/addCross.png"></img>
+              <img class="imgTel" src="img/addCross.png"></img>
                 <span class="telLabel">Karin</span>
             </button>
           </div>
           <div class="col btn_size">
             <button class="callButton" ng-click="getContacts()">
                 <img class="imgTel" src="img/addCross.png"></img>
-                <span class="telLabel" >Markus</span>
-            </button>
-          </div>
-          <div class="col rightNavigation">
-            <button id="sideButtonright" class="navButton" ng-click="openhome()">
-                <img class="navImg" src="img\HomeButtonRight.PNG"></img>
+                <span class="telLabel">Peter</span>
             </button>
           </div>
         </div>
+
 
         <!--Row 3-->
         <div class="row  responsive">
@@ -71,5 +86,8 @@
             </button>
           </div>
         </div>
+
+
+
     </ion-content>
 </ion-view>
