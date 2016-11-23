@@ -4,9 +4,24 @@ Landscape: width 962px height 529px*/
 padding-bottom:0 !important;
 }
 
+.col.NavColLeft{
+  width: 25%;
+  float: left;
+}
+
+.col.NavColRight{
+  width: 25%;
+  float: right;
+  }
+
+.col.ColContainer{
+  align-content: center;
+}
+
 .col.btn_size{
-  max-width: 10%;
-  max-height: 10%;
+  max-width: 20%  !important;
+  max-height: 5%  !important;
+  padding: 10px;
 }
 
 .callButton{
@@ -21,10 +36,11 @@ padding-bottom:0 !important;
 
 }
 
-.row{
-  max-height: 33%;
-  max-width: 100%;
+.row1{
+  height: 100%;
+  width: 100%;
 }
+
 
 .col{
   height: 33%;

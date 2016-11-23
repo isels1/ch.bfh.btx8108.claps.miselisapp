@@ -2,26 +2,19 @@
 
 <ion-view view-title="Telefonbuch">
     <ion-content class="wrapper">
+      <div class="row1">
+
         <!--NavCol-->
-        <div class="row  responsive">
-          <div class="col">
-            <button  class="navButton leftNavigation" ng-click="openmedi()">
-                <img class="navImg" src="img\ButtonMediLeft.PNG"></img>
-            </button>
+            <div class="leftNavigation">
+            <button id="sideButtonleft" class="navButton" ng-click="openmedi()" >
+              <img class="navImg" src="img\ButtonMediLeft.PNG"></img>
+            </button >
           </div>
-
-          <!--NavCol-->
-          <div class="col">
-            <button class="navButton rightNavigation" ng-click="openhome()">
-                <img class="navImg" src="img\HomeButtonRight.PNG"></img>
-            </button>
-          </div>
-        </div>
-
 
 
       <!--Row-->
-        <div class="row responsive">
+      <div class="content">
+        <div class="row ColContainer">
           <div class="col btn_size">
             <button class="callButton" ng-click="getContacts()">
                 <img class="imgTel" src="img/addCross.png"></img>
@@ -43,7 +36,7 @@
         </div>
 
         <!--Row 2 with Nav-->
-        <div class="row responsive">
+        <div class="row ">
           <div class="col btn_size">
             <button class="callButton" ng-click="getContacts()">
                 <img class="imgTel" src="img/addCross.png"></img>
@@ -66,7 +59,7 @@
 
 
         <!--Row 3-->
-        <div class="row  responsive">
+        <div class="row">
           <div class="col btn_size">
             <button class="callButton" ng-click="getContacts()">
                 <img class="imgTel" src="img/addCross.png"></img>
@@ -86,8 +79,15 @@
             </button>
           </div>
         </div>
-
-
+      </div>
+          <!--NavCol-->
+            <div class="rightNavigation">
+            <button id="sideButtonright" class="navButton" ng-click="openhome()" >
+              <img class="navImg" src="img\HomeButtonRight.PNG"></img>
+            </button >
+          </div>
+        </div>
+    </div>
 
     </ion-content>
 </ion-view>

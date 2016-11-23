@@ -24,7 +24,11 @@
     align-items: center;
     justify-content: center;
 }
+.content{
+    float:left;
+    width:70%;
 
+}
 .rightNavigation {
     height: 100%;
     width: 15%;
@@ -43,7 +47,7 @@
 .navButton {
     width: 100%;
     height:auto;
-     
+
     background: transparent;
     border: none !important;
     font-size:0;
