@@ -55,7 +55,6 @@ angular.module('starter.controllers', ['ngCordova'])
                 for (var i = 0; i < contacts.length; i++) {
                     var contact = contacts[i];
                     $scope.phoneContacts.push(contact);
-                    console.log("ITS ALLIVVVEEEEEEE!!!!!!!¨");
                     console.log(contact);
                 }
             };
@@ -67,6 +66,23 @@ angular.module('starter.controllers', ['ngCordova'])
             options.multiple = true;
             $cordovaContacts.find(options).then(onSuccess, onError);
         };
+
+        $scope.getContactList = function () {
+            $scope.contacts = [];
+            var options = {};
+            options.multiple = true;
+            $cordovaContacts.find(options).then(function (result) {
+                for (var i = 0; i < result.length; i++) {
+                    var contact = result[i];
+                    if (contact.phoneNumbers != null)
+                        $scope.contacts.push(contact);
+                        console.log(contact);
+                }
+
+            }, function (error) {
+                console.log("ERROR: " + error);
+            });
+        }
       
 
     $scope.openmedi = function () {
