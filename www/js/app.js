@@ -72,6 +72,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         controller : 'homeCtrl'
       }}
     })
+        
+    .state('menu.dashboard', {
+               url: '/dashboard',
+           views: {
+           'menuContent' :{
+           templateUrl: 'templates/dashboard.html',
+           controller : 'DashboardCtrl'
+           }}
+           })
+        
 
     //Views
         .state('tel', {

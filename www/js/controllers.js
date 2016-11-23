@@ -22,6 +22,10 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.openhome = function () {
         $state.go('menu.home');
     }
+            
+            $scope.dashboard = function () {
+                $state.go('menu.dashboard');
+            }
 
     $scope.data = {
         phoneNumber: "041788722744"
@@ -142,4 +146,40 @@ angular.module('starter.controllers', ['ngCordova'])
                 } else {
                     timer = $timeout(refresh, 1000);}
                 }, 1000);
-});
+            })
+
+.controller('DashboardCtrl', function($scope) {
+            
+            var $configLine = {
+            name: '.ct-chartLine',
+            labels: 'Week',
+            series: "[12, 9, 7, 8, 5, 9, 0]",
+            fullWidth: "true",
+            showArea: "true",
+            };
+            
+            var chartLine = new ChartJS($configLine);
+            chartLine.line();
+            
+            
+            var $configPie = {
+            name: '.ct-chartPie',
+            };
+            
+            var data = {
+            series: [5, 3, 4]
+            };
+            var chartPie = new ChartJS($configPie);
+            chartPie.pie(data);
+            
+            
+            
+            var $configBar = {
+            name: '.ct-chartBar',
+            labels: 'Year',
+            series: '[5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8]',
+            };
+            var chartBar = new ChartJS($configBar);
+            chartBar.bar();
+            
+            });
