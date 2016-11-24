@@ -48,7 +48,7 @@ angular.module('starter.controllers', ['ngCordova'])
 })
 
 .controller('telCtrl', function ($scope, $state, I4MIMidataService, $cordovaContacts, $cordovaNativeAudio) {
-
+    //vlads1 & zyssm4 getContactList & addContact
     //Get all contacts from the device. Save them in an array and show them in the console
     $scope.getContactList = function () {
         $scope.contacts = [];
