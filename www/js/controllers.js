@@ -22,7 +22,7 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.openhome = function () {
         $state.go('menu.home');
     }
-            
+
             $scope.dashboard = function () {
                 $state.go('menu.dashboard');
             }
@@ -49,24 +49,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
 .controller('telCtrl', function ($scope, $state, I4MIMidataService, $cordovaContacts, $cordovaNativeAudio) {
 
-    $scope.getContacts = function () {
-        $scope.phoneContacts = [];
-        function onSuccess(contacts) {
-            for (var i = 0; i < contacts.length; i++) {
-                var contact = contacts[i];
-                $scope.phoneContacts.push(contact);
-                console.log(contact);
-            }
-        };
-        function onError(contactError) {
-            alert(contactError);
-            console.log("ITS NOT ALLIVVVEEEEEEE!!!!!!!¨");
-        };
-        var options = {};
-        options.multiple = true;
-        $cordovaContacts.find(options).then(onSuccess, onError);
-    };
-
+    //Get all contacts from the device. Save them in an array and show them in the console
     $scope.getContactList = function () {
         $scope.contacts = [];
         var options = {};
@@ -84,6 +67,7 @@ angular.module('starter.controllers', ['ngCordova'])
         });
     }
 
+    //Add the pre defined contact below on the device
     $scope.addContact = function() {
         $cordovaContacts.save($scope.contactForm).then(function(result) {
             // Contact saved
@@ -128,7 +112,7 @@ angular.module('starter.controllers', ['ngCordova'])
     }
 };
 
-      
+
 
 $scope.openmedi = function () {
     $state.go('medplan');
@@ -175,20 +159,20 @@ if (isLoggedIn) {
        pw == undefined || pw == "" || pw == null ||
        srv == undefined || srv == "" || srv == null) {
 
-            
+
         // Use for testing the development environment
         $scope.user = {
             username: 'miau.claps@gmail.com',
             server: 'https://test.midata.coop:9000'
         }
-            
+
     } else {
         $scope.user = {
             username: un,
             password: pw,
             server: srv
         }
-            
+
         I4MIMidataService.login(un, pw, srv);
 
     }
@@ -210,7 +194,7 @@ if (isLoggedIn) {
             })
 
 .controller('DashboardCtrl', function($scope) {
-            
+
             var $configLine = {
             name: '.ct-chartLine',
             labels: 'Week',
@@ -218,23 +202,23 @@ if (isLoggedIn) {
             fullWidth: "true",
             showArea: "true",
             };
-            
+
             var chartLine = new ChartJS($configLine);
             chartLine.line();
-            
-            
+
+
             var $configPie = {
             name: '.ct-chartPie',
             };
-            
+
             var data = {
             series: [5, 3, 4]
             };
             var chartPie = new ChartJS($configPie);
             chartPie.pie(data);
-            
-            
-            
+
+
+
             var $configBar = {
             name: '.ct-chartBar',
             labels: 'Year',
@@ -242,5 +226,5 @@ if (isLoggedIn) {
             };
             var chartBar = new ChartJS($configBar);
             chartBar.bar();
-            
+
             });
