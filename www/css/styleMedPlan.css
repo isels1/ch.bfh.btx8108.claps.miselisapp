@@ -39,6 +39,14 @@
     justify-content: center;
 }
 
+.menuButtons{
+    width: 8%;
+    height: 8%;
+    margin-left: 7%;
+    margin-top: 2%;
+    float: left;
+}
+
 .medButton{
   background: transparent;
   border: none !important;
