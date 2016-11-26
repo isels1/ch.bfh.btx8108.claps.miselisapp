@@ -1,5 +1,5 @@
 <link href="css/styleMedPlan.css" rel="stylesheet">
-<link href="css/styleMedPlanColorBlind.css" rel="stylesheet">
+<link id="original" rel="stylesheet" href="css/styleMedPlanColorNormal.css">
 
 <ion-view view-title="Medikationsplan">
   <ion-content  class="wrapper">
@@ -7,136 +7,222 @@
       <button id="sideButtonleft" class="navButton" ng-click="openhome()" >
         <img class="navImg" src="img\ButtonHomeLeft.PNG"></img>
       </button>
+    <button ng-click="changeCSS()">Change</button>
     </div>
     <div class="content">
       <!--Header-->
       <div class="row">TAG
         <!--Morgen-->
         <div class="col">
-          <button class="medButtonGray">
-          </button>
+          Morgen
         </div>
         <!--Mittag-->
         <div class="col">
-          <button class="medButtonTaken">
-          </button>
+          Mittag
         </div>
         <!--Abend-->
         <div class="col">
-          <button class="medButtonNotTaken">
-          </button>
+          Abend
         </div>
         <!--Nacht-->
         <div class="col">
-          <button class="medButtonColorBlindTaken">
-          </button>
+          Nacht
         </div>
       </div>
       <!--Mo-->
       <div class="row">
+        Montag
         <!--Morgen-->
         <div class="col">
-          <button class="medButtonColorBlindTaken">
+          <button class="medButton">
+            <img class="medButtonTaken"></img>
           </button>
         </div>
         <!--Mittag-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Abend-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Nacht-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
       </div>
       <!--Di-->
       <div class="row">
+          Dienstag
         <!--Morgen-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Mittag-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Abend-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Nacht-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
       </div>
       <!--Mi-->
       <div class="row">
+        Mittwoch
         <!--Morgen-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Mittag-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Abend-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Nacht-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
       </div>
       <!--Do-->
       <div class="row">
+        Donnerstag
         <!--Morgen-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Mittag-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Abend-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Nacht-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
       </div>
       <!--Fr-->
       <div class="row">
+        Freitag
         <!--Morgen-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Mittag-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Abend-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Nacht-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
       </div>
       <!--Sa-->
       <div class="row">
+        Samstag
         <!--Morgen-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Mittag-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Abend-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Nacht-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
       </div>
       <!--So-->
       <div class="row">
+        Sonntag
         <!--Morgen-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Mittag-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Abend-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
         <!--Nacht-->
         <div class="col">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
         </div>
       </div>
     </div>

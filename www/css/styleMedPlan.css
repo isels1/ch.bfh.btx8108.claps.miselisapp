@@ -39,23 +39,15 @@
     justify-content: center;
 }
 
+.medButton{
+  background: transparent;
+  border: none !important;
+  font-size:0;
+  padding: 0;
+}
+
 .medButtonGray{
-  width: 10%;
-  height: 10%;
-  padding: 5px;
-  background-image: url("img/ButtonMediGray.png");
-}
-
-.medButtonTaken{
-  width: 10%;
-  height: 10%;
-  padding: 5px;
-  background-image: url("img/ButtonMediTaken.png");
-}
-
-.medButtonNotTaken{
-  width: 10%;
-  height: 10%;
-  padding: 5px;
-  background-image: url("img/ButtonMediNotTaken.png");
+  max-height: 10%;
+  max-width: 10%;
+  content: url("../img/ButtonMediGray.png");
 }

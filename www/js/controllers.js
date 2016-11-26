@@ -132,6 +132,17 @@ if (isLoggedIn) {
 })
 
 .controller('medplanCtrl', function ($scope, $state, I4MIMidataService) {
+
+  $scope.changeCSS = function (){
+    var css = document.getElementById("original")
+    if(css.getAttribute('href') == "css/styleMedPlanColorNormal.css"){
+    css.setAttribute('href', "css/styleMedPlanColorBlind.css");
+  }else{
+    css.setAttribute('href', "css/styleMedPlanColorNormal.css");
+  }
+  }
+
+
     $scope.opentel = function () {
         $state.go('tel');
     }

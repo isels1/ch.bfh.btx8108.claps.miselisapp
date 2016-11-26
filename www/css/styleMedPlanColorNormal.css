@@ -39,14 +39,15 @@
     justify-content: center;
 }
 
+
 .medButtonTaken{
   max-height: 10%;
   max-width: 10%;
-  content: url("../img/ButtonMediColorBlindTaken.png");
+  content: url("../img/ButtonMediTaken.png");
 }
 
 .medButtonNotTaken{
   max-height: 10%;
   max-width: 10%;
-  content: url("../img/ButtonMediColorBlindNotTaken.png");
+  content: url("../img/ButtonMediNotTaken.png");
 }
