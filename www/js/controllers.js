@@ -131,7 +131,36 @@ if (isLoggedIn) {
 }
 })
 
-.controller('medplanCtrl', function ($scope, $state, I4MIMidataService) {
+.controller('medplanCtrl', function ($scope, $state, $ionicPopup, I4MIMidataService) {
+
+
+  // An alert dialog
+  $scope.showPopup = function() {
+    $scope.data = {
+      vm : [
+        { name: 'Gordon Freeman' },
+        { name: 'Barney Calhoun' },
+        { name: 'Lamarr the Headcrab' },
+      ]
+
+    };
+    $ionicPopup.show({
+      template: $scope.data.vm,
+      title: 'Medikamente',
+      subTitle: 'Bitte tragen Sie die eingenommenen Medikamente ein',
+      scope: $scope,
+      buttons: [
+        { text: 'Cancel' },
+        {
+          text: '<b>Fertig</b>',
+          type: 'button-positive',
+          onTap: function(e) {
+            // add your action
+          }
+        }
+      ]
+  	});
+      }
 
   $scope.changeCSS = function (){
     var css = document.getElementById("original")
