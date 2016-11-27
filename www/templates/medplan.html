@@ -1,14 +1,254 @@
+<link href="css/styleMedPlan.css" rel="stylesheet">
+<link id="original" rel="stylesheet" href="css/styleMedPlanColorNormal.css">
+
 <ion-view view-title="Medikationsplan">
-  <ion-content  class="wrapper">
+  <ion-content  class="wrapper" scroll="false">
+    <div>
+      <button class="medButton" ng-click="changeCSS()">
+        <img class="menuButtons" src="img\Button.png"></img>
+      </button>
+    </div>
     <div class="leftNavigation">
-    <button id="sideButtonleft" class="navButton" ng-click="openhome()" >
-      <img class="navImg" src="img\ButtonHomeLeft.PNG"></img>
-    </button >
+      <button id="sideButtonleft" class="navButton" ng-click="openhome()" >
+        <img class="navImg" src="img\ButtonHomeLeft.PNG"></img>
+      </button>
+    </div>
+    <div class="content">
+      <!--Header-->
+      <div class="row">
+        <div class="medText"></div>
+        <!--Morgen-->
+        <div class="col medText" id="MorningColor">
+          Morgen
+        </div>
+        <!--Mittag-->
+        <div class="col medText" id="NoonColor">
+          Mittag
+        </div>
+        <!--Abend-->
+        <div class="col medText" id="EveningColor">
+          Abend
+        </div>
+        <!--Nacht-->
+        <div class="col medText" id="NightColor">
+          Nacht
+        </div>
+      </div>
+      <!--Mo-->
+      <div class="row">
+        <div class="medText">
+          Montag
+        </div>
+        <!--Morgen-->
+        <div class="col" id="MorningColor">
+          <button class="medButton">
+            <img class="medButtonTaken"></img>
+          </button>
+        </div>
+        <!--Mittag-->
+        <div class="col" id="NoonColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Abend-->
+        <div class="col" id="EveningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Nacht-->
+        <div class="col" id="NightColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+      </div>
+      <!--Di-->
+      <div class="row">
+        <div class="medText">
+            Dienstag
+        </div>
+        <!--Morgen-->
+        <div class="col" id="MorningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Mittag-->
+        <div class="col" id="NoonColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Abend-->
+        <div class="col" id="EveningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Nacht-->
+        <div class="col" id="NightColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+      </div>
+      <!--Mi-->
+      <div class="row">
+        <div class="medText">
+          Mittwoch
+        </div>
+        <!--Morgen-->
+        <div class="col" id="MorningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Mittag-->
+        <div class="col" id="NoonColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Abend-->
+        <div class="col" id="EveningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Nacht-->
+        <div class="col" id="NightColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+      </div>
+      <!--Do-->
+      <div class="row">
+        <div class="medText">
+          Donnerstag
+        </div>
+        <!--Morgen-->
+        <div class="col" id="MorningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Mittag-->
+        <div class="col" id="NoonColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Abend-->
+        <div class="col" id="EveningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Nacht-->
+        <div class="col" id="NightColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+      </div>
+      <!--Fr-->
+      <div class="row">
+        <div class="medText">
+          Freitag
+        </div>
+        <!--Morgen-->
+        <div class="col" id="MorningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Mittag-->
+        <div class="col" id="NoonColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Abend-->
+        <div class="col" id="EveningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Nacht-->
+        <div class="col" id="NightColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+      </div>
+      <!--Sa-->
+      <div class="row">
+        <div class="medText">
+          Samstag
+        </div>
+        <!--Morgen-->
+        <div class="col" id="MorningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Mittag-->
+        <div class="col" id="NoonColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Abend-->
+        <div class="col" id="EveningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Nacht-->
+        <div class="col" id="NightColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+      </div>
+      <!--So-->
+      <div class="row">
+        <div class="medText">
+          Sonntag
+        </div>
+        <!--Morgen-->
+        <div class="col" id="MorningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Mittag-->
+        <div class="col" id="NoonColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Abend-->
+        <div class="col" id="EveningColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+        <!--Nacht-->
+        <div class="col" id="NightColor">
+          <button class="medButton">
+            <img class="medButtonGray"></img>
+          </button>
+        </div>
+      </div>
     </div>
     <div class="rightNavigation">
-    <button id="sideButtonright" class="navButton" ng-click="opentel()" >
-      <img class="navImg" src="img\ButtonTelRight.PNG"></img>
-    </button >
+      <button id="sideButtonright" class="navButton" ng-click="opentel()" >
+        <img class="navImg" src="img\ButtonTelRight.PNG"></img>
+      </button>
     </div>
   </ion-content>
 </ion-view>

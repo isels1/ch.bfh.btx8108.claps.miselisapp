@@ -1,0 +1,85 @@
+.wrapper{
+  position:absolute;
+   width:100%;
+   height:100%;
+}
+
+.scroll {
+    height:100%;
+}
+
+
+/*----------------------------------*/
+/*-----------            -----------*/
+/*----------- NAVIGATION -----------*/
+/*-----------            -----------*/
+/*----------------------------------*/
+
+.leftNavigation {
+    height: 100%;
+    width: 15%;
+    float: left;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    padding-top: 1%;
+    float:left;
+    width:70%;
+
+}
+.rightNavigation {
+    height: 100%;
+    width: 15%;
+    float: right;
+    position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuButtons{
+    width: 8%;
+    height: 8%;
+    margin-left: 7%;
+    margin-top: 2%;
+    float: left;
+}
+
+.medButton{
+  background: transparent;
+  border: none !important;
+  font-size:0;
+  padding: 0;
+}
+
+.medText{
+  font-size: 1.5vw;
+  width: 12%;
+  text-align: center;
+}
+
+.medButtonGray{
+  align-items: center;
+  height: 42%;
+  width: 42%;
+  content: url("../img/ButtonMediGray.png");
+}
+
+#MorningColor{
+  background-color: #FF9933;
+}
+
+#NoonColor{
+  background-color: #FFCC00;
+}
+
+#EveningColor{
+  background-color: #33CCFF;
+}
+
+#NightColor{
+  background-color: #3399FF;
+}
