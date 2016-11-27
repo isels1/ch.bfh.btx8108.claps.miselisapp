@@ -25,6 +25,7 @@
     justify-content: center;
 }
 .content{
+    padding-top: 1%;
     float:left;
     width:70%;
 
@@ -54,8 +55,31 @@
   padding: 0;
 }
 
+.medText{
+  font-size: 1.5vw;
+  width: 12%;
+  text-align: center;
+}
+
 .medButtonGray{
-  max-height: 10%;
-  max-width: 10%;
+  align-items: center;
+  height: 42%;
+  width: 42%;
   content: url("../img/ButtonMediGray.png");
+}
+
+#MorningColor{
+  background-color: #FF9933;
+}
+
+#NoonColor{
+  background-color: #FFCC00;
+}
+
+#EveningColor{
+  background-color: #33CCFF;
+}
+
+#NightColor{
+  background-color: #3399FF;
 }

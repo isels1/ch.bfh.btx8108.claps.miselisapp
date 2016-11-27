@@ -40,13 +40,15 @@
 }
 
 .medButtonTaken{
-  max-height: 10%;
-  max-width: 10%;
+  align-items: center;
+  height: 42%;
+  width: 42%;
   content: url("../img/ButtonMediColorBlindTaken.png");
 }
 
 .medButtonNotTaken{
-  max-height: 10%;
-  max-width: 10%;
+  align-items: center;
+  height: 42%;
+  width: 42%;
   content: url("../img/ButtonMediColorBlindNotTaken.png");
 }
