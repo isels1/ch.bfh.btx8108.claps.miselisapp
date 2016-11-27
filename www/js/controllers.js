@@ -193,6 +193,8 @@ if (isLoggedIn) {
     }, 1000);
             })
 
+// Controller for the dashboard (isels1)
+// --> shows different charts for vital data
 .controller('DashboardCtrl', function($scope) {
 
             var $configLine = {
