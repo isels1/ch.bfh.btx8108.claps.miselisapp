@@ -133,14 +133,22 @@ if (isLoggedIn) {
 
 .controller('medplanCtrl', function ($scope, $state, $ionicPopup, I4MIMidataService) {
 
+  $scope.MedDumiData = {
+    name : [
+      'Gordon Freeman',
+      'Barney Calhoun',
+      'Lamarr the Headcrab',
+    ],
+    tel:[
+      '079 714 55 66',
+    ]};
 
   // An alert dialog
   $scope.showPopup = function() {
     $scope.data = {
       vm : [
-        { name: 'Gordon Freeman' },
-        { name: 'Barney Calhoun' },
-        { name: 'Lamarr the Headcrab' },
+        $scope.MedDumiData.name[1],
+        $scope.MedDumiData.tel[0]
       ]
 
     };
