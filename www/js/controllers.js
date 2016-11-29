@@ -143,6 +143,31 @@ if (isLoggedIn) {
       '079 714 55 66',
     ]};
 
+
+  $scope.showLocalStorage = function(){
+  localStorage.setItem("data", JSON.stringify($scope.MedDumiData));
+
+  $scope.data= JSON.parse(localStorage.getItem("data"));
+
+
+    $ionicPopup.show({
+        template: $scope.data.name[1],
+        title: 'Medikamente',
+        subTitle: 'Bitte tragen Sie die eingenommenen Medikamente ein',
+        scope: $scope,
+        buttons: [
+          { text: 'Cancel' },
+          {
+            text: '<b>Fertig</b>',
+            type: 'button-positive',
+            onTap: function(e) {
+              // add your action
+            }
+          }
+        ]
+      });
+        }
+
   // An alert dialog
   $scope.showPopup = function() {
     $scope.data = {
