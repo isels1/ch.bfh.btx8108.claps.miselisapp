@@ -41,6 +41,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
 })
 
+
 .controller('telCtrl', function ($scope, $state, I4MIMidataService, $cordovaContacts, $cordovaNativeAudio) {
     //vlads1 & zyssm4 getContactList & addContact
     //Get all contacts from the device. Save them in an array and show them in the console
@@ -48,14 +49,13 @@ angular.module('starter.controllers', ['ngCordova'])
         $scope.contacts = [];
         var options = {};
         options.multiple = true;
+        options.hasPhoneNumber = true;
+        options.fields = ['displayName', 'phoneNumbers', 'emails', 'photos'];
         $cordovaContacts.find(options).then(function (result) {
             for (var i = 0; i < result.length; i++) {
-                var contact = result[i];
-                if (contact.phoneNumbers != null)
-                    $scope.contacts.push(contact);
-                console.log(contact);
+                 $scope.contacts = result;
             }
-
+            console.log($scope.contacts);
         }, function (error) {
             console.log("ERROR: " + error);
         });
@@ -63,7 +63,7 @@ angular.module('starter.controllers', ['ngCordova'])
     //Add the pre defined contact below on the device
     $scope.addContact = function () {
         $cordovaContacts.save($scope.dummyContacts).then(function (result) {
-            // Contact saved
+            console.log(result.phoneNumbers["0"].value);
         }, function (err) {
             // Contact error
         });
@@ -78,7 +78,7 @@ angular.module('starter.controllers', ['ngCordova'])
             "nickname": null,
             "phoneNumbers": [
                 {
-                    "value": "99999999999",
+                    "value": "0311234567",
                     "type": "mobile"
                 }
             ],
