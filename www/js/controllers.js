@@ -123,6 +123,27 @@ angular.module('starter.controllers', ['ngCordova'])
 
 .controller('medplanCtrl', function ($scope, $state, $ionicPopup, I4MIMidataService) {
 
+  $scope.header = [{title:'', class:'HeaderBlock'},
+                  {title:'Morgen',class:'MorningColor'},
+                  {title:'Mittag',class:'NoonColor'},
+                  {title:'Abend',class:'EveningColor'},
+                  {title:'Nacht',class:'NightColor'}]
+
+  $scope.days = [{title:'Mo.'},
+                {title:'Di.'},
+                {title:'Mi.'},
+                {title:'Do.'},
+                {title:'Fr..'},
+                {title:'Sa.'},
+                {title:'So.'}]
+
+  $scope.time = [{title:'Morgen',text:'',class:'MorningColor '},
+                {title:'Mittag',class:'NoonColor '},
+                {title:'Abend',class:'EveningColor '},
+                {title:'Nacht',class:'NightColor'}]
+
+
+
   $scope.MedDumiData = {
     name : [
       'Gordon Freeman',

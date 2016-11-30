@@ -68,18 +68,31 @@
   content: url("../img/ButtonMediGray.png");
 }
 
-#MorningColor{
+.colSize{
+  width: 20%;
+}
+
+.HeaderBlock{
+  background-color: #FFFFFF;
+  font-size: 1vw;
+}
+
+.MorningColor{
   background-color: #FF9933;
+  font-size: 1vw;
 }
 
-#NoonColor{
+.NoonColor{
   background-color: #FFCC00;
+  font-size: 1vw;
 }
 
-#EveningColor{
+.EveningColor{
   background-color: #33CCFF;
+  font-size: 1vw;
 }
 
-#NightColor{
+.NightColor{
   background-color: #3399FF;
+  font-size: 1vw;
 }
