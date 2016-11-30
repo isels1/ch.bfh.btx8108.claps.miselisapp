@@ -10,27 +10,21 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.openmedi = function () {
         $state.go('medplan');
     }
-
     $scope.openeinstellungen = function () {
         $state.go('menu.einstellungen');
     }
-
     $scope.openimpressum = function () {
         $state.go('menu.impressum');
     }
-
     $scope.openhome = function () {
         $state.go('menu.home');
     }
-
-            $scope.dashboard = function () {
+    $scope.dashboard = function () {
                 $state.go('menu.dashboard');
             }
-
     $scope.data = {
         phoneNumber: "041788722744"
     };
-
     $scope.dialNumber = function (number) {
         window.open('tel:' + number, '_system');
     }
@@ -42,7 +36,7 @@ angular.module('starter.controllers', ['ngCordova'])
             I4MIMidataService.logout();
             $state.go('login'); };
     } else {
-        $state.go('login')
+        $state.go('login');
     }
 
 })
@@ -66,69 +60,65 @@ angular.module('starter.controllers', ['ngCordova'])
             console.log("ERROR: " + error);
         });
     }
-
     //Add the pre defined contact below on the device
-    $scope.addContact = function() {
-        $cordovaContacts.save($scope.contactForm).then(function(result) {
+    $scope.addContact = function () {
+        $cordovaContacts.save($scope.dummyContacts).then(function (result) {
             // Contact saved
-        }, function(err) {
+        }, function (err) {
             // Contact error
         });
-
-    $scope.contactForm = {
-
-        "displayName": "jones",
-        "name": {
-            "givenName": "jones",
-            "formatted": "jones "
-        },
-        "nickname": null,
-        "phoneNumbers": [
-            {
-                "value": "0333367465",
-                "type": "mobile"
-            }
-        ],
-        "emails": [
-            {
-                "value": "miau@gmail.com",
-                "type": "home"
-            }
-        ],
-        "addresses": [
-            {
-                "type": "home",
-                "formatted": "Hoenweg 80",
-                "streetAddress": "Hoehenweg 80"
-            }
-        ],
-        "ims": null,
-        "organizations": null,
-        "birthday": null,
-        "note": "",
-        "photos": null,
-        "categories": null,
-        "urls": null
     }
-};
 
+    $scope.dummyContacts = {
+            "displayName": "jones",
+            "name": {
+                "givenName": "jones",
+                "formatted": "jones "
+            },
+            "nickname": null,
+            "phoneNumbers": [
+                {
+                    "value": "99999999999",
+                    "type": "mobile"
+                }
+            ],
+            "emails": [
+                {
+                    "value": "xddf@dd.com",
+                    "type": "home"
+                }
+            ],
+            "addresses": [
+                {
+                    "type": "home",
+                    "formatted": "This Address, An Address",
+                    "streetAddress": "This Address, An Address"
+                }
+            ],
+            "ims": null,
+            "organizations": null,
+            "birthday": null,
+            "note": "",
+            "photos": null,
+            "categories": null,
+            "urls": null
+    }
 
-
-$scope.openmedi = function () {
+    $scope.openmedi = function () {
     $state.go('medplan');
 }
-$scope.openhome = function () {
+    $scope.openhome = function () {
     $state.go('menu.home');
 }
-var isLoggedIn = I4MIMidataService.loggedIn();
-if (isLoggedIn) {
-    $scope.logout = function() {
+    var isLoggedIn = I4MIMidataService.loggedIn();
+    if (isLoggedIn) {
+        $scope.logout = function() {
         window.localStorage.setItem("password", '');
         I4MIMidataService.logout();
         $state.go('login'); };
 } else {
-    $state.go('login')
-}
+    $state.go('login');
+    }
 })
 
 .controller('medplanCtrl', function ($scope, $state, $ionicPopup, I4MIMidataService) {
