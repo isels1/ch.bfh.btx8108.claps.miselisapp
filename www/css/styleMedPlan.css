@@ -63,8 +63,8 @@
 
 .medButtonGray{
   align-items: center;
-  height: 42%;
-  width: 42%;
+  height: 30%;
+  width: 30%;
   content: url("../img/ButtonMediGray.png");
 }
 

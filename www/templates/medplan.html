@@ -7,7 +7,7 @@
       <button class="medButton" ng-click="changeCSS()">
         <img class="menuButtons" src="img\Button.png"></img>
       </button>
-      <button class="medButton" ng-click="createGrid()">
+      <button class="medButton" ng-click="showLocalStorage()">
         <img class="menuButtons" src="img\Button.png"></img>
       </button>
     </div>
@@ -23,7 +23,7 @@
           <div class="col {{header.class}}" ng-repeat="header in header">{{header.title}} </div>
         </div>
       <div class="row {{days.class}}" ng-repeat="days in days">{{days.title}}
-        <div class="col {{time.class}}" ng-repeat="time in time">{{time.text}} <button class="medButtonGray medButton" ng-click="showPopup()"></button> </div>
+        <div class="col HeaderBlock {{time.class}}" ng-repeat="time in time" ng-click="showPopup()">{{time.text}}<img class="medButtonTaken"></img>  </div>
       </div>
     </div>
       <!--Header-->
