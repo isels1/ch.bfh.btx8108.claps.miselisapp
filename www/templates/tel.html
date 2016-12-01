@@ -14,21 +14,21 @@
         <div class="padding">
             <button class="button" ng-click="addContact()">Add Contacts</button>
              <button class="button" ng-click="getContactList()">Get My Contacts</button>
-            <div class="list" ng-show="contacts">
+            <div class="list listlength" ng-show="contacts">
                 <div class="card" ng-repeat="Contact in contacts">
                     <div class="item item-divider">
                         {{ Contact.displayName }}
                     </div>
                     <div class="item item-text-wrap">
                         <p><strong>Phone(s)</strong></p>
-                    
+
                             <p>{{ Contact.phoneNumbers["0"].value }}</p>
-                    
+
 
                         <p><strong>Photo(s)</strong></p>
 
                         <p><img src="{{Contact.photos[0].value}}"></img></p>
-                     
+
                     </div>
                 </div>
             </div>

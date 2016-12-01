@@ -18,6 +18,10 @@ padding-bottom:0 !important;
   align-content: center;
 }
 
+.listlength{
+  width: 50%;
+}
+
 .col.btn_size{
   max-width: 20%  !important;
   max-height: 5%  !important;
