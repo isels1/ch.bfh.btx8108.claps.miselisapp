@@ -143,29 +143,30 @@ angular.module('starter.controllers', ['ngCordova'])
                 {title:'Nacht',class:'NightColor'}]
 
 
-
-  $scope.MedDumiData = {
-    name : [
-      'Gordon Freeman',
-      'Barney Calhoun',
-      'Lamarr the Headcrab',
-    ],
-    tel:[
-      '079 714 55 66',
-    ]};
-
-
   $scope.showLocalStorage = function(){
-  localStorage.setItem("data", JSON.stringify($scope.MedDumiData));
+    $scope.data =[];
 
-  $scope.data= JSON.parse(localStorage.getItem("data"));
+    for(var i = 0; i < localStorage.length; i++){
+        $scope.data.push(JSON.parse(localStorage.getItem("Medi".concat(i))));
+    };
+
+    for(var i = $scope.data.length - 1; i >= 0; i--) {
+    if($scope.data[i] === null) {
+       $scope.data.splice(i, 1);
+    }};
+    console.log($scope.data)
 
 
-    $ionicPopup.show({
-        template: $scope.data.name[1],
+    var customTemplate =
+    '<div class="row mediPopUp"><img class="smallMediPic"></img>'+ $scope.data[3].name +
+    '<ion-toggle></ion-toggle></div>' ;
+
+  $ionicPopup.show({
+        template: customTemplate,
         title: 'Medikamente',
         subTitle: 'Bitte tragen Sie die eingenommenen Medikamente ein',
         scope: $scope,
+        cssClass: 'styleMedPlan',
         buttons: [
           { text: 'Cancel' },
           {
@@ -177,34 +178,11 @@ angular.module('starter.controllers', ['ngCordova'])
           }
         ]
       });
-        }
 
-  // An alert dialog
-  $scope.showPopup = function() {
-    $scope.data = {
-      vm : [
-        $scope.MedDumiData.name[1],
-        $scope.MedDumiData.tel[0]
-      ]
 
     };
-    $ionicPopup.show({
-      template: $scope.data.vm,
-      title: 'Medikamente',
-      subTitle: 'Bitte tragen Sie die eingenommenen Medikamente ein',
-      scope: $scope,
-      buttons: [
-        { text: 'Cancel' },
-        {
-          text: '<b>Fertig</b>',
-          type: 'button-positive',
-          onTap: function(e) {
-            // add your action
-          }
-        }
-      ]
-  	});
-      }
+
+
 
   $scope.changeCSS = function (){
     var css = document.getElementById("original")
@@ -221,6 +199,10 @@ angular.module('starter.controllers', ['ngCordova'])
     }
     $scope.openhome = function () {
         $state.go('menu.home');
+    }
+
+    $scope.opencreateMedi = function () {
+        $state.go('createMedi');
     }
 
     var isLoggedIn = I4MIMidataService.loggedIn();
@@ -313,4 +295,89 @@ angular.module('starter.controllers', ['ngCordova'])
             var chartBar = new ChartJS($configBar);
             chartBar.bar();
 
-            });
+            })
+
+.controller('createMediCtrl', function($scope, I4MIMidataService, $timeout, $state) {
+  $scope.header = [{title:'MediName', class:'HeaderBlock'},
+                  {title:'Häufigkeit',class:'HeaderBlock'},
+                  {title:'Intervall',class:'HeaderBlock'}]
+
+  $scope.img = [{imagePath:'', class:'mediImage'}]
+
+  $scope.imgSchema = [{source:'/img/Morning.png' , class:'HeaderBlock'},
+                      {source:'/img/Noon.png' , class:'HeaderBlock'},
+                      {source:'/img/Night.png' , class:'HeaderBlock'},
+                      {source:'/img/moon.png' , class:'HeaderBlock'}]
+
+  $scope.timeSchema = [{title: "Morgen" , class:'HeaderBlock'},
+                      {title: "Mittag" , class:'HeaderBlock'},
+                      {title: "Abend" , class:'HeaderBlock'},
+                      {title: "Nacht" , class:'HeaderBlock'}]
+
+
+  $scope.buttonSchema = [{title: "Morgen" , class:'HeaderBlock'},
+                        {title: "Mittag" , class:'HeaderBlock'},
+                        {title: "Abend" , class:'HeaderBlock'},
+                        {title: "Nacht" , class:'HeaderBlock'}]
+
+  $scope.lableIntervall = [{title:"Mo.", class:'HeaderBlock'},
+                          {title:"Di.", class:'HeaderBlock'},
+                          {title:"Mi.", class:'HeaderBlock'},
+                          {title:"Do.", class:'HeaderBlock'},
+                          {title:"Fr.", class:'HeaderBlock'},
+                          {title:"Sa.", class:'HeaderBlock'},
+                          {title:"So.", class:'HeaderBlock'}]
+
+  $scope.buttonIntervall = [{title:"Mo.", class:'HeaderBlock'},
+                          {title:"Di.", class:'HeaderBlock'},
+                          {title:"Mi.", class:'HeaderBlock'},
+                          {title:"Do.", class:'HeaderBlock'},
+                          {title:"Fr.", class:'HeaderBlock'},
+                          {title:"Sa.", class:'HeaderBlock'},
+                          {title:"So.", class:'HeaderBlock'}]
+
+
+$scope.Medi1 = {
+  name: "Antibiotika",
+  dose: "1"
+}
+
+$scope.Medi2 = {
+  name: "Antibiotika",
+  dose: "2"
+}
+
+$scope.saveLocalStorage = function(){
+  localStorage.setItem("Medi1", JSON.stringify($scope.Medi1) );
+  localStorage.setItem("Medi2", JSON.stringify($scope.Medi2) );
+}
+
+
+
+    for(var i = 0; i < localStorage.length; i++){
+      //data.push(localStorage.getItem("Medi".concat(i)));
+      $scope.data = JSON.parse(localStorage.getItem("Medi".concat(i)));
+    };
+
+    /*for(var i = data.length - 1; i >= 0; i--) {
+    if(data[i] === null) {
+       data.splice(i, 1);
+    }};
+
+  };*/
+
+  $scope.openmedi = function () {
+      $state.go('medplan');
+  }
+
+var isLoggedIn = I4MIMidataService.loggedIn();
+if (isLoggedIn) {
+    $scope.logout = function() {
+        window.localStorage.setItem("password", '');
+        I4MIMidataService.logout();
+        $state.go('login'); };
+} else {
+    $state.go('login')
+}
+
+});

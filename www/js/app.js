@@ -94,6 +94,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         templateUrl: 'templates/medplan.html',
           controller : 'medplanCtrl'
         })
+        .state('createMedi', {
+        url: '/createMedi',
+        templateUrl: 'templates/createMedi.html',
+          controller : 'createMediCtrl'
+        })
         .state('login', {
                url: '/login',
                templateUrl: 'templates/login.html',
