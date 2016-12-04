@@ -297,10 +297,23 @@ angular.module('starter.controllers', ['ngCordova'])
 
             })
 
-.controller('createMediCtrl', function($scope, I4MIMidataService, $timeout, $state) {
+.controller('createMediCtrl', function($scope, $compile ,I4MIMidataService, $timeout, $state, $ionicPopup) {
+
+   $scope.loadMediList = function(divName) {
+    for(var i = 0; i < localStorage.length; i++){
+    document.getElementById(divName).innerHTML =   "<div class='row'><div class='row {{header.class}}' ng-repeat='header in header'>{{header.title}}</div></div><div class='row'><div class='col mediBoxImg' ng-repeat='img in img'>{{img.imagePath}}</div><div class='col'><div class='row'><img ng-repeat='imgSchema in imgSchema' class='row {{imgSchema.class}} mediBoxImg' id='{{ 'imgSchema'+$index}}' ng-src='{{imgSchema.source}}'></div><div class='row'><div class='row {{timeSchema.class}}' ng-repeat='timeSchema in timeSchema' id='{{ 'timeSchema'+$index}}'>{{timeSchema.title}}</div></div><div class='row'><div class='row {{buttonSchema.class}} buttonStatusIMG' ng-repeat='buttonSchema in buttonSchema' ng-click='changeStatus()' id='{{ 'buttonSchema'+$index}}'>{{buttonSchema.title}}</div></div></div><div class='col '><div class='row'><div class='row {{lableIntervall.class}}' ng-repeat='lableIntervall in lableIntervall' id='{{ 'lableIntervall'+$index}}'>{{lableIntervall.title}}</div></div><div class='row'><div class='row {{buttonIntervall.class}} buttonStatusIMG' ng-repeat='buttonIntervall in buttonIntervall' ng-click='changeStatus()' id='{{ 'buttonIntervall'+$index}}'>{{buttonIntervall.title}}</div></div></div></div>"
+      $compile( document.getElementById(divName) )($scope);
+  }
+
+    };
+
+
+
+
   $scope.header = [{title:'MediName', class:'HeaderBlock'},
                   {title:'Häufigkeit',class:'HeaderBlock'},
-                  {title:'Intervall',class:'HeaderBlock'}]
+                  {title:'Intervall',class:'HeaderBlock'},
+                  {title:'DeleteButton', source:'/img/trash-logo-icon-61182.png', class:'HeaderBlock' }]
 
   $scope.img = [{imagePath:'', class:'mediImage'}]
 
@@ -347,10 +360,52 @@ $scope.Medi2 = {
   dose: "2"
 }
 
-$scope.saveLocalStorage = function(){
+$scope.addMedicament = function(){
+
+  var customTemplate =
+  '<div class="row mediPopUp"><button>Zurück</button><label>Ein neues Medikament erfassen</label></div><div class="row mediPopUp"/><label>Name</label><input type="text"><input><label>Foto des Medikamentes</label><button></button></div><div class="row mediPopUp"><div class="row mediPopUp"><label>Einnahmezeit</label><label>Intervall</label></div><div class="row mediPopUp"><div class="row mediPopUp"><img src="img/Morning.png"><img src="img/Noon.png"><<imgsrc="img/Night.png"><imgsrc="img/moon.png"><label>Mo.</label><label>Di.</label><label>Mi.</label><label>Do.</label><label>Fr.</label><label>Sa.</label><label>So.</label></div><div class="row mediPopUp"><img src="img/Xnormal.png" ng-click="CheckboxStatchange"/><img src="img/Xnormal.png" ng-click="CheckboxStatchange"><img src="img/Xnormal.png" ng-click="CheckboxStatchange"><img src="img/Xnormal.png" ng-click="CheckboxStatchange"><img src="img/Xnormal.png" ng-click="CheckboxStatchange"><img src="img/Xnormal.png" ng-click="CheckboxStatchange"><img src="img/Xnormal.png" ng-click="CheckboxStatchange"><img src="img/Xnormal.png" ng-click="CheckboxStatchange"><img src="img/Xnormal.png" ng-click="CheckboxStatchange"><img src="img/Xnormal.png" ng-click="CheckboxStatchange"><img src="img/Xnormal.png" ng-click="CheckboxStatchange"></div></div></div><div class="row mediPopUp"><div class="col mediPopUp"><label>Wiederholung</label></div><div class="col mediPopUp"><div class="row mediPopUp"><label>Startdatum</label><input type="date"><input></div><div class="row mediPopUp"><label>Enddatum</label><input type="date"><input></div></div></div><div class="row mediPopUp"><button>Speichern</button></div>'
+
+  $ionicPopup.show({
+        template: customTemplate,
+        title: 'Medikamente',
+        subTitle: 'Bitte tragen Sie die eingenommenen Medikamente ein',
+        scope: $scope,
+        cssClass: 'styleMedPlan',
+        buttons: [
+          { text: 'Cancel' },
+          {
+            text: '<b>Fertig</b>',
+            type: 'button-positive',
+            onTap: function(e) {
+              // add your action
+            }
+          }
+        ]
+      });
+
+
+    };
+
+/*  <div class="row"><div class="row {{header.class}}" ng-repeat="header in header">{{header.title}} </div> </div>
+  <div class="row">
+    <div class="col mediBoxImg" ng-repeat="img in img">{{img.imagePath}}</div>
+    <div class="col">
+      <div class="row"><img ng-repeat="imgSchema in imgSchema" class="row {{imgSchema.class}} mediBoxImg" id="{{ 'imgSchema'+$index}}" ng-src="{{imgSchema.source}}"></div>
+      <div class="row"> <div class="row {{timeSchema.class}}" ng-repeat="timeSchema in timeSchema" id="{{ 'timeSchema'+$index}}">{{timeSchema.title}}</div></div>
+      <div class="row"> <div class="row {{buttonSchema.class}} buttonStatusIMG" ng-repeat="buttonSchema in buttonSchema" ng-click="changeStatus()" id="{{ 'buttonSchema'+$index}}">{{buttonSchema.title}}</div></div>
+    </div>
+    <div class="col ">
+      <div class="row"><div class="row {{lableIntervall.class}}" ng-repeat="lableIntervall in lableIntervall" id="{{ 'lableIntervall'+$index}}">{{lableIntervall.title}}</div></div>
+      <div class="row"> <div class="row {{buttonIntervall.class}} buttonStatusIMG" ng-repeat="buttonIntervall in buttonIntervall" ng-click="changeStatus()" id="{{ 'buttonIntervall'+$index}}">{{buttonIntervall.title}}</div></div>
+    </div>
+  </div>*/
+
+
+$scope.saveLocalStorage = function(divName){
   localStorage.setItem("Medi1", JSON.stringify($scope.Medi1) );
   localStorage.setItem("Medi2", JSON.stringify($scope.Medi2) );
 }
+
 
 
 

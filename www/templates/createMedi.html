@@ -2,46 +2,27 @@
 <link id="original" rel="stylesheet" href="css/styleMedPlanColorNormal.css">
 
 <ion-view view-title="Medikamentenliste">
-  <ion-content  class="wrapper" scroll="false">
+  <ion-content  class="wrapper" scroll="false" ng-init="loadMediList('MediBox')" >
     <div class="col">
     <!--Header-->
       <div class="row">
-              <button class="medButton" ng-click="saveLocalStorage()">
+              <button class="medButton" ng-click="addMedicament()">
                 <img class="menuButtons" src="img\Button.png">
                 </img>
               </button>
               <label>Medikamentenliste</label>
-              <button class="medButton" ng-click="getLocalStorage()">
+              <button class="medButton" ng-click="saveLocalStorage('MediBox')">
                 <img class="menuButtons" src="img\Button.png">
                 </img>
               </button>
         </div>
     </div>
     <!--MediList-->
-    <div class="col mediBox">
-      <div class="row"><div class="row {{header.class}}" ng-repeat="header in header">{{header.title}} </div> </div>
-      <div class="row">
-        <div class="col mediBoxImg" ng-repeat="img in img">{{img.imagePath}}</div>
-        <div class="col">
-          <div class="row"><img ng-repeat="imgSchema in imgSchema" class="row {{imgSchema.class}} mediBoxImg" id="{{ 'imgSchema'+$index}}" ng-src="{{imgSchema.source}}"></div>
-          <div class="row"> <div class="row {{timeSchema.class}}" ng-repeat="timeSchema in timeSchema" id="{{ 'timeSchema'+$index}}">{{timeSchema.title}}</div></div>
-          <div class="row"> <div class="row {{buttonSchema.class}} buttonStatusIMG" ng-repeat="buttonSchema in buttonSchema" ng-click="changeStatus()" id="{{ 'buttonSchema'+$index}}">{{buttonSchema.title}}</div></div>
-        </div>
-        <div class="col ">
-          <div class="row"><div class="row {{lableIntervall.class}}" ng-repeat="lableIntervall in lableIntervall" id="{{ 'lableIntervall'+$index}}">{{lableIntervall.title}}</div></div>
-          <div class="row"> <div class="row {{buttonIntervall.class}} buttonStatusIMG" ng-repeat="buttonIntervall in buttonIntervall" ng-click="changeStatus()" id="{{ 'buttonIntervall'+$index}}">{{buttonIntervall.title}}</div></div>
-        </div>
-      </div>
+    <div class="col mediBox" id="MediBox">
+
     </div>
 
 
   <button>Add Medi</button>
   </ion-content>
 </ion-view>
-
-
-
-
-
-<div class="row {{days.class}}" ng-repeat="days in days">{{days.title}}
-<div class="col HeaderBlock {{time.class}}" ng-repeat="time in time" ng-click="showPopup()">{{time.text}}<img class="medButtonTaken"></img>  </div>
