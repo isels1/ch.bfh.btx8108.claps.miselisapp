@@ -20,13 +20,12 @@
       </button>
     </div>
     <div class="content">
-
         <div class="col">
           <div class="row">
           <div class="col {{header.class}}" ng-repeat="header in header">{{header.title}} </div>
         </div>
       <div class="row {{days.class}}" ng-repeat="days in days">{{days.title}}
-        <div class="col HeaderBlock {{time.class}}" ng-repeat="time in time" ng-click="showPopup()">{{time.text}}<img class="medButtonTaken"></img>  </div>
+        <div class="col HeaderBlock {{time.class}}" ng-repeat="time in time" ng-click="toTakeClickAction()">{{time.text}}<img class="medButtonTaken"></img>  </div>
       </div>
     </div>
       <!--Header-->

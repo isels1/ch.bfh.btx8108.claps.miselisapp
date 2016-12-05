@@ -8,13 +8,13 @@ angular.module('starter.medicationController', ['ngCordova'])
                              {title:'Abend',class:'EveningColor'},
                              {title:'Nacht',class:'NightColor'}];
             
-            $scope.days = [{title:'Mo.'},
-                           {title:'Di.'},
-                           {title:'Mi.'},
-                           {title:'Do.'},
-                           {title:'Fr..'},
-                           {title:'Sa.'},
-                           {title:'So.'}];
+            $scope.days = [{title:'Mo'},
+                           {title:'Di'},
+                           {title:'Mi'},
+                           {title:'Do'},
+                           {title:'Fr'},
+                           {title:'Sa'},
+                           {title:'So'}];
             
             $scope.time = [{title:'Morgen',text:'',class:'MorningColor '},
                            {title:'Mittag',class:'NoonColor '},
@@ -27,20 +27,29 @@ angular.module('starter.medicationController', ['ngCordova'])
             
             $scope.data =[];
             
-            for(var i = 0; i < localStorage.length; i++){
-            $scope.data.push(JSON.parse(localStorage.getItem("Medi".concat(i))));
-            };
+            var medList = JSON.parse(localStorage.getItem("MedicationList"));
             
-            for(var i = $scope.data.length - 1; i >= 0; i--) {
-            if($scope.data[i] === null) {
-            $scope.data.splice(i, 1);
-            }};
-            console.log($scope.data)
+            for(var i = 0; i < medList.medication.length; i++) {
+                var obj = medList.medication[i];
+                console.log(obj);
+                $scope.data.push(obj);
+            }
             
+            //for(var i = 0; i < localStorage.length; i++){
+            //$scope.data.push(JSON.parse(localStorage.getItem("Medi".concat(i))));
+            //};
             
-            var customTemplate =
-            '<div class="row mediPopUp"><img class="smallMediPic"></img>'+ $scope.data[3].name +
-            '<ion-toggle></ion-toggle></div>' ;
+            //for(var i = $scope.data.length - 1; i >= 0; i--) {
+            //if($scope.data[i] === null) {
+            //$scope.data.splice(i, 1);
+            //}};
+            
+            var customTemplate = "";
+            
+            for(var i = 0; i < $scope.data.length; i++) {
+                customTemplate += '<div class="row mediPopUp"><img class="smallMediPic"></img>'+ $scope.data[i].name +
+                '<ion-toggle></ion-toggle></div>' ;
+            }
             
             $ionicPopup.show({
                              template: customTemplate,
@@ -62,6 +71,47 @@ angular.module('starter.medicationController', ['ngCordova'])
             
             
             };
+            
+            $scope.toTakeClickAction = function (event) {
+            var dayTime = this.$index;
+            var day = this.$parent.days.title;
+            console.log(day + " " + dayTime);
+            
+            $scope.data =[];
+            
+            var medList = JSON.parse(localStorage.getItem("MedicationList"));
+            
+            for(var i = 0; i < medList.medication.length; i++) {
+            var obj = medList.medication[i];
+            
+            if (obj.interval.indexOf(day) !== -1)
+            {
+            if(dayTime == 0 &&
+               obj.schema.Morning.state != 0) {
+            $scope.data.push(obj);
+            }
+            if(dayTime == 1 &&
+               obj.schema.Noon.state != 0) {
+            $scope.data.push(obj);
+            }
+            if(dayTime == 2 &&
+               obj.schema.Evening.state != 0) {
+            $scope.data.push(obj);
+            }
+            if(dayTime == 3 &&
+               obj.schema.Night.state != 0) {
+            $scope.data.push(obj);
+            }
+            }
+            
+            }
+            
+            //TEST
+            for (var i = 0; i < $scope.data.length; i++) {
+            console.log($scope.data[i])
+            }
+            
+            }
             
             $scope.changeCSS = function (){
             var css = document.getElementById("original")
@@ -110,7 +160,7 @@ angular.module('starter.medicationController', ['ngCordova'])
             "<div class='row'><div class='row {{lableIntervall.class}}' ng-repeat='lableIntervall in lableIntervall' id='{{ 'lableIntervall'+$index}}'>{{lableIntervall.title}}</div></div>"+
             "<div class='row'> <div class='row {{buttonIntervall.class}} buttonStatusIMG' ng-repeat='buttonIntervall in buttonIntervall' ng-click='changeStatus()' id='{{ 'buttonIntervall'+$index}}'>{{buttonIntervall.title}}</div></div>"+
             "</div>"+
-            "</div>"
+            "</div>";
             
             $scope.loadMediList = function(divName) {
             var p = null;
@@ -178,7 +228,7 @@ angular.module('starter.medicationController', ['ngCordova'])
             },
             Noon: {
             amount: 'state',
-            state: 1,
+            state: 0,
             },
             Evening: {
             amount: 'state',
@@ -186,18 +236,10 @@ angular.module('starter.medicationController', ['ngCordova'])
             },
             Night: {
             amount: 'state',
-            state: 1,
+            state: 0,
             }
             },
-            interval: {
-            Mo: true,
-            Di: true,
-            Mi: true,
-            Do: true,
-            Fr: true,
-            Sa: true,
-            So: false
-            },
+            interval: ["Mo", "Di", "Mi", "Do", "Fr"],
             startDate: '12.12.2016',
             endDate: '31.12.2016',
             img: 'url-goes-here'
@@ -211,7 +253,7 @@ angular.module('starter.medicationController', ['ngCordova'])
             schema: {
             Morning: {
             amount: 'state',
-            state: 1,
+            state: 3,
             },
             Noon: {
             amount: 'state',
@@ -219,22 +261,14 @@ angular.module('starter.medicationController', ['ngCordova'])
             },
             Evening: {
             amount: 'state',
-            state: 1,
+            state: 0,
             },
             Night: {
             amount: 'state',
-            state: 1,
+            state: 2,
             }
             },
-            interval: {
-            Mo: true,
-            Di: true,
-            Mi: true,
-            Do: true,
-            Fr: true,
-            Sa: true,
-            So: true
-            },
+            interval: ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
             startDate: '12.12.2016',
             endDate: '18.12.2016',
             img: 'url-goes-here'
@@ -287,8 +321,15 @@ angular.module('starter.medicationController', ['ngCordova'])
             
             
             $scope.saveLocalStorage = function(divName){
-            localStorage.setItem("Medi1", JSON.stringify($scope.Medi1) );
-            localStorage.setItem("Medi2", JSON.stringify($scope.Medi2) );
+            var medList =  {
+                medication: []
+            }
+            medList.medication.push($scope.Medi1);
+            medList.medication.push($scope.Medi2);
+            
+            localStorage.setItem("MedicationList", JSON.stringify(medList));
+            //localStorage.setItem("Medi1", JSON.stringify($scope.Medi1) );
+            //localStorage.setItem("Medi2", JSON.stringify($scope.Medi2) );
             }
             
             
