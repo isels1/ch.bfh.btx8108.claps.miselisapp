@@ -47,4 +47,38 @@ angular.module('starter.services', [])
       return null;
     }
   };
+})
+
+.factory('StateMachine', function(){
+         var states = [{
+                       id: 0,
+                       name: 'idle',
+                       cssClass: 'medIdle'
+         }, {
+                       id: 1,
+                       name: 'toTake',
+                       cssClass: 'medToTake'
+         }, {
+                       id: 2,
+                       name: 'taken',
+                       cssClass: 'medTaken'
+         }, {
+                       id: 3,
+                       name: 'depricated',
+                       cssClass: 'medDepricated'
+         }];
+         
+         return {
+         all: function() {
+            return states;
+         },
+         get: function(chatId) {
+            for (var i = 0; i < chats.length; i++) {
+                if (chats[i].id === parseInt(chatId)) {
+                    return chats[i];
+                }
+            }
+            return null;
+         }
+        };
 });
