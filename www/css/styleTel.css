@@ -45,7 +45,6 @@ padding-bottom:0 !important;
   width: 100%;
 }
 
-
 .col{
   height: 33%;
   width: 100%;
@@ -54,4 +53,24 @@ padding-bottom:0 !important;
 .imgTel{
   width: 100%;
   height: 100%;
+}
+
+.popup-container {
+    align-items: center;
+
+}
+
+.popu-title{
+    width: 150%;
+}
+.popup-body {
+
+    width: 150%;
+    height: 200%;
+    background-color: #008A9D;
+
+}
+
+.popup-buttons{
+    font-size: 20%;
 }

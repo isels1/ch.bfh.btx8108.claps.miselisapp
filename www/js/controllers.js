@@ -42,7 +42,7 @@ angular.module('starter.controllers', ['ngCordova'])
 })
 
 
-.controller('telCtrl', function ($scope, $state, I4MIMidataService, $cordovaContacts, $cordovaNativeAudio) {
+.controller('telCtrl', function ($scope, $state, $ionicPopup, I4MIMidataService, $cordovaContacts, $cordovaNativeAudio) {
     //vlads1 & zyssm4 getContactList & addContact
     //Get all contacts from the device. Reads the Phonenumber, Name and picture. These are then put into the html
     $scope.getContactList = function () {
@@ -104,6 +104,33 @@ angular.module('starter.controllers', ['ngCordova'])
             "urls": null
     }
 
+    // An alert dialog
+    $scope.TelPopup = function () {
+        $scope.data = {
+            vm: [
+              $scope.contacts,
+            ]
+
+        };
+        $ionicPopup.show({
+            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts"> <div class="item item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
+            title: 'Telefonliste:',
+            subTitle: 'Bitte waehlen Sie einen Kontakt aus',
+            scope: $scope,
+            cssClass: 'TelPopup',
+            buttons: [
+              { text: 'Abbrechen' },
+              {
+                  text: '<b>Fertig</b>',
+                  onTap: function (e) {
+                      // add your action
+                  }
+              }
+            ]
+        });
+    }
+
+ 
     $scope.openmedi = function () {
     $state.go('medplan');
 }

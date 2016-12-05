@@ -2,18 +2,18 @@
 
 <ion-view view-title="Telefonbuch">
     <ion-content class="wrapper">
-     <!-- <div class="row1">-->
-
+        <!-- <div class="row1">-->
         <!--NavCol-->
-            <div class="leftNavigation">
-            <button id="sideButtonleft" class="navButton" ng-click="openmedi()" >
-              <img class="navImg" src="img\ButtonMediLeft.PNG"></img>
-            </button >
-          </div>
+        <div class="leftNavigation">
+            <button id="sideButtonleft" class="navButton" ng-click="openmedi()">
+                <img class="navImg" src="img\ButtonMediLeft.PNG"></img>
+            </button>
+        </div>
 
-        <div class="padding">
-            <button class="button" ng-click="addContact()">Add Contacts</button>
+        <!--<div class="padding">
+            <button class="button" ng-click="TelPopup() ">showPopup()</button>
              <button class="button" ng-click="getContactList()">Get My Contacts</button>
+              <button class="button" ng-click="addContact()">Add Contact</button>
             <div class="list listlength" ng-show="contacts">
                 <div class="card" ng-repeat="Contact in contacts">
                     <div class="item item-divider">
@@ -32,83 +32,80 @@
                     </div>
                 </div>
             </div>
+        </div>-->
+        <!--<!--<!--Row-->
+        <div class="content">
+            <div class="row ColContainer">
+                <div class="col btn_size">
+                    <button class="callButton" ng-click="getContactList(); TelPopup()">
+                        <img class="imgTel" src="img/addCross.png"></img>
+                        <span class="telLabel">Roland</span>
+                    </button>
+                </div>
+                <div class="col btn_size">
+                    <button class="callButton" ng-click="getContactList(); TelPopup() ">
+                        <img class="imgTel" src="img/addCross.png"></img>
+                        <span class="telLabel">Jolanda</span>
+                    </button>
+                </div>
+                <div class="col btn_size">
+                    <button class="callButton" ng-click="getContactList(); TelPopup() ">
+                        <img class="imgTel" src="img/addCross.png"></img>
+                        <span class="telLabel">Christoph</span>
+                    </button>
+                </div>
+            </div>
+            <!--Row 2 with Nav-->
+            <div class="row ">
+                <div class="col btn_size">
+                    <button class="callButton" ng-click="getContactList(); TelPopup() ">
+                        <img class="imgTel" src="img/addCross.png"></img>
+                        <span class="telLabel">Markus</span>
+                    </button>
+                </div>
+                <div class="col btn_size">
+                    <button class="callButton" ng-click="getContactList(); TelPopup() ">
+                        <img class="imgTel" src="img/addCross.png"></img>
+                        <span class="telLabel">Karin</span>
+                    </button>
+                </div>
+                <div class="col btn_size">
+                    <button class="callButton" ng-click="getContactList(); TelPopup() ">
+                        <img class="imgTel" src="img/addCross.png"></img>
+                        <span class="telLabel">Peter</span>
+                    </button>
+                </div>
+            </div>
+
+            <!--Row 3-->
+            <div class="row">
+                <div class="col btn_size">
+                    <button class="callButton" ng-click="getContactList()">
+                        <img class="imgTel" src="img/addCross.png"></img>
+                        <span class="telLabel" style='margin-left:-17%'>Hausarzt</span>
+                    </button>
+                </div>
+                <div class="col btn_size">
+                    <button class="callButton" ng-click="getContactList()">
+                        <img class="imgTel" src="img/addCross.png"></img>
+                        <span class="telLabel" style='margin-left:-13%'>Notruf</span>
+                    </button>
+                </div>
+                <div class="col btn_size">
+                    <button class="callButton" ng-click="getContactList()">
+                        <img class="imgTel" src="img/addCross.png"></img>
+                        <span class="telLabel" style='margin-left:-12%'>Spitex</span>
+                    </button>
+                </div>
+            </div>
         </div>
 
-            <!--Row-->
-            <!-- <div class="content">
-           <div class="row ColContainer">
-             <div class="col btn_size">
-               <button class="callButton" ng-click="getContactList()">
-                   <img class="imgTel" src="img/addCross.png"></img>
-                   <span class="telLabel">Roland</span>
-               </button>
-             </div>
-             <div class="col btn_size">
-               <button class="callButton" ng-click="addContact()">
-                 <img class="imgTel" src="img/addCross.png"></img>
-                   <span class="telLabel">Jolanda</span>
-               </button>
-             </div>
-             <div class="col btn_size">
-               <button class="callButton" ng-click="getContactList()">
-                   <img class="imgTel" src="img/addCross.png"></img>
-                   <span class="telLabel">Christoph</span>
-               </button>
-             </div>
-           </div> -->
-            <!--Row 2 with Nav-->
-            <!-- <div class="row ">
-           <div class="col btn_size">
-             <button class="callButton" ng-click="getContactList()">
-                 <img class="imgTel" src="img/addCross.png"></img>
-                 <span class="telLabel">Markus</span>
-             </button>
-           </div>
-           <div class="col btn_size">
-             <button class="callButton" ng-click="getContactList()">
-               <img class="imgTel" src="img/addCross.png"></img>
-                 <span class="telLabel">Karin</span>
-             </button>
-           </div>
-           <div class="col btn_size">
-             <button class="callButton" ng-click="getContactList()">
-                 <img class="imgTel" src="img/addCross.png"></img>
-                 <span class="telLabel">Peter</span>
-             </button>
-           </div>
-         </div>
-            -->
-            <!--Row 3-->
-            <!-- <div class="row">
-            <div class="col btn_size">
-              <button class="callButton" ng-click="getContactList()">
-                  <img class="imgTel" src="img/addCross.png"></img>
-                  <span class="telLabel" style='margin-left:-17%'>Hausarzt</span>
-              </button>
-            </div>
-            <div class="col btn_size">
-              <button class="callButton" ng-click="getContactList()">
-                  <img class="imgTel" src="img/addCross.png"></img>
-                  <span class="telLabel" style='margin-left:-13%'>Notruf</span>
-              </button>
-            </div>
-            <div class="col btn_size">
-              <button class="callButton" ng-click="getContactList()">
-                <img class="imgTel" src="img/addCross.png"></img>
-                  <span class="telLabel" style='margin-left:-12%'>Spitex</span>
-              </button>
-            </div>
-          </div>
+        <!--NavCol-->-->-->
+        <div class="rightNavigation">
+            <button id="sideButtonright" class="navButton" ng-click="openhome()">
+                <img class="navImg" src="img\HomeButtonRight.PNG"></img>
+            </button>
         </div>
-             -->
-            <!--NavCol-->
-            <div class="rightNavigation">
-                <button id="sideButtonright" class="navButton" ng-click="openhome()">
-                    <img class="navImg" src="img\HomeButtonRight.PNG"></img>
-                </button>
-            </div>
-        </div>
-   <!-- </div> -->
 
     </ion-content>
 </ion-view>
