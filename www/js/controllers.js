@@ -1,8 +1,12 @@
 angular.module('starter.controllers', ['ngCordova'])
 
 //zyssm4 nav-funktionen & isels1 aufteilung und login/logout
-.controller('homeCtrl', function ($scope, $state, I4MIMidataService) {
+.controller('homeCtrl', function ($scope, $state, I4MIMidataService, $cordovaMedia) {
 
+   $scope.play = function(src) {
+          var media = new Media(src, null, null, mediaStatusCallback);
+          $cordovaMedia.play(media);
+      }
 
     $scope.opentel = function () {
         $state.go('tel');
@@ -129,7 +133,7 @@ angular.module('starter.controllers', ['ngCordova'])
         });
     }
 
- 
+
     $scope.openmedi = function () {
     $state.go('medplan');
 }
@@ -227,4 +231,3 @@ angular.module('starter.controllers', ['ngCordova'])
             chartBar.bar();
 
             });
-
