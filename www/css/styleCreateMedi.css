@@ -4,42 +4,6 @@
    height:100%;
 }
 
-.scroll {
-    height:100%;
-}
-
-
-/*----------------------------------*/
-/*-----------            -----------*/
-/*----------- NAVIGATION -----------*/
-/*-----------            -----------*/
-/*----------------------------------*/
-
-.leftNavigation {
-    height: 100%;
-    width: 15%;
-    float: left;
-    position:relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.content{
-    padding-top: 1%;
-    float:left;
-    width:70%;
-
-}
-.rightNavigation {
-    height: 100%;
-    width: 15%;
-    float: right;
-    position:relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .menuButtons{
     width: 8%;
     height: 8%;
@@ -67,9 +31,123 @@
 }
 
 .mediPopUp{
-  align-items: center;
-  width: 100%;
+    width: 100%;
+    float: left;
+    display: block;
+    margin-top: -5%;
 }
+
+.MediPopUpStyle{
+  display: block;
+  width: 100%;
+  float: left;
+  display: block;
+  margin-top: 0px;
+}
+
+.mediPopUpFont{
+    font-size: 2vw;
+}
+
+.ImgDayTimePopUp{
+  height: 60px !important;
+  float: left;
+}
+
+.ImgDayTimePopUpWidth{
+  height: 40px !important;
+  float: left;
+}
+
+.ImgDayPopUp{
+  height: 50px;
+  width: :50px;
+  float: left;
+
+}
+
+.gg{
+  float: left;
+  margin: 0px;
+  padding: 0px;
+}
+
+.BigSpacer{
+  margin-left: 10%;
+  float: left;
+}
+
+.spacer{
+  width: 70%;
+  float: left;
+}
+
+.PopUpLabel{
+  float: left;
+  width: 50%;
+}
+
+.font{
+  font-size: 2vw !important;
+}
+
+.my-custom-popup{
+    .popup{
+      width: 80%;
+      height: 100%;
+    }
+    .popup-head{
+      width: 80%;
+      height: 100%;
+    }
+    .popup-title{
+      font-size: 2vw;
+    }
+    .popup-sub-title{
+    font-size: 2vw;
+    }
+    .popup-body{
+       width: 80%;
+       height: 100%;
+    }
+  }
+
+
+.CreateMediButton{
+  width: 28%;
+  height: 75%;
+  margin-left: 10%;
+  margin-top: 2%;
+  padding-bottom: 0;
+  margin-bottom: -10%;
+}
+
+.Spacer{
+  margin-left: 2%;
+  float: left;
+}
+
+.ImgMorning{
+  width: auto;
+  height: auto;
+}
+
+.ImgNoon{
+  width: auto;
+  height: auto;
+}
+
+.ImgEvening{
+  width: auto;
+  height: auto;
+}
+
+.ImgNight{
+  width: auto;
+  height: auto;
+
+}
+
 
 .smallMediPic{
   align-items: center;
@@ -116,4 +194,9 @@
   height: 15%;
   width: 15%;
   content: url("../img/checked-checkbox-512.png");
+}
+
+.DayTimeRow{
+  max-width: 50%;
+  float: left;
 }
