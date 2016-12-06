@@ -146,7 +146,7 @@ angular.module('starter.medicationController', ['ngCordova'])
             })
 
 
-.controller('createMediCtrl', function($scope, $compile ,I4MIMidataService, $timeout, $state, $ionicPopup) {
+.controller('createMediCtrl', function($scope, $compile ,I4MIMidataService, $timeout, $state, $ionicPopup, $cordovaCamera) {
 
             $scope.MedTempelate =
             "<div class='row'>"+
@@ -314,7 +314,8 @@ angular.module('starter.medicationController', ['ngCordova'])
                 '</div>'+
                 //Camera
                 '<div class="col PopUpLabel">'+
-                  '<img class="CreateMediButton" src="img/camera.png"></img>'+
+                '<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">' +
+                '<img ng-show="imgURI === undefined" ng-src="img/camera.png" ng-click="takePicture()>' +
                 '</div>'+
               '</div>'+
             '</div>'+
@@ -472,6 +473,27 @@ angular.module('starter.medicationController', ['ngCordova'])
 
 
             };
+
+//camera example
+$scope.takePicture = function() {
+        var options = {
+            quality : 75,
+            destinationType : Camera.DestinationType.DATA_URL,
+            sourceType : Camera.PictureSourceType.CAMERA,
+            allowEdit : true,
+            encodingType: Camera.EncodingType.JPEG,
+            targetWidth: 300,
+            targetHeight: 300,
+            popoverOptions: CameraPopoverOptions,
+            saveToPhotoAlbum: false
+        };
+
+        $cordovaCamera.getPicture(options).then(function(imageData) {
+            $scope.imgURI = "data:image/jpeg;base64," + imageData;
+        }, function(err) {
+            // An error occured. Show a message to the user
+        });
+    };
 
 
 
