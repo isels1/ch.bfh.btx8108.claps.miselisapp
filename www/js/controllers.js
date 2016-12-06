@@ -4,10 +4,21 @@ angular.module('starter.controllers', ['ngCordova'])
 .controller('homeCtrl', function ($scope, $state, I4MIMidataService, $cordovaMedia) {
 
    $scope.play = function(src) {
-          var media = new Media(src, null, null, mediaStatusCallback);
-          $cordovaMedia.play(media);
-      }
+    // Play the audio file at url
+    var my_media = new Media(src,
+        // success callback
+        function () {
+            console.log("playAudio():Audio Success");
+        },
+        // error callback
+        function (err) {
+            console.log("playAudio():Audio Error: " + err);
+        }
+    );
 
+    // Play audio
+    my_media.play();
+}
     $scope.opentel = function () {
         $state.go('tel');
     }

@@ -5,15 +5,14 @@
     <div class="col">
     <!--Header-->
       <div class="row">
-              <button class="medButton" ng-click="addMedicament()">
-                <img class="menuButtons" src="img\Button.png">
-                </img>
+              <button class="" ng-click="openmedi()">
+                Nav to MediView
+              </button>
+              <button class="" ng-click="saveLocalStorage()">
+                Save Test localStorage
               </button>
               <label>Medikamentenliste</label>
-              <button class="medButton" ng-click="saveLocalStorage('MediBox')">
-                <img class="menuButtons" src="img\Button.png">
-                </img>
-              </button>
+
         </div>
     </div>
     <!--MediList-->
@@ -22,6 +21,6 @@
     </div>
 
 
-  <button>Add Medi</button>
+  <button ng-click="addMedicament()">Add Medi</button>
   </ion-content>
 </ion-view>

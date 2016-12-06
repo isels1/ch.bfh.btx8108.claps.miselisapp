@@ -82,67 +82,68 @@ angular.module('starter.medicationController', ['ngCordova'])
             var medList = JSON.parse(localStorage.getItem("MedicationList"));
 
             for(var i = 0; i < medList.medication.length; i++) {
-            var obj = medList.medication[i];
+              var obj = medList.medication[i];
 
-            if (obj.interval.indexOf(day) !== -1)
-            {
-            if(dayTime == 0 &&
-               obj.schema.Morning.state != 0) {
-            $scope.data.push(obj);
-            }
-            if(dayTime == 1 &&
-               obj.schema.Noon.state != 0) {
-            $scope.data.push(obj);
-            }
-            if(dayTime == 2 &&
-               obj.schema.Evening.state != 0) {
-            $scope.data.push(obj);
-            }
-            if(dayTime == 3 &&
-               obj.schema.Night.state != 0) {
-            $scope.data.push(obj);
-            }
-            }
+              if (obj.interval.indexOf(day) !== -1)
+              {
+                if(dayTime == 0 &&
+                   obj.schema.Morning.state != 0) {
+                     $scope.data.push(obj);
+                }
+                if(dayTime == 1 &&
+                   obj.schema.Noon.state != 0) {
+                     $scope.data.push(obj);
+                }
+                if(dayTime == 2 &&
+                   obj.schema.Evening.state != 0) {
+                     $scope.data.push(obj);
+                }
+                if(dayTime == 3 &&
+                   obj.schema.Night.state != 0) {
+                     $scope.data.push(obj);
+                }
+              }
 
             }
 
             //TEST
             for (var i = 0; i < $scope.data.length; i++) {
-            console.log($scope.data[i])
+              console.log($scope.data[i])
             }
 
             }
 
             $scope.changeCSS = function (){
-            var css = document.getElementById("original")
-            if(css.getAttribute('href') == "css/styleMedPlanColorNormal.css"){
-            css.setAttribute('href', "css/styleMedPlanColorBlind.css");
-            }else{
-            css.setAttribute('href', "css/styleMedPlanColorNormal.css");
-            }
+              var css = document.getElementById("original")
+              if(css.getAttribute('href') == "css/styleMedPlanColorNormal.css"){
+                css.setAttribute('href', "css/styleMedPlanColorBlind.css");
+              }else{
+                css.setAttribute('href', "css/styleMedPlanColorNormal.css");
+              }
             }
 
 
             $scope.opentel = function () {
-            $state.go('tel');
+              $state.go('tel');
             }
             $scope.openhome = function () {
-            $state.go('menu.home');
+              $state.go('menu.home');
             }
 
             $scope.opencreateMedi = function () {
-            $state.go('createMedi');
+              $state.go('createMedi');
             }
 
             var isLoggedIn = I4MIMidataService.loggedIn();
-            if (isLoggedIn) {
-            $scope.logout = function() {
-            window.localStorage.setItem("password", '');
-            I4MIMidataService.logout();
-            $state.go('login'); };
-            } else {
-            $state.go('login')
-            }
+              if (isLoggedIn) {
+                $scope.logout = function() {
+                  window.localStorage.setItem("password", '');
+                  I4MIMidataService.logout();
+                  $state.go('login');
+                };
+              } else {
+                $state.go('login')
+              }
             })
 
 
@@ -175,14 +176,24 @@ angular.module('starter.medicationController', ['ngCordova'])
               "</div>"+
             "</div>";
 
+            /*Test how to get Data form MedicationList Array
+            $scope.testLocal = function(){
+            //  for(var i = 0; i < localStorage.MedicationList.medication.length; i++){ +[i]
+                var data = JSON.parse(localStorage.getItem("MedicationList"));
+
+                for(var i = 0; i < data.medication.length; i++) {
+                var obj = data.medication[i];
+                console.log(obj);}
+            };*/
+
             $scope.loadMediList = function(divName) {
-            var p = null;
-            for(var i = 0; i < localStorage.length; i++){
-            if(localStorage.key(i) == "Medi".concat(i + 1 )){
-            var newElement = document.createElement('div');
-            newElement.innerHTML = $scope.MedTempelate;
-            $compile(document.getElementById(divName).appendChild(newElement))($scope);
-            }}
+              var data = JSON.parse(localStorage.getItem("MedicationList"));
+
+              for(var i = 0; i < data.medication.length; i++) {
+                var newElement = document.createElement('div');
+                newElement.innerHTML = $scope.MedTempelate;
+                $compile(document.getElementById(divName).appendChild(newElement))($scope);
+              }
 
             };
 
@@ -230,62 +241,62 @@ angular.module('starter.medicationController', ['ngCordova'])
 
 
             $scope.Medi1 = {
-            id: '0',
-            name: 'Antibiotika',
-            dose: 25,
-            unit: 'mg',
-            schema: {
-            Morning: {
-            amount: 'state',
-            state: 1,
-            },
-            Noon: {
-            amount: 'state',
-            state: 0,
-            },
-            Evening: {
-            amount: 'state',
-            state: 1,
-            },
-            Night: {
-            amount: 'state',
-            state: 0,
-            }
-            },
-            interval: ["Mo", "Di", "Mi", "Do", "Fr"],
-            startDate: '12.12.2016',
-            endDate: '31.12.2016',
-            img: 'url-goes-here'
-            }
+              id: '0',
+              name: 'Antibiotika',
+              dose: 25,
+              unit: 'mg',
+              schema: {
+                Morning: {
+                  amount: 'state',
+                  state: 1,
+                },
+                Noon: {
+                  amount: 'state',
+                  state: 0,
+                },
+                Evening: {
+                  amount: 'state',
+                  state: 1,
+                },
+                Night: {
+                  amount: 'state',
+                  state: 0,
+                }
+              },
+              interval: ["Mo", "Di", "Mi", "Do", "Fr"],
+              startDate: '12.12.2016',
+              endDate: '31.12.2016',
+              img: 'url-goes-here'
+              }
 
             $scope.Medi2 = {
-            id: '1',
-            name: 'Parazetamol',
-            dose: 25,
-            unit: 'mg',
-            schema: {
-            Morning: {
-            amount: 'state',
-            state: 3,
-            },
-            Noon: {
-            amount: 'state',
-            state: 1,
-            },
-            Evening: {
-            amount: 'state',
-            state: 0,
-            },
-            Night: {
-            amount: 'state',
-            state: 2,
-            }
-            },
-            interval: ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
-            startDate: '12.12.2016',
-            endDate: '18.12.2016',
-            img: 'url-goes-here'
-            }
+              id: '1',
+              name: 'Parazetamol',
+              dose: 25,
+              unit: 'mg',
+              schema: {
+                Morning: {
+                  amount: 'state',
+                  state: 3,
+                },
+                Noon: {
+                  amount: 'state',
+                  state: 1,
+                },
+                Evening: {
+                  amount: 'state',
+                  state: 0,
+                },
+                Night: {
+                  amount: 'state',
+                  state: 2,
+                }
+              },
+              interval: ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
+              startDate: '12.12.2016',
+              endDate: '18.12.2016',
+              img: 'url-goes-here'
+              }
 
             $scope.CheckboxStatchange = function(event){
                  var targetID = event.target.id;
@@ -295,8 +306,8 @@ angular.module('starter.medicationController', ['ngCordova'])
                   document.getElementById(targetID).src = "img/checked-checkbox-512.png";
                   document.getElementById(targetID).setAttribute("data-id", "checked")
                 }else{
-                    document.getElementById(targetID).src = "img/Xnormal.png";
-                    document.getElementById(targetID).setAttribute("data-id", "unchecked")
+                  document.getElementById(targetID).src = "img/Xnormal.png";
+                  document.getElementById(targetID).setAttribute("data-id", "unchecked")
                 }
             }
 
@@ -461,11 +472,11 @@ angular.module('starter.medicationController', ['ngCordova'])
                              buttons: [
                                        { text: 'Zurück' },
                                        {
-                                       text: '<b>Speichern</b>',
-                                       type: 'button-positive',
-                                       onTap: function(e) {
-                                         var MediEndDate = document.getElementById("MediEndDate").value;
-                                       console.log(MediEndDate);
+                                         text: '<b>Speichern</b>',
+                                         type: 'button-positive',
+                                         onTap: function(e) {
+                                           var MediEndDate = document.getElementById("MediEndDate").value;
+                                         console.log(MediEndDate);
                                        }
                                        }
                                        ]
@@ -525,17 +536,17 @@ $scope.takePicture = function() {
              };*/
 
             $scope.openmedi = function () {
-            $state.go('medplan');
-            }
+              $state.go('medplan');
+              }
 
             var isLoggedIn = I4MIMidataService.loggedIn();
             if (isLoggedIn) {
-            $scope.logout = function() {
-            window.localStorage.setItem("password", '');
-            I4MIMidataService.logout();
-            $state.go('login'); };
+                $scope.logout = function() {
+                window.localStorage.setItem("password", '');
+                I4MIMidataService.logout();
+                $state.go('login'); };
             } else {
-            $state.go('login')
-            }
+                $state.go('login')
+              }
 
             });
