@@ -314,8 +314,8 @@ angular.module('starter.medicationController', ['ngCordova'])
                 '</div>'+
                 //Camera
                 '<div class="col PopUpLabel">'+
-                '<img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">' +
-                '<img ng-show="imgURI === undefined" ng-src="img/camera.png" ng-click="takePicture()>' +
+                '<img class="CreateMediButton" ng-show="imgURI !== undefined" ng-src="{{imgURI}}" ng-click="takePicture()">' +
+                '<img class="CreateMediButton" ng-show="imgURI === undefined" ng-src="img/camera.png" ng-click="takePicture()">' +
                 '</div>'+
               '</div>'+
             '</div>'+
