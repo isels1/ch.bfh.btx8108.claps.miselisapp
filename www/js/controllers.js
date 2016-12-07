@@ -121,8 +121,48 @@ angular.module('starter.controllers', ['ngCordova'])
             "urls": null
     }
 
+    $scope.selectContacts = function (Contact) {
+      var contactList = new Array();
+      if (window.localStorage.getItem("selectedContacts") != null) {
+           contactList = JSON.parse(window.localStorage.getItem("selectedContacts"));
+      }
+      
+      var existing = false;
+      var selectedContact = JSON.parse(Contact.contact);
+      for (var i = 0; i < contactList.length; i++) {
+          var contactObj = JSON.parse(contactList[i]);
+          if (JSON.parse(contactObj.contact).id === selectedContact.id) {
+              existing = true;
+          }
+      }
+
+      if (!existing) {
+
+          var fieldId = JSON.parse(Contact.id);
+          for (var i = 0; i < contactList.length; i++) {
+              var contactObj = JSON.parse(contactList[i]);
+              if (contactObj.id === fieldId) {
+                  contactList.splice(i, 1);
+              }
+          }
+          contactList.push(JSON.stringify(Contact));
+      }
+      window.localStorage.setItem("selectedContacts",  JSON.stringify(contactList));
+    }
+
+    $scope.pickContact = function (Contact, fieldId) {
+        var localContact = {
+            id: fieldId,
+            contact: JSON.stringify(Contact)
+        }
+
+        $scope.contactToSave = localContact;
+    }
+
     // An alert dialog
-    $scope.TelPopup = function () {
+    $scope.TelPopup = function (id) {
+        $scope.fieldId = id;
+
         $scope.data = {
             vm: [
               $scope.contacts,
@@ -130,7 +170,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
         };
         $ionicPopup.show({
-            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts" ng-click="selectContact(Contact)"> <div class="item item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
+            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId)"> <div class="item item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
             title: 'Telefonliste:',
             subTitle: 'Bitte waehlen Sie einen Kontakt aus',
             scope: $scope,
@@ -139,23 +179,10 @@ angular.module('starter.controllers', ['ngCordova'])
               { text: 'Abbrechen' },
               {
                   text: '<b>Fertig</b>',
-                  onTap: function (e) {
-                      // add your action
-                  }
+                  onTap: function (e) { $scope.selectContacts($scope.contactToSave) }
               }
             ]
         });
-    }
-
-    $scope.selectContact(Contact) = function() {
-      var contactList = [];
-      if (window.localStorage.getItem("selectedContacts") != null) {
-        contactList = window.localStorage.getItem("selectedContacts");
-      }
-      if (contactList.indexOf(Contact) == -1) {
-            contactList.push(Contact);
-      }
-      window.localStorage.setItem("selectedContacts", contactList);
     }
 
     $scope.openmedi = function () {
