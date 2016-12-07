@@ -65,6 +65,7 @@ angular.module('starter.controllers', ['ngCordova'])
         options.multiple = true;
         options.hasPhoneNumber = true;
         options.fields = ['displayName', 'phoneNumbers', 'emails', 'photos'];
+
         $cordovaContacts.find(options).then(function (result) {
             for (var i = 0; i < result.length; i++) {
                  $scope.contacts = result;
@@ -73,6 +74,8 @@ angular.module('starter.controllers', ['ngCordova'])
         }, function (error) {
             console.log("ERROR: " + error);
         });
+
+
     }
     //Add the pre defined contact below on the device
     $scope.addContact = function () {
@@ -127,7 +130,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
         };
         $ionicPopup.show({
-            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts"> <div class="item item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
+            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts" ng-click="selectContact(Contact)"> <div class="item item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
             title: 'Telefonliste:',
             subTitle: 'Bitte waehlen Sie einen Kontakt aus',
             scope: $scope,
@@ -144,6 +147,16 @@ angular.module('starter.controllers', ['ngCordova'])
         });
     }
 
+    $scope.selectContact(Contact) = function() {
+      var contactList = [];
+      if (window.localStorage.getItem("selectedContacts") != null) {
+        contactList = window.localStorage.getItem("selectedContacts");
+      }
+      if (contactList.indexOf(Contact) == -1) {
+            contactList.push(Contact);
+      }
+      window.localStorage.setItem("selectedContacts", contactList);
+    }
 
     $scope.openmedi = function () {
     $state.go('medplan');
