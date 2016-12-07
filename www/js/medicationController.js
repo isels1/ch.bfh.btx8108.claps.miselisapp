@@ -150,32 +150,149 @@ angular.module('starter.medicationController', ['ngCordova'])
 .controller('createMediCtrl', function($scope, $compile ,I4MIMidataService, $timeout, $state, $ionicPopup, $cordovaCamera) {
 
             $scope.MedTempelate =
+            "<div class='row MediTemplate'>"+
+              "<div class='{{header.class}}' ng-repeat='header in header'>{{header.title}}</div>"+
             "<div class='row'>"+
-              "<div class='row {{header.class}}' ng-repeat='header in header'>{{header.title}}</div>"+
-            "</div>"+
-            "<div class='row'>"+
-                "<div class='col mediBoxImg' ng-repeat='img in img'>{{img.imagePath}}</div>"+
+                "<img class=' MediImg' src='/img/Sotalol.jpg'></img>"+
               "<div class='col'>"+
                 "<div class='row'>"+
-                  "<img ng-repeat='imgSchema in imgSchema' class='row {{imgSchema.class}} mediBoxImg' id='{{ 'imgSchema'+$index}}' ng-src='{{imgSchema.source}}'>"+
+                  "<div class='{{timeSchema.class}}' ng-repeat='timeSchema in timeSchema' id='{{ 'timeSchema'+$index}}'>{{timeSchema.title}}</div>"+
                 "</div>"+
                 "<div class='row'>"+
-                  "<div class='row {{timeSchema.class}}' ng-repeat='timeSchema in timeSchema' id='{{ 'timeSchema'+$index}}'>{{timeSchema.title}}</div>"+
-                "</div>"+
-                "<div class='row'>"+
-                  "<div class='row {{buttonSchema.class}} buttonStatusIMG' ng-repeat='buttonSchema in buttonSchema' ng-click='changeStatus()' id='{{ 'buttonSchema'+$index}}'>{{buttonSchema.title}}</div>"+
+                  "<div class='{{buttonSchema.class}} buttonStatusIMG' ng-repeat='buttonSchema in buttonSchema' ng-click='changeStatus()' id='{{ 'buttonSchema'+$index}}'>{{buttonSchema.title}}</div>"+
                 "</div>"+
               "</div>"+
               "<div class='col'>"+
                 "<div class='row'>"+
-                  "<div class='row {{lableIntervall.class}}' ng-repeat='lableIntervall in lableIntervall' id='{{ 'lableIntervall'+$index}}'>{{lableIntervall.title}}</div>"+
+                  "<div class='{{lableIntervall.class}}' ng-repeat='lableIntervall in lableIntervall' id='{{ 'lableIntervall'+$index}}'>{{lableIntervall.title}}</div>"+
                 "</div>"+
                 "<div class='row'>"+
-                  "<div class='row {{buttonIntervall.class}} buttonStatusIMG' ng-repeat='buttonIntervall in buttonIntervall' ng-click='changeStatus()' id='{{ 'buttonIntervall'+$index}}'>{{buttonIntervall.title}}</div>"+
+                  "<div class='{{buttonIntervall.class}} buttonStatusIMG imgMediList' ng-repeat='buttonIntervall in buttonIntervall' ng-click='changeStatus()' id='{{ 'buttonIntervall'+$index}}'>{{buttonIntervall.title}}</div>"+
                 "</div>"+
               "</div>"+
+              "<img class='ThrashImg' src='/img/pen-8.png'></img>"+
+              "<img class='ThrashImg' src='/img/trash-logo-icon-61182.png'></img>"+
             "</div>";
 
+
+            /*
+            "<div class='row'>"+
+              //MediCol
+              "<div class='col'>"+
+                //MediName
+                "<div class='row'>MediName"
+                "</div>"+
+                //MediPicture
+                "<div class='row'>"+
+                "</div>"+
+              "</div>"+
+              //DayTime
+              "<div class='col'>"+
+                //Description
+                "<div class='row'>Tageszeiten"+
+                "</div>"+
+                //Visual
+                "<div class='row'>"+
+                  //Morgen
+                  "<div class='col'>"+
+                    "<div class='row'>Morgen"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "</div>"+
+                  "</div>"+
+                  //Mittag
+                  "<div class='col'>"+
+                    "<div class='row'>Mittag"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "</div>"+
+                  "</div>"+
+                  //Abend
+                  "<div class='col'>"+
+                    "<div class='row'>Abend"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "</div>"+
+                  "</div>"+
+                  //Nacht
+                  "<div class='col'>"+
+                    "<div class='row'>Nacht"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "</div>"+
+                  "</div>"+
+                "</div>"+
+              "</div>"+
+
+              //Day
+              "<div class='col'>"+
+
+                //Description
+                "<div class='row'>Wochentage"+
+                "</div>"+
+
+                //Visual
+                "<div class='row'>"+
+
+                  //Montag
+                  "<div class='col'>"+
+                    "<div class='row'> Montag"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "</div>"+
+                  "</div>"+
+
+                  //Dienstag
+                  "<div class='col'>"+
+                    "<div class='row'>Dienstag"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "</div>"+
+                  "</div>"+
+
+                  //Mittwoch
+                  "<div class='col'>"+
+                    "<div class='row'>Mittwoch"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "</div>"+
+                  "</div>"+
+
+                  //Donnerstag
+                  "<div class='col'>"+
+                    "<div class='row'>Donnerstag"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "</div>"+
+                  "</div>"+
+
+                  //Freitag
+                  "<div class='col'>"+
+                    "<div class='row'>Freitag"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "</div>"+
+                  "</div>"+
+
+                  //Samstag
+                  "<div class='col'>"+
+                    "<div class='row'>Samstag"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "</div>"+
+                  "</div>"+
+
+                  //Sonntag
+                  "<div class='col'>"+
+                    "<div class='row'>Sonntag"+
+                    "</div>"+
+                    "<div class='row'>"+
+                    "</div>"+
+                  "</div>"+
+                "</div>"+
+              "</div>"+
+            "</div>"
+*/
             /*Test how to get Data form MedicationList Array
             $scope.testLocal = function(){
             //  for(var i = 0; i < localStorage.MedicationList.medication.length; i++){ +[i]
@@ -200,44 +317,40 @@ angular.module('starter.medicationController', ['ngCordova'])
 
 
 
-            $scope.header = [{title:'MediName', class:'HeaderBlock'},
-                             {title:'Häufigkeit',class:'HeaderBlock'},
-                             {title:'Intervall',class:'HeaderBlock'},
-                             {title:'DeleteButton', source:'/img/trash-logo-icon-61182.png', class:'HeaderBlock' }]
-
-            $scope.img = [{imagePath:'', class:'mediImage'}]
-
-            $scope.imgSchema = [{source:'/img/Morning.png' , class:'HeaderBlock'},
-                                {source:'/img/Noon.png' , class:'HeaderBlock'},
-                                {source:'/img/Night.png' , class:'HeaderBlock'},
-                                {source:'/img/moon.png' , class:'HeaderBlock'}]
-
-            $scope.timeSchema = [{title: "Morgen" , class:'HeaderBlock'},
-                                 {title: "Mittag" , class:'HeaderBlock'},
-                                 {title: "Abend" , class:'HeaderBlock'},
-                                 {title: "Nacht" , class:'HeaderBlock'}]
+            $scope.header = [{title:'MediName', class:'HeaderBlock MediNameSize'}]
 
 
-            $scope.buttonSchema = [{title: "Morgen" , class:'HeaderBlock'},
-                                   {title: "Mittag" , class:'HeaderBlock'},
-                                   {title: "Abend" , class:'HeaderBlock'},
-                                   {title: "Nacht" , class:'HeaderBlock'}]
+            $scope.deleteImg = [{title:'DeleteButton', source:'/img/trash-logo-icon-61182.png', class:'HeaderBlock' }]
 
-            $scope.lableIntervall = [{title:"Mo.", class:'HeaderBlock'},
-                                     {title:"Di.", class:'HeaderBlock'},
-                                     {title:"Mi.", class:'HeaderBlock'},
-                                     {title:"Do.", class:'HeaderBlock'},
-                                     {title:"Fr.", class:'HeaderBlock'},
-                                     {title:"Sa.", class:'HeaderBlock'},
-                                     {title:"So.", class:'HeaderBlock'}]
+            $scope.img = [{source:'/img/Sotalol.jpg', class:'mediImage'}]
 
-            $scope.buttonIntervall = [{title:"Mo.", class:'HeaderBlock'},
-                                      {title:"Di.", class:'HeaderBlock'},
-                                      {title:"Mi.", class:'HeaderBlock'},
-                                      {title:"Do.", class:'HeaderBlock'},
-                                      {title:"Fr.", class:'HeaderBlock'},
-                                      {title:"Sa.", class:'HeaderBlock'},
-                                      {title:"So.", class:'HeaderBlock'}]
+
+            $scope.timeSchema = [{title: "Morgen" , class:'HeaderBlock labelSchemaSpacer'},
+                                 {title: "Mittag" , class:'HeaderBlock labelSchemaSpacer'},
+                                 {title: "Abend" , class:'HeaderBlock labelSchemaSpacer '},
+                                 {title: "Nacht" , class:'HeaderBlock labelSchemaSpacer '}]
+
+
+            $scope.buttonSchema = [{title: "Morgen" , class:'HeaderBlock buttonSchemaSpacer fixer1'},
+                                   {title: "Mittag" , class:'HeaderBlock buttonSchemaSpacer fixer2'},
+                                   {title: "Abend" , class:'HeaderBlock buttonSchemaSpacer fixer3'},
+                                   {title: "Nacht" , class:'HeaderBlock buttonSchemaSpacer fixer4'}]
+
+            $scope.lableIntervall = [{title:"Mo.", class:'HeaderBlock labelIntervallSpacer'},
+                                     {title:"Di.", class:'HeaderBlock labelIntervallSpacer fixer1'},
+                                     {title:"Mi.", class:'HeaderBlock labelIntervallSpacer fixer1'},
+                                     {title:"Do.", class:'HeaderBlock labelIntervallSpacer fixer1'},
+                                     {title:"Fr.", class:'HeaderBlock labelIntervallSpacer fixer1'},
+                                     {title:"Sa.", class:'HeaderBlock labelIntervallSpacer fixer1'},
+                                     {title:"So.", class:'HeaderBlock labelIntervallSpacer fixer1'}]
+
+            $scope.buttonIntervall = [{title:"Mo.", class:'HeaderBlock buttonIntervallSpacer '},
+                                      {title:"Di.", class:'HeaderBlock buttonIntervallSpacer fixer1 '},
+                                      {title:"Mi.", class:'HeaderBlock buttonIntervallSpacer fixer1'},
+                                      {title:"Do.", class:'HeaderBlock buttonIntervallSpacer fixer1'},
+                                      {title:"Fr.", class:'HeaderBlock buttonIntervallSpacer fixer1'},
+                                      {title:"Sa.", class:'HeaderBlock buttonIntervallSpacer fixer1'},
+                                      {title:"So.", class:'HeaderBlock buttonIntervallSpacer fixer1'}]
 
 
             $scope.Medi1 = {
