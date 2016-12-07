@@ -1,3 +1,6 @@
+.col{
+  height : auto;
+}
 .wrapper{
   position:absolute;
    width:100%;
