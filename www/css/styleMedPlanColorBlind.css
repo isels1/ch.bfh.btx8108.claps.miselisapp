@@ -41,6 +41,7 @@
 
 .medButtonTaken{
   align-items: center;
+    margin-top: 7%;
   height: 42%;
   width: 42%;
   content: url("../img/ButtonMediColorBlindTaken.png");
@@ -48,6 +49,7 @@
 
 .medButtonNotTaken{
   align-items: center;
+    margin-top: 7%;
   height: 42%;
   width: 42%;
   content: url("../img/ButtonMediColorBlindNotTaken.png");

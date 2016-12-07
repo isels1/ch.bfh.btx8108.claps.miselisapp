@@ -2,7 +2,7 @@ angular.module('starter.medicationController', ['ngCordova'])
 
 
 .controller('medplanCtrl', function ($scope, $state, $ionicPopup, I4MIMidataService) {
-            $scope.header = [{title:'', class:'HeaderBlock'},
+            $scope.header = [{title:'', class:'colSize bigger'},
                              {title:'Morgen',class:'MorningColor'},
                              {title:'Mittag',class:'NoonColor'},
                              {title:'Abend',class:'EveningColor'},
@@ -16,10 +16,10 @@ angular.module('starter.medicationController', ['ngCordova'])
                            {title:'Sa'},
                            {title:'So'}];
 
-            $scope.time = [{title:'Morgen',text:'',class:'MorningColor '},
-                           {title:'Mittag',class:'NoonColor '},
-                           {title:'Abend',class:'EveningColor '},
-                           {title:'Nacht',class:'NightColor'}];
+            $scope.time = [  {title:'Morgen',text:'',class:'MorningColor colSize morning '},
+                           {title:'Mittag',class:'NoonColor colSize noon'},
+                           {title:'Abend',class:'EveningColor colSize evening '},
+                           {title:'Nacht',class:'NightColor colSize night'}];
 
 
             $scope.showLocalStorage = function(){

@@ -84,10 +84,53 @@
   width: 30%;
   content: url("../img/ButtonMediGray.png");
 }
-
 .colSize{
-  width: 20%;
+  float: left;
+  max-width: 25%;
 }
+ .colSize.bigger{
+    max-width: 10% !important;
+    text-align: center;
+
+ }
+
+.colSize.morning{
+  min-width: 22.7%;
+  max-width: 22.7%;
+  margin-top: -2.1%;
+  margin-left: -6.4%;
+}
+.colSize.noon{
+  min-width: 22.8%;
+  max-width: 22.8%;
+  margin-top: -2.1%;
+
+}
+.colSize.evening{
+  min-width: 22.7%;
+  max-width: 22.7%;
+  margin-top: -2.1%;
+  margin-right: ;
+
+}
+.colSize.night{
+  min-width: 22.78%;
+  max-width: 22.78%;
+  margin-top: -2.1%;
+  margin-right: -0.6%;
+
+
+}
+
+.TextDefine{
+  min-width: 10%;
+  max-width: 10%;
+  text-align: center;
+  font-size: 1.5vw;
+  margin-right: 6%;
+}
+
+
 
 .HeaderBlock{
   background-color: #FFFFFF;
@@ -112,4 +155,10 @@
 .NightColor{
   background-color: #3399FF;
   font-size: 1vw;
+}
+
+.setMedPlan{
+  width: 100%;
+  font-size: 1.5vw;
+  text-align: center;
 }

@@ -42,6 +42,7 @@
 
 .medButtonTaken{
   align-items: center;
+  margin-top: 7%;
   height: 42%;
   width: 42%;
   content: url("../img/ButtonMediTaken.png");
@@ -49,6 +50,7 @@
 
 .medButtonNotTaken{
   align-items: center;
+    margin-top: 7%;
   height: 42%;
   width: 42%;
   content: url("../img/ButtonMediNotTaken.png");
