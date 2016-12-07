@@ -94,6 +94,29 @@
 
  }
 
+ .my-custom-popup{
+     .popup{
+       width: 80%;
+       height: 100%;
+     }
+     .popup-head{
+       width: 80%;
+       height: 100%;
+     }
+     .popup-title{
+       font-size: 2vw;
+     }
+     .popup-sub-title{
+     font-size: 2vw;
+     }
+     .popup-body{
+        width: 80%;
+        height: 100%;
+     }
+   }
+
+
+
 .colSize.morning{
   min-width: 22.7%;
   max-width: 22.7%;

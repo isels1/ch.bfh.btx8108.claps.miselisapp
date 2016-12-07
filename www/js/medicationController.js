@@ -56,7 +56,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                              title: 'Medikamente',
                              subTitle: 'Bitte tragen Sie die eingenommenen Medikamente ein',
                              scope: $scope,
-                             cssClass: 'styleMedPlan',
+                             cssClass: 'my-custom-popup',
                              buttons: [
                                        { text: 'Cancel' },
                                        {
