@@ -153,7 +153,7 @@ angular.module('starter.medicationController', ['ngCordova'])
             "<div class='row MediTemplate'>"+
               "<div class='{{header.class}}' ng-repeat='header in header'>{{header.title}}</div>"+
             "<div class='row'>"+
-                "<img class=' MediImg' src='/img/Sotalol.jpg'></img>"+
+                "<img class=' MediImg MediMediImg'></img>"+
               "<div class='col'>"+
                 "<div class='row'>"+
                   "<div class='{{timeSchema.class}}' ng-repeat='timeSchema in timeSchema' id='{{ 'timeSchema'+$index}}'>{{timeSchema.title}}</div>"+
@@ -170,8 +170,8 @@ angular.module('starter.medicationController', ['ngCordova'])
                   "<div class='{{buttonIntervall.class}} buttonStatusIMG imgMediList' ng-repeat='buttonIntervall in buttonIntervall' ng-click='changeStatus()' id='{{ 'buttonIntervall'+$index}}'>{{buttonIntervall.title}}</div>"+
                 "</div>"+
               "</div>"+
-              "<img class='ThrashImg' src='/img/pen-8.png'></img>"+
-              "<img class='ThrashImg' src='/img/trash-logo-icon-61182.png'></img>"+
+              "<img class='SettingsImg'></img>"+
+              "<img class='ThrashImg'></img>"+
             "</div>";
 
 
