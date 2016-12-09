@@ -7,6 +7,22 @@
    height:100%;
 }
 
+.amountDayTime{
+  visibility: hidden;
+  margin-top: 7%;
+  margin-left: 10%;
+}
+
+.AnzahlSpacer{
+  visibility: hidden;
+  margin-left: 10%;
+}
+.fixer1{
+  margin-left: 17%;
+}
+.fixer2{
+  margin-left: 20%;
+}
 .menuButtons{
     width: 8%;
     height: 8%;

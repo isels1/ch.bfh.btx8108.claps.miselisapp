@@ -175,150 +175,7 @@ angular.module('starter.medicationController', ['ngCordova'])
             "</div>";
 
 
-            /*
-            "<div class='row'>"+
-              //MediCol
-              "<div class='col'>"+
-                //MediName
-                "<div class='row'>MediName"
-                "</div>"+
-                //MediPicture
-                "<div class='row'>"+
-                "</div>"+
-              "</div>"+
-              //DayTime
-              "<div class='col'>"+
-                //Description
-                "<div class='row'>Tageszeiten"+
-                "</div>"+
-                //Visual
-                "<div class='row'>"+
-                  //Morgen
-                  "<div class='col'>"+
-                    "<div class='row'>Morgen"+
-                    "</div>"+
-                    "<div class='row'>"+
-                    "</div>"+
-                  "</div>"+
-                  //Mittag
-                  "<div class='col'>"+
-                    "<div class='row'>Mittag"+
-                    "</div>"+
-                    "<div class='row'>"+
-                    "</div>"+
-                  "</div>"+
-                  //Abend
-                  "<div class='col'>"+
-                    "<div class='row'>Abend"+
-                    "</div>"+
-                    "<div class='row'>"+
-                    "</div>"+
-                  "</div>"+
-                  //Nacht
-                  "<div class='col'>"+
-                    "<div class='row'>Nacht"+
-                    "</div>"+
-                    "<div class='row'>"+
-                    "</div>"+
-                  "</div>"+
-                "</div>"+
-              "</div>"+
-
-              //Day
-              "<div class='col'>"+
-
-                //Description
-                "<div class='row'>Wochentage"+
-                "</div>"+
-
-                //Visual
-                "<div class='row'>"+
-
-                  //Montag
-                  "<div class='col'>"+
-                    "<div class='row'> Montag"+
-                    "</div>"+
-                    "<div class='row'>"+
-                    "</div>"+
-                  "</div>"+
-
-                  //Dienstag
-                  "<div class='col'>"+
-                    "<div class='row'>Dienstag"+
-                    "</div>"+
-                    "<div class='row'>"+
-                    "</div>"+
-                  "</div>"+
-
-                  //Mittwoch
-                  "<div class='col'>"+
-                    "<div class='row'>Mittwoch"+
-                    "</div>"+
-                    "<div class='row'>"+
-                    "</div>"+
-                  "</div>"+
-
-                  //Donnerstag
-                  "<div class='col'>"+
-                    "<div class='row'>Donnerstag"+
-                    "</div>"+
-                    "<div class='row'>"+
-                    "</div>"+
-                  "</div>"+
-
-                  //Freitag
-                  "<div class='col'>"+
-                    "<div class='row'>Freitag"+
-                    "</div>"+
-                    "<div class='row'>"+
-                    "</div>"+
-                  "</div>"+
-
-                  //Samstag
-                  "<div class='col'>"+
-                    "<div class='row'>Samstag"+
-                    "</div>"+
-                    "<div class='row'>"+
-                    "</div>"+
-                  "</div>"+
-
-                  //Sonntag
-                  "<div class='col'>"+
-                    "<div class='row'>Sonntag"+
-                    "</div>"+
-                    "<div class='row'>"+
-                    "</div>"+
-                  "</div>"+
-                "</div>"+
-              "</div>"+
-            "</div>"
-*/
-            /*Test how to get Data form MedicationList Array
-            $scope.testLocal = function(){
-            //  for(var i = 0; i < localStorage.MedicationList.medication.length; i++){ +[i]
-                var data = JSON.parse(localStorage.getItem("MedicationList"));
-
-                for(var i = 0; i < data.medication.length; i++) {
-                var obj = data.medication[i];
-                console.log(obj);}
-            };*/
-
-            $scope.loadMediList = function(divName) {
-              var data = JSON.parse(localStorage.getItem("MedicationList"));
-
-              for(var i = 0; i < data.medication.length; i++) {
-                var newElement = document.createElement('div');
-                newElement.innerHTML = $scope.MedTempelate;
-                $compile(document.getElementById(divName).appendChild(newElement))($scope);
-              }
-
-            };
-
-
-
-
             $scope.header = [{title:'MediName', class:'HeaderBlock MediNameSize'}]
-
 
             $scope.deleteImg = [{title:'DeleteButton', source:'/img/trash-logo-icon-61182.png', class:'HeaderBlock' }]
 
@@ -353,83 +210,48 @@ angular.module('starter.medicationController', ['ngCordova'])
                                       {title:"So.", class:'HeaderBlock buttonIntervallSpacer fixer1'}]
 
 
-            $scope.Medi1 = {
-              id: '0',
-              name: 'Antibiotika',
-              dose: 25,
-              unit: 'mg',
-              schema: {
-                Morning: {
-                  amount: 'state',
-                  state: 1,
-                },
-                Noon: {
-                  amount: 'state',
-                  state: 0,
-                },
-                Evening: {
-                  amount: 'state',
-                  state: 1,
-                },
-                Night: {
-                  amount: 'state',
-                  state: 0,
-                }
-              },
-              interval: ["Mo", "Di", "Mi", "Do", "Fr"],
-              startDate: '12.12.2016',
-              endDate: '31.12.2016',
-              img: 'url-goes-here'
-              }
 
-            $scope.Medi2 = {
-              id: '1',
-              name: 'Parazetamol',
-              dose: 25,
-              unit: 'mg',
-              schema: {
-                Morning: {
-                  amount: 'state',
-                  state: 3,
-                },
-                Noon: {
-                  amount: 'state',
-                  state: 1,
-                },
-                Evening: {
-                  amount: 'state',
-                  state: 0,
-                },
-                Night: {
-                  amount: 'state',
-                  state: 2,
-                }
-              },
-              interval: ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"],
-              startDate: '12.12.2016',
-              endDate: '18.12.2016',
-              img: 'url-goes-here'
+          $scope.loadMediList = function(divName) {
+            var data = JSON.parse(localStorage.getItem("MedicationList"));
+            if(data !== null){
+              for(var i = 0; i < data.medication.length; i++) {
+                var newElement = document.createElement('div');
+                newElement.innerHTML = $scope.MedTempelate;
+                $compile(document.getElementById(divName).appendChild(newElement))($scope);
               }
+            }
+          };
 
             $scope.CheckboxStatchange = function(event){
                  var targetID = event.target.id;
                  var img1 = "img/Xnormal.png";
+                 var targetElement = "amount" + targetID;
+                 var targetAnzahl = "anzahl" + targetID;
 
                  if(document.getElementById(targetID).getAttribute("data-id") == "unchecked"){
                   document.getElementById(targetID).src = "img/checked-checkbox-512.png";
                   document.getElementById(targetID).setAttribute("data-id", "checked")
+                  if(targetID == "DayTimeMoring" || targetID == "DayTimeNoon" || targetID == "DayTimeEvening" || targetID == "DayTimeNight"){
+                  document.getElementById(targetElement).style.visibility = "visible" ;
+                  document.getElementById(targetAnzahl).style.visibility = "visible" ;
+                }
                 }else{
                   document.getElementById(targetID).src = "img/Xnormal.png";
                   document.getElementById(targetID).setAttribute("data-id", "unchecked")
+                  if(targetID == "DayTimeMoring" || targetID == "DayTimeNoon" || targetID == "DayTimeEvening" || targetID == "DayTimeNight"){
+                  document.getElementById(targetElement).style.visibility = "hidden" ;
+                  document.getElementById(targetAnzahl).style.visibility = "hidden" ;
+                }
                 }
             }
+
 
             $scope.addMedicament = function(){
 
             var customTemplate =
             '<div>'+
             //Header
-            '<div class="row MediPopUpStyle"/>'+
+            '<div class="row MediPopUpStyle" id="medi"/>'+
               '<div class="row">'+
                 //Name
                 '<div class="col PopUpLabel">'+
@@ -439,7 +261,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                 //Camera
                 '<div class="col PopUpLabel">'+
                 '<img class="CreateMediButton" ng-show="imgURI !== undefined" ng-src="{{imgURI}}" ng-click="takePicture()">' +
-                '<img class="CreateMediButton" ng-show="imgURI === undefined" ng-src="img/camera.png" ng-click="takePicture()">' +
+                '<img class="CreateMediButton" ng-show="imgURI === undefined" ng-src="img/camera.png" ng-click="takePicture()" id="PictureMedi">' +
                 '</div>'+
               '</div>'+
             '</div>'+
@@ -462,36 +284,44 @@ angular.module('starter.medicationController', ['ngCordova'])
                 '<div class="col gg">'+
                   '<div class="row">'+
                     '<label class="Spacer">Morgen</label>'+
+                    '<label class="AnzahlSpacer" id="anzahlDayTimeMoring">Anzahl</label>'+
                   '</div>'+
                   '<div class="row">'+
                     '<img class="ImgDayPopUp Spacer" src="img/Xnormal.png" ng-click="CheckboxStatchange($event)"  data-id="unchecked" id="DayTimeMoring">'+
+                    '<input type="number" class="amountDayTime" id="amountDayTimeMoring"></input>'+
                   '</div>'+
                 '</div>'+
               //Noon
                 '<div class="col gg">'+
                   '<div class="row">'+
                     '<label class="Spacer">Mittag</label>'+
+                    '<label class="AnzahlSpacer fixer1" id="anzahlDayTimeNoon">Anzahl</label>'+
                   '</div>'+
                   '<div class="row">'+
                     '<img class="ImgDayPopUp Spacer" src="img/Xnormal.png" ng-click="CheckboxStatchange($event)"  data-id="unchecked" id="DayTimeNoon">'+
+                    '<input type="number" class="amountDayTime" id="amountDayTimeNoon"></input>'+
                   '</div>'+
                 '</div>'+
               //Evening
                 '<div class="col gg">'+
                   '<div class="row">'+
                     '<label class="Spacer">Abend</label>'+
+                    '<label class="AnzahlSpacer fixer1" id="anzahlDayTimeEvening">Anzahl</label>'+
                   '</div>'+
                   '<div class="row">'+
                     '<img class="ImgDayPopUp Spacer" src="img/Xnormal.png" ng-click="CheckboxStatchange($event)"  data-id="unchecked" id="DayTimeEvening">'+
+                    '<input type="number" class="amountDayTime" id="amountDayTimeEvening"></input>'+
                   '</div>'+
                 '</div>'+
               //Noon
                 '<div class="col gg">'+
                   '<div class="row">'+
                     '<label class="Spacer">Nacht</label>'+
+                    '<label class="AnzahlSpacer fixer2" id="anzahlDayTimeNight">Anzahl</label>'+
                   '</div>'+
                   '<div class="row">'+
                     '<img class="ImgDayPopUp Spacer" src="img/Xnormal.png" ng-click="CheckboxStatchange($event)" data-id="unchecked" id="DayTimeNight">'+
+                    '<input type="number" class="amountDayTime" id="amountDayTimeNight"></input>'+
                   '</div>'+
                 '</div>'+
               '</div>'+//DayTime div
@@ -588,29 +418,125 @@ angular.module('starter.medicationController', ['ngCordova'])
                                          text: '<b>Speichern</b>',
                                          type: 'button-positive',
                                          onTap: function(e) {
+                                           var MediName = document.getElementById("MediName").value;
+                                           var DayTimeMoring = document.getElementById("DayTimeMoring").value;
+                                           var DayTimeNoon = document.getElementById("DayTimeNoon").value;
+                                           var DayTimeEvening = document.getElementById("DayTimeEvening").value;
+                                           var DayTimeNight = document.getElementById("DayTimeNight").value;
+                                           var amountDayTimeMoring = document.getElementById("amountDayTimeMoring").value;
+                                           var amountDayTimeNoon = document.getElementById("amountDayTimeNoon").value;
+                                           var amountDayTimeEvening = document.getElementById("amountDayTimeEvening").value;
+                                           var amountDayTimeNight = document.getElementById("amountDayTimeNight").value;
+                                           var DayMo = document.getElementById("DayMo").value;
+                                           var DayDi = document.getElementById("DayDi").value;
+                                           var DayMi = document.getElementById("DayMi").value;
+                                           var DayDo = document.getElementById("DayDo").value;
+                                           var DayFr = document.getElementById("DayFr").value;
+                                           var DaySa = document.getElementById("DaySa").value;
+                                           var DaySo = document.getElementById("DaySo").value;
+                                           var MediStartDate = document.getElementById("MediStartDate").value;
                                            var MediEndDate = document.getElementById("MediEndDate").value;
-                                         console.log(MediEndDate);
+                                           //$scope.PictureMedi.setItem(customTemplate.getElementById("PictureMedi").value);
+                                           $scope.saveMedi(MediName , DayTimeMoring, DayTimeNoon, DayTimeEvening, DayTimeNight,
+                                            DayMo,  DayDi,  DayMi,  DayDo,  DayFr, DaySa,  DaySo,  MediStartDate,  MediEndDate);
+
+                                           /*var MediName = template.getElementById("MediName").value;
+
+                                            amountDayTimeMoring, amountDayTimeNoon, amountDayTimeEvening, amountDayTimeNight,
+                                            e.saveMedi(MediName,
+                                              DayTimeMoring,  DayTimeNoon,  DayTimeEvening,  DayTimeNight,
+                                              amountDayTimeMoring,  amountDayTimeNoon,  amountDayTimeEvening,  amountDayTimeNight,
+                                              DayMo,  DayDi,  DayMi,  DayDo,  DayFr,  DaySa,  DaySo,
+                                              MediEndDate,  MediStartDate/*,$scope.PictureMedi)*/
+
+
+
+                                         }
                                        }
-                                       }
-                                       ]
-                             });
+                                         ]
+                               });
 
 
-            };
+              };
 
-//camera example
-$scope.takePicture = function() {
-        var options = {
-            quality : 75,
-            destinationType : Camera.DestinationType.DATA_URL,
-            sourceType : Camera.PictureSourceType.CAMERA,
-            allowEdit : true,
-            encodingType: Camera.EncodingType.JPEG,
-            targetWidth: 300,
-            targetHeight: 300,
-            popoverOptions: CameraPopoverOptions,
-            saveToPhotoAlbum: false
-        };
+              $scope.medList =  {
+                medication: []
+              }
+              $scope.id = 0;
+
+              $scope.saveMedi = function ( MediName,
+                DayTimeMoring, DayTimeNoon, DayTimeEvening, DayTimeNight,
+                //amountDayTimeMoring, amountDayTimeNoon, amountDayTimeEvening, amountDayTimeNight,
+                DayMo, DayDi, DayMi, DayDo, DayFr, DaySa, DaySo,
+                MediEndDate, MediStartDate//, PictureMedi
+              ) {
+                  $scope.data = JSON.parse(localStorage.getItem("MedicationList"));
+
+                  if($scope.data !== null && $scope.id == 0){
+                    for(var i = 0; i <= $scope.data.medication.length; i++){
+                      $scope.id = $scope.id + i;
+                    }
+                  }
+
+
+                  var localContact = {
+                    id: $scope.id,
+                    name: MediName,
+                    schema: {
+                      Morning: {
+                        //amount: amountDayTimeMoring,
+                        state: DayTimeMoring,
+                      },
+                      Noon: {
+                        //amount: amountDayTimeNoon,
+                        state: DayTimeNoon,
+                      },
+                      Evening: {
+                        //amount: amountDayTimeEvening,
+                        state: DayTimeEvening,
+                      },
+                      Night: {
+                        //amount: amountDayTimeNight,
+                        state: DayTimeNight,
+                      }
+                    },
+                    interval: [DayMo, DayDi, DayMi, DayDo, DayFr, DaySa, DaySo],
+                    startDate: MediStartDate,
+                    endDate: MediEndDate,
+                    //img: PictureMedi
+                    }
+
+                $scope.medList.medication.push(localContact)
+                localStorage.setItem("MedicationList", JSON.stringify($scope.medList));
+
+                var data = JSON.parse(localStorage.getItem("MedicationList"));
+
+                var element = document.getElementById("MediBox");
+                while (element.firstChild) {
+                  $compile(element.removeChild(element.firstChild));
+                }
+
+
+                for(var i = 0; i < data.medication.length; i++) {
+                  var newElement = document.createElement('div');
+                  newElement.innerHTML = $scope.MedTempelate;
+                  $compile(document.getElementById('MediBox').appendChild(newElement))($scope);
+                }
+              }
+
+        //camera example
+        $scope.takePicture = function() {
+                var options = {
+                    quality : 75,
+                    destinationType : Camera.DestinationType.DATA_URL,
+                    sourceType : Camera.PictureSourceType.CAMERA,
+                    allowEdit : true,
+                    encodingType: Camera.EncodingType.JPEG,
+                    targetWidth: 300,
+                    targetHeight: 300,
+                    popoverOptions: CameraPopoverOptions,
+                    saveToPhotoAlbum: false
+                };
 
         $cordovaCamera.getPicture(options).then(function(imageData) {
             $scope.imgURI = "data:image/jpeg;base64," + imageData;
@@ -621,32 +547,9 @@ $scope.takePicture = function() {
 
 
 
-            $scope.saveLocalStorage = function(divName){
-            var medList =  {
-                medication: []
-            }
-            medList.medication.push($scope.Medi1);
-            medList.medication.push($scope.Medi2);
-
-            localStorage.setItem("MedicationList", JSON.stringify(medList));
-            //localStorage.setItem("Medi1", JSON.stringify($scope.Medi1) );
-            //localStorage.setItem("Medi2", JSON.stringify($scope.Medi2) );
-            }
 
 
 
-
-            for(var i = 0; i < localStorage.length; i++){
-            //data.push(localStorage.getItem("Medi".concat(i)));
-            $scope.data = JSON.parse(localStorage.getItem("Medi".concat(i)));
-            };
-
-            /*for(var i = data.length - 1; i >= 0; i--) {
-             if(data[i] === null) {
-             data.splice(i, 1);
-             }};
-
-             };*/
 
             $scope.openmedi = function () {
               $state.go('medplan');
