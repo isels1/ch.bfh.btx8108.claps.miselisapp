@@ -249,7 +249,7 @@
   height: 10%;
   width: 10%;
   font-size: 1.5vw;
-  margin-left: -27%;
+  margin-left: ;
   text-align: center;
 }
 
@@ -260,43 +260,50 @@
 
 .labelSchemaSpacer{
   height: 12%;
-  width: 17%;
+  width: 23%;
   font-size: 1.5vw;
-  margin-left: 1%;
   text-align: center;
+  margin-left: 1%;
 }
 
 .MediNameSize{
   width: 30%;
 }
 
+.datumSpacer{
+  margin-top: 4.5%
+
+}
+
+.pullItBack{
+  margin-left: -200%;
+}
 
 .buttonSchemaSpacer{
   height: 10% !important;
   width: 10% !important;
-  margin-left: 5%;
+  margin-left: 10%;
   margin-top: 1%;
   float: left;
 }
 
 .buttonSchemaSpacer.fixer1{
-  margin-left: 5%;
+  margin-left: 8%;
 }
 .buttonSchemaSpacer.fixer2{
-    margin-left: 7.5%;
+    margin-left: 14%;
 }
 .buttonSchemaSpacer.fixer3{
-    margin-left: 8%;
+    margin-left: 14%;
 }
 .buttonSchemaSpacer.fixer4{
-  margin-left: 8%;
+  margin-left: 14%;
 }
 
 
 .buttonIntervallSpacer{
   height: 10% !important;
   width: 10% !important;
-  margin-left: -27%;
   margin-top: 1%;
   float: left;
 }

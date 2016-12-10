@@ -152,26 +152,40 @@ angular.module('starter.medicationController', ['ngCordova'])
             $scope.MedTempelate =
             "<div class='row MediTemplate'>"+
               "<div class='{{header.class}}' ng-repeat='header in header'>{{header.title}}</div>"+
-            "<div class='row'>"+
+              "<div class='row'>"+
                 "<img class=' MediImg MediMediImg'></img>"+
-              "<div class='col'>"+
-                "<div class='row'>"+
-                  "<div class='{{timeSchema.class}}' ng-repeat='timeSchema in timeSchema' id='{{ 'timeSchema'+$index}}'>{{timeSchema.title}}</div>"+
+                "<div class='col'>"+
+                  "<div class='row'>"+
+                    "<div class='{{timeSchema.class}}' ng-repeat='timeSchema in timeSchema' id='{{ 'timeSchema'+$index}}'>{{timeSchema.title}}</div>"+
+                  "</div>"+
+                  "<div class='row'>"+
+                    "<div class='{{buttonSchema.class}} buttonStatusIMG' ng-repeat='buttonSchema in buttonSchema' ng-click='changeStatus()' id='{{ 'buttonSchema'+$index}}'>{{buttonSchema.title}}</div>"+
+                  "</div>"+
+                  "<div class='row'>"+
+                    "<div class='{{amountSchema.class}}' ng-repeat='amountSchema in amountSchema'  id='{{ 'amountSchema'+$index}}'>{{amountSchema.title}}</div>"+
+                  "</div>"+
                 "</div>"+
-                "<div class='row'>"+
-                  "<div class='{{buttonSchema.class}} buttonStatusIMG' ng-repeat='buttonSchema in buttonSchema' ng-click='changeStatus()' id='{{ 'buttonSchema'+$index}}'>{{buttonSchema.title}}</div>"+
+
+                "<div class='col'>"+
+                  "<div class='row'>"+
+                    "<div class='{{lableIntervall.class}}' ng-repeat='lableIntervall in lableIntervall' id='{{ 'lableIntervall'+$index}}'>{{lableIntervall.title}}</div>"+
+                  "</div>"+
+                  "<div class='row'>"+
+                    "<div class='{{buttonIntervall.class}} buttonStatusIMG imgMediList' ng-repeat='buttonIntervall in buttonIntervall' ng-click='changeStatus()' id='{{ 'buttonIntervall'+$index}}'>{{buttonIntervall.title}}</div>"+
+                  "</div>"+
                 "</div>"+
+
+                "<div class='col'>"+
+                  "<div class='row'>"+
+                    "<div class='{{startDatumMedi.class}}' ng-repeat='startDatumMedi in startDatumMedi' id='{{ 'startDatumMedi'+$index}}'>{{startDatumMedi.title}}</div>"+
+                  "</div>"+
+                  "<div class='row'>"+
+                    "<div class='{{startDatumMedi.class}}' ng-repeat='startDatumMedi in startDatumMedi' id='{{ 'startDatumMedi'+$index}}'>{{startDatumMedi.title}}</div>"+
+                  "</div>"+
+                "</div>"+
+                "<img class='SettingsImg'></img>"+
+                "<img class='ThrashImg'></img>"+
               "</div>"+
-              "<div class='col'>"+
-                "<div class='row'>"+
-                  "<div class='{{lableIntervall.class}}' ng-repeat='lableIntervall in lableIntervall' id='{{ 'lableIntervall'+$index}}'>{{lableIntervall.title}}</div>"+
-                "</div>"+
-                "<div class='row'>"+
-                  "<div class='{{buttonIntervall.class}} buttonStatusIMG imgMediList' ng-repeat='buttonIntervall in buttonIntervall' ng-click='changeStatus()' id='{{ 'buttonIntervall'+$index}}'>{{buttonIntervall.title}}</div>"+
-                "</div>"+
-              "</div>"+
-              "<img class='SettingsImg'></img>"+
-              "<img class='ThrashImg'></img>"+
             "</div>";
 
 
@@ -193,21 +207,30 @@ angular.module('starter.medicationController', ['ngCordova'])
                                    {title: "Abend" , class:'HeaderBlock buttonSchemaSpacer fixer3'},
                                    {title: "Nacht" , class:'HeaderBlock buttonSchemaSpacer fixer4'}]
 
-            $scope.lableIntervall = [{title:"Mo.", class:'HeaderBlock labelIntervallSpacer'},
-                                     {title:"Di.", class:'HeaderBlock labelIntervallSpacer fixer1'},
-                                     {title:"Mi.", class:'HeaderBlock labelIntervallSpacer fixer1'},
-                                     {title:"Do.", class:'HeaderBlock labelIntervallSpacer fixer1'},
-                                     {title:"Fr.", class:'HeaderBlock labelIntervallSpacer fixer1'},
-                                     {title:"Sa.", class:'HeaderBlock labelIntervallSpacer fixer1'},
-                                     {title:"So.", class:'HeaderBlock labelIntervallSpacer fixer1'}]
+            $scope.amountSchema = [{title: "Int" , class:'HeaderBlock buttonSchemaSpacer fixer1'},
+                                   {title: "Int" , class:'HeaderBlock buttonSchemaSpacer fixer2'},
+                                   {title: "Int" , class:'HeaderBlock buttonSchemaSpacer fixer3'},
+                                   {title: "Int" , class:'HeaderBlock buttonSchemaSpacer fixer4'}]
 
-            $scope.buttonIntervall = [{title:"Mo.", class:'HeaderBlock buttonIntervallSpacer '},
-                                      {title:"Di.", class:'HeaderBlock buttonIntervallSpacer fixer1 '},
-                                      {title:"Mi.", class:'HeaderBlock buttonIntervallSpacer fixer1'},
-                                      {title:"Do.", class:'HeaderBlock buttonIntervallSpacer fixer1'},
-                                      {title:"Fr.", class:'HeaderBlock buttonIntervallSpacer fixer1'},
-                                      {title:"Sa.", class:'HeaderBlock buttonIntervallSpacer fixer1'},
-                                      {title:"So.", class:'HeaderBlock buttonIntervallSpacer fixer1'}]
+            $scope.lableIntervall = [{title:"Mo", class:'HeaderBlock labelIntervallSpacer'},
+                                     {title:"Di", class:'HeaderBlock labelIntervallSpacer fixer1'},
+                                     {title:"Mi", class:'HeaderBlock labelIntervallSpacer fixer1'},
+                                     {title:"Do", class:'HeaderBlock labelIntervallSpacer fixer1'},
+                                     {title:"Fr", class:'HeaderBlock labelIntervallSpacer fixer1'},
+                                     {title:"Sa", class:'HeaderBlock labelIntervallSpacer fixer1'},
+                                     {title:"So", class:'HeaderBlock labelIntervallSpacer fixer1'}]
+
+            $scope.buttonIntervall = [{title:"Mo", class:'HeaderBlock buttonIntervallSpacer '},
+                                      {title:"Di", class:'HeaderBlock buttonIntervallSpacer fixer1 '},
+                                      {title:"Mi", class:'HeaderBlock buttonIntervallSpacer fixer1'},
+                                      {title:"Do", class:'HeaderBlock buttonIntervallSpacer fixer1'},
+                                      {title:"Fr", class:'HeaderBlock buttonIntervallSpacer fixer1'},
+                                      {title:"Sa", class:'HeaderBlock buttonIntervallSpacer fixer1'},
+                                      {title:"So", class:'HeaderBlock buttonIntervallSpacer fixer1'}]
+
+            $scope.startDatumMedi = [{title: "startDatumMedi", class:'HeaderBlock datumSpacer'}]
+
+            $scope.endDatumMedi = [{title: "endDatumMedi", class:'HeaderBlock datumSpacer'}]
 
           $scope.medList = {
               medication: []
@@ -436,37 +459,27 @@ angular.module('starter.medicationController', ['ngCordova'])
                                          type: 'button-positive',
                                          onTap: function(e) {
                                            var MediName = document.getElementById("MediName").value;
-                                           var DayTimeMoring = document.getElementById("DayTimeMoring").value;
-                                           var DayTimeNoon = document.getElementById("DayTimeNoon").value;
-                                           var DayTimeEvening = document.getElementById("DayTimeEvening").value;
-                                           var DayTimeNight = document.getElementById("DayTimeNight").value;
+                                           var DayTimeMoring = document.getElementById("DayTimeMoring").getAttribute("data-id");
+                                           var DayTimeNoon = document.getElementById("DayTimeNoon").getAttribute("data-id");
+                                           var DayTimeEvening = document.getElementById("DayTimeEvening").getAttribute("data-id");
+                                           var DayTimeNight = document.getElementById("DayTimeNight").getAttribute("data-id");
                                            var amountDayTimeMoring = document.getElementById("amountDayTimeMoring").value;
                                            var amountDayTimeNoon = document.getElementById("amountDayTimeNoon").value;
                                            var amountDayTimeEvening = document.getElementById("amountDayTimeEvening").value;
                                            var amountDayTimeNight = document.getElementById("amountDayTimeNight").value;
-                                           var DayMo = document.getElementById("DayMo").value;
-                                           var DayDi = document.getElementById("DayDi").value;
-                                           var DayMi = document.getElementById("DayMi").value;
-                                           var DayDo = document.getElementById("DayDo").value;
-                                           var DayFr = document.getElementById("DayFr").value;
-                                           var DaySa = document.getElementById("DaySa").value;
-                                           var DaySo = document.getElementById("DaySo").value;
+                                           var DayMo = document.getElementById("DayMo").getAttribute("data-id");
+                                           var DayDi = document.getElementById("DayDi").getAttribute("data-id");
+                                           var DayMi = document.getElementById("DayMi").getAttribute("data-id");
+                                           var DayDo = document.getElementById("DayDo").getAttribute("data-id");
+                                           var DayFr = document.getElementById("DayFr").getAttribute("data-id");
+                                           var DaySa = document.getElementById("DaySa").getAttribute("data-id");
+                                           var DaySo = document.getElementById("DaySo").getAttribute("data-id");
                                            var MediStartDate = document.getElementById("MediStartDate").value;
                                            var MediEndDate = document.getElementById("MediEndDate").value;
                                            //$scope.PictureMedi.setItem(customTemplate.getElementById("PictureMedi").value);
                                            $scope.saveMedi(MediName , DayTimeMoring, DayTimeNoon, DayTimeEvening, DayTimeNight,
                                              amountDayTimeMoring, amountDayTimeNoon, amountDayTimeEvening, amountDayTimeNight,
                                             DayMo,  DayDi,  DayMi,  DayDo,  DayFr, DaySa,  DaySo,  MediStartDate,  MediEndDate);
-
-                                           /*var MediName = template.getElementById("MediName").value;
-
-                                            ,
-                                            e.saveMedi(MediName,
-                                              DayTimeMoring,  DayTimeNoon,  DayTimeEvening,  DayTimeNight,
-                                              amountDayTimeMoring,  amountDayTimeNoon,  amountDayTimeEvening,  amountDayTimeNight,
-                                              DayMo,  DayDi,  DayMi,  DayDo,  DayFr,  DaySa,  DaySo,
-                                              MediEndDate,  MediStartDate/*,$scope.PictureMedi)*/
-
 
 
                                          }
@@ -506,19 +519,19 @@ angular.module('starter.medicationController', ['ngCordova'])
                     name: MediName,
                     schema: {
                       Morning: {
-                        //amount: amountDayTimeMoring,
+                        amount: amountDayTimeMoring,
                         state: DayTimeMoring,
                       },
                       Noon: {
-                        //amount: amountDayTimeNoon,
+                        amount: amountDayTimeNoon,
                         state: DayTimeNoon,
                       },
                       Evening: {
-                        //amount: amountDayTimeEvening,
+                        amount: amountDayTimeEvening,
                         state: DayTimeEvening,
                       },
                       Night: {
-                        //amount: amountDayTimeNight,
+                        amount: amountDayTimeNight,
                         state: DayTimeNight,
                       }
                     },
@@ -534,7 +547,6 @@ angular.module('starter.medicationController', ['ngCordova'])
                 console.log(localStorage.getItem("MedicationList"))
 
 
-
                 var data = JSON.parse(localStorage.getItem("MedicationList"));
 
                 var element = document.getElementById("MediBox");
@@ -545,7 +557,10 @@ angular.module('starter.medicationController', ['ngCordova'])
 
                 for(var i = 0; i < data.medication.length ; i++) {
                   var newElement = document.createElement('div');
+                  $scope.header[i].title = data.medication[i].medicament.name
+
                   newElement.innerHTML = $scope.MedTempelate;
+
                   $compile(document.getElementById('MediBox').appendChild(newElement))($scope);
                 }
               }
