@@ -80,9 +80,9 @@ angular.module('starter.medicationController', ['ngCordova'])
             $scope.data =[];
 
             var medList = JSON.parse(localStorage.getItem("MedicationList"));
-
+            console.log(medList);
             for(var i = 0; i < medList.medication.length; i++) {
-              var obj = medList.medication[i];
+              var obj = medList.medication[i].medicament;
 
               if (obj.interval.indexOf(day) !== -1)
               {
@@ -209,10 +209,21 @@ angular.module('starter.medicationController', ['ngCordova'])
                                       {title:"Sa.", class:'HeaderBlock buttonIntervallSpacer fixer1'},
                                       {title:"So.", class:'HeaderBlock buttonIntervallSpacer fixer1'}]
 
-
+          $scope.medList = {
+              medication: []
+            }
 
           $scope.loadMediList = function(divName) {
             var data = JSON.parse(localStorage.getItem("MedicationList"));
+
+            if(localStorage.getItem('MedicationList') != null){
+              $scope.medList ={
+                medication: [data.medication]
+
+              }
+            }
+
+
             if(data !== null){
               for(var i = 0; i < data.medication.length; i++) {
                 var newElement = document.createElement('div');
@@ -220,6 +231,12 @@ angular.module('starter.medicationController', ['ngCordova'])
                 $compile(document.getElementById(divName).appendChild(newElement))($scope);
               }
             }
+
+            if(localStorage.getItem("MedicattionID") ==  null){
+            localStorage.setItem("MedicattionID", 0);
+            }
+
+
           };
 
             $scope.CheckboxStatchange = function(event){
@@ -438,11 +455,12 @@ angular.module('starter.medicationController', ['ngCordova'])
                                            var MediEndDate = document.getElementById("MediEndDate").value;
                                            //$scope.PictureMedi.setItem(customTemplate.getElementById("PictureMedi").value);
                                            $scope.saveMedi(MediName , DayTimeMoring, DayTimeNoon, DayTimeEvening, DayTimeNight,
+                                             amountDayTimeMoring, amountDayTimeNoon, amountDayTimeEvening, amountDayTimeNight,
                                             DayMo,  DayDi,  DayMi,  DayDo,  DayFr, DaySa,  DaySo,  MediStartDate,  MediEndDate);
 
                                            /*var MediName = template.getElementById("MediName").value;
 
-                                            amountDayTimeMoring, amountDayTimeNoon, amountDayTimeEvening, amountDayTimeNight,
+                                            ,
                                             e.saveMedi(MediName,
                                               DayTimeMoring,  DayTimeNoon,  DayTimeEvening,  DayTimeNight,
                                               amountDayTimeMoring,  amountDayTimeNoon,  amountDayTimeEvening,  amountDayTimeNight,
@@ -459,27 +477,31 @@ angular.module('starter.medicationController', ['ngCordova'])
 
               };
 
-              $scope.medList =  {
-                medication: []
-              }
-              $scope.id = 0;
+
 
               $scope.saveMedi = function ( MediName,
                 DayTimeMoring, DayTimeNoon, DayTimeEvening, DayTimeNight,
-                //amountDayTimeMoring, amountDayTimeNoon, amountDayTimeEvening, amountDayTimeNight,
+                amountDayTimeMoring, amountDayTimeNoon, amountDayTimeEvening, amountDayTimeNight,
                 DayMo, DayDi, DayMi, DayDo, DayFr, DaySa, DaySo,
                 MediEndDate, MediStartDate//, PictureMedi
               ) {
                   $scope.data = JSON.parse(localStorage.getItem("MedicationList"));
+                  $scope.id = parseInt(localStorage.getItem("MedicattionID"));
+                  if($scope.data != null){
 
-                  if($scope.data !== null && $scope.id == 0){
-                    for(var i = 0; i <= $scope.data.medication.length; i++){
-                      $scope.id = $scope.id + i;
-                    }
+                      $scope.id = $scope.id + 1;
+
+                      localStorage.setItem("MedicattionID", $scope.id);
+
+                  }else if ($scope.data == null && $scope.id != 0) {
+                    $scope.id = 0;
+                    localStorage.setItem("MedicattionID", $scope.id);
                   }
 
 
-                  var localContact = {
+
+
+                  var medicament = {
                     id: $scope.id,
                     name: MediName,
                     schema: {
@@ -506,8 +528,12 @@ angular.module('starter.medicationController', ['ngCordova'])
                     //img: PictureMedi
                     }
 
-                $scope.medList.medication.push(localContact)
+                localStorage.getItem("MedicationList")
+                $scope.medList.medication.push({medicament})
                 localStorage.setItem("MedicationList", JSON.stringify($scope.medList));
+                console.log(localStorage.getItem("MedicationList"))
+
+
 
                 var data = JSON.parse(localStorage.getItem("MedicationList"));
 
@@ -517,7 +543,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                 }
 
 
-                for(var i = 0; i < data.medication.length; i++) {
+                for(var i = 0; i < data.medication.length ; i++) {
                   var newElement = document.createElement('div');
                   newElement.innerHTML = $scope.MedTempelate;
                   $compile(document.getElementById('MediBox').appendChild(newElement))($scope);
