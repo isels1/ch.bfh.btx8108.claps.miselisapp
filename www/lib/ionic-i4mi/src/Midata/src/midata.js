@@ -406,7 +406,7 @@ angular.module('i4mi', ['i4mi.templates','i4mi.defaults','ionic','ionic-datepick
 		name: "controllerName",
 		templateUrl: 'i4mi.midata.login.html',
 		link: function(scope, element, attrs) {
-			scope.viewClass = 'widget';
+			cope.viewClass = 'widget';
 			scope.openModal = function(){};
 			scope.closeModal = function(){};
 		}

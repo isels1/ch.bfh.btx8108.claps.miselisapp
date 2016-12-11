@@ -60,7 +60,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
       views: {
       'menuContent' :{
         templateUrl: 'templates/einstellungen.html',
-        controller : 'homeCtrl'
+        controller : 'settingsCtrl'
       }}
     })
 

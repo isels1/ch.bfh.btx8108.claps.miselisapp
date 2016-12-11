@@ -126,7 +126,7 @@ angular.module('starter.controllers', ['ngCordova'])
       if (window.localStorage.getItem("selectedContacts") != null) {
            contactList = JSON.parse(window.localStorage.getItem("selectedContacts"));
       }
-      
+
       var existing = false;
       var selectedContact = JSON.parse(Contact.contact);
       for (var i = 0; i < contactList.length; i++) {
@@ -281,4 +281,75 @@ angular.module('starter.controllers', ['ngCordova'])
             var chartBar = new ChartJS($configBar);
             chartBar.bar();
 
-            });
+            })
+
+.controller('settingsCtrl', function($scope, ionicTimePicker) {
+  var ipObj1 = {
+    callback: function (val) {      //Mandatory
+      if (typeof (val) === 'undefined') {
+        console.log('Time not selected');
+      } else {
+        var selectedTime = new Date(val * 1000);
+        if($scope.selectedTime == 'morning') {
+          window.localStorage.setItem('morningTime', selectedTime.getUTCHours() + ':' + selectedTime.getUTCMinutes());
+          document.getElementById('setTimeMorning').innerHTML = window.localStorage.getItem('morningTime');
+
+        } else if ($scope.selectedTime == 'noon') {
+          window.localStorage.setItem('noonTime', selectedTime.getUTCHours() + ':' + selectedTime.getUTCMinutes());
+          document.getElementById('setTimeNoon').innerHTML = window.localStorage.getItem('noonTime');
+
+        } else if ($scope.selectedTime == 'evening') {
+          window.localStorage.setItem('eveningTime', selectedTime.getUTCHours() + ':' + selectedTime.getUTCMinutes());
+          document.getElementById('setTimeEvening').innerHTML = window.localStorage.getItem('eveningTime');
+
+        } else if ($scope.selectedTime == 'night') {
+          window.localStorage.setItem('nightTime', selectedTime.getUTCHours() + ':' + selectedTime.getUTCMinutes());
+          document.getElementById('setTimeNight').innerHTML = window.localStorage.getItem('nightTime');
+
+        }
+        console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), 'H :', selectedTime.getUTCMinutes(), 'M');
+      }
+    },
+    inputTime: 50400,   //Optional
+    format: 24,         //Optional
+    step: 15,           //Optional
+    setLabel: 'Fertig',    //Optional
+    closeLabel: 'Abbrechen'
+  };
+
+  var morningTime = window.localStorage.getItem('morningTime');
+  var noonTime = window.localStorage.getItem('noonTime');
+  var eveningTime = window.localStorage.getItem('eveningTime');
+  var nightTime = window.localStorage.getItem('nightTime');
+
+  if (morningTime != null) {
+    document.getElementById('setTimeMorning').innerHTML = morningTime;
+  } else {
+    document.getElementById('setTimeMorning').innerHTML = 'Noch keine Einnahmezeit gesetzt.';
+  }
+  if (noonTime != null) {
+    document.getElementById('setTimeNoon').innerHTML = noonTime;
+  } else {
+    document.getElementById('setTimeNoon').innerHTML = 'Noch keine Einnahmezeit gesetzt.';
+  }
+  if (morningTime != null) {
+    document.getElementById('setTimeEvening').innerHTML = eveningTime;
+  } else {
+    document.getElementById('setTimeEvening').innerHTML = 'Noch keine Einnahmezeit gesetzt.';
+  }
+  if (morningTime != null) {
+    document.getElementById('setTimeNight').innerHTML = nightTime;
+  } else {
+    document.getElementById('setTimeNight').innerHTML = 'Noch keine Einnahmezeit gesetzt.';
+  }
+
+  $scope.changeTime = function(time) {
+    $scope.selectedTime = time;
+    ionicTimePicker.openTimePicker(ipObj1);
+  }
+
+
+
+
+
+});

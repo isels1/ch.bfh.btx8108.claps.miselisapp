@@ -87,3 +87,53 @@
 #sideButtonright{
   float: right;
 }
+
+/*----------------------------------*/
+/*-----------            -----------*/
+/*-----------  SETTINGS  -----------*/
+/*-----------            -----------*/
+/*----------------------------------*/
+
+.mornigSettings {
+  height: 20%;
+  /*position:relative;*/
+  display: flex;
+  /*justify-content: center;*/
+}
+
+.noonSettings {
+  height: 20%;
+  /*position:relative;*/
+  display: flex;
+  /*justify-content: center;*/
+}
+
+.eveningSettings {
+  height: 20%;
+  /*position:relative;*/
+  display: flex;
+  /*justify-content: center;*/
+}
+
+.nightSettings {
+  height: 20%;
+  /*position:relative;*/
+  display: flex;
+  /*justify-content: center;*/
+}
+
+.settingTitle {
+  float:left;
+  width: 20%;
+}
+
+.settingsTime {
+  float:left;
+  width: 20%;
+}
+
+.settingsChange {
+  float: left;;
+  max-width: 25%;
+  height: auto;
+}

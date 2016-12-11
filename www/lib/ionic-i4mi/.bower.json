@@ -31,14 +31,13 @@
   ],
   "license": "MIT",
   "homepage": "www.bfh.ch",
-  "_release": "28aaa4d89f",
+  "_release": "3b2464300f",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "28aaa4d89f3577cfe261c820bf81bccb16cda635"
+    "commit": "3b2464300f8cd892253af0e33a72b2126ebc1e6d"
   },
   "_source": "https://github.com/i4mi/ionic-i4mi.git",
   "_target": "*",
-  "_originalSource": "ionic-i4mi",
-  "_direct": true
+  "_originalSource": "ionic-i4mi"
 }
