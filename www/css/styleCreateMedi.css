@@ -168,19 +168,7 @@
 }
 
 
-.smallMediPic{
-  align-items: center;
-  height: 50%;
-  width: 50%;
-  content: url("../img/ButtonMediGray.png");
-}
 
-.medButtonGray{
-  align-items: center;
-  height: 30%;
-  width: 30%;
-  content: url("../img/ButtonMediGray.png");
-}
 
 .colSize{
   width: 20%;
@@ -326,6 +314,21 @@
   height: 15%;
   width: 15%;
 }
+
+.MedibuttonStatusIMGunchecked{
+  align-items: center;
+  height: 15%;
+  width: 15%;
+  content: url("../img/Xnormal.png");
+}
+
+.MedibuttonStatusIMGchecked{
+  align-items: center;
+  height: 15%;
+  width: 15%;
+  content: url("../img/checked-checkbox-512.png");
+}
+
 
 .buttonStatusIMG{
   align-items: center;
