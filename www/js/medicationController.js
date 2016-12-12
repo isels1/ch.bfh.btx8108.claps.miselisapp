@@ -150,10 +150,10 @@ angular.module('starter.medicationController', ['ngCordova'])
 .controller('createMediCtrl', function($scope, $compile ,I4MIMidataService, $timeout, $state, $ionicPopup, $cordovaCamera, $window) {
 
             $scope.MedTempelate =
-            "<div class='row MediTemplate' ng-repeat='mediObj in showMedList'>"+
-              "<div class='HeaderBlock MediNameSize' >{{mediObj.medicament.name}}</div>"+
+            "<div class='row MediTemplate StyleMedi' ng-repeat='mediObj in showMedList'>"+
+              "<div class='HeaderBlock MediNameSize'>{{mediObj.medicament.name}}</div>"+
               "<div class='row'>"+
-                "<img class=' MediImg MediMediImg'></img>"+
+                "<img class=' MediImg ' ng-src='{{mediObj.medicament.img}}'></img>"+
                 "<div class='col'>"+
                   "<div class='row'>"+
                     "<div class='{{timeSchema.class}}' ng-repeat='timeSchema in timeSchema' id='{{ 'timeSchema'+$index}}'>{{timeSchema.title}}</div>"+
@@ -177,18 +177,19 @@ angular.module('starter.medicationController', ['ngCordova'])
 
                 "<div class='col'>"+
                   "<div class='row'>"+
+                    "<div class='{{startDatumMedi.class}} datumSpacerText'>Startdatum:<pre></pre> </div>"+
                     "<div class='{{startDatumMedi.class}}'  id='{{ 'startDatumMedi'+$index}}'>{{mediObj.medicament.startDate}}</div>"+
                   "</div>"+
                   "<div class='row'>"+
-                    "<div class='{{endDatumMedi.class}}'id='{{ 'endDatumMedi'+$index}}'>{{mediObj.medicament.endDate}}</div>"+
+                    "<div class='{{endDatumMedi.class}} datumSpacerText'>Enddatum:  </div>"+
+                    "<div class='{{endDatumMedi.class}}' id='{{ 'endDatumMedi'+$index}}'>{{mediObj.medicament.endDate}}</div>"+
                   "</div>"+
                 "</div>"+
-                "<img class='SettingsImg'></img>"+
-                "<img class='ThrashImg'></img>"+
+                "<img class='ThrashImg' id='{{mediObj.medicament.id}}' ng-click='deleteMedi($event)'></img>"+
               "</div>"+
             "</div>";
 
-            $scope.img = {source:'/img/Sotalol.jpg', class:'mediImage'}
+
 
 
             $scope.timeSchema = [{title: "Morgen" , class:'HeaderBlock labelSchemaSpacer'},
@@ -207,6 +208,25 @@ angular.module('starter.medicationController', ['ngCordova'])
             $scope.startDatumMedi = {title: "startDatumMedi", class:'HeaderBlock datumSpacer'}
 
             $scope.endDatumMedi = {title: "endDatumMedi", class:'HeaderBlock datumSpacer'}
+
+          $scope.deleteMedi = function(event){
+            var data = JSON.parse(localStorage.getItem("MedicationList"));
+            var targetID = event.target.id;
+
+            for (var i = 0; i < data.medication.length; i++) {
+              tempElements = JSON.parse(data.medication[i]);
+              if (tempElements.id == targetID) {
+                var elementToDelete = data.medication[i];
+                data.medication.splice(elementToDelete, 1);
+                localStorage.setItem("MedicationList", JSON.stringify(data));
+
+              }
+            }
+
+            $window.location.reload();
+
+          }
+
 
           $scope.showMedList = new Array();
 
@@ -522,10 +542,10 @@ angular.module('starter.medicationController', ['ngCordova'])
                                            var DaySo = document.getElementById("DaySo").getAttribute("data-id");
                                            var MediStartDate = document.getElementById("MediStartDate").value;
                                            var MediEndDate = document.getElementById("MediEndDate").value;
-                                           //$scope.PictureMedi.setItem(customTemplate.getElementById("PictureMedi").value);
+                                           var Picture = $scope.imgURI;
                                            $scope.saveMedi(MediName , DayTimeMoring, DayTimeNoon, DayTimeEvening, DayTimeNight,
                                              amountDayTimeMoring, amountDayTimeNoon, amountDayTimeEvening, amountDayTimeNight,
-                                            DayMo,  DayDi,  DayMi,  DayDo,  DayFr, DaySa,  DaySo,  MediStartDate,  MediEndDate);
+                                            DayMo,  DayDi,  DayMi,  DayDo,  DayFr, DaySa,  DaySo,  MediStartDate,  MediEndDate, Picture);
 
 
                                          }
@@ -540,7 +560,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                 DayTimeMoring, DayTimeNoon, DayTimeEvening, DayTimeNight,
                 amountDayTimeMoring, amountDayTimeNoon, amountDayTimeEvening, amountDayTimeNight,
                 DayMo, DayDi, DayMi, DayDo, DayFr, DaySa, DaySo,
-                MediStartDate, MediEndDate//, PictureMedi
+                MediStartDate, MediEndDate, Picture
               ) {
 
                 //var data = JSON.parse(localStorage.getItem("MedicationList"));
@@ -590,7 +610,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                     interval: [DayMo, DayDi, DayMi, DayDo, DayFr, DaySa, DaySo],
                     startDate: MediStartDate,
                     endDate: MediEndDate,
-                    //img: PictureMedi
+                    img: Picture
                     }
 
 
@@ -697,8 +717,8 @@ angular.module('starter.medicationController', ['ngCordova'])
                     sourceType : Camera.PictureSourceType.CAMERA,
                     allowEdit : true,
                     encodingType: Camera.EncodingType.JPEG,
-                    targetWidth: 300,
-                    targetHeight: 300,
+                    targetWidth: 250,
+                    targetHeight: 250,
                     popoverOptions: CameraPopoverOptions,
                     saveToPhotoAlbum: false
                 };
