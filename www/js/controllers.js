@@ -116,7 +116,14 @@ angular.module('starter.controllers', ['ngCordova'])
             "organizations": null,
             "birthday": null,
             "note": "",
-            "photos": null,
+            "photos": [
+                         {
+                            "id": "9",
+                            "pref": false,
+                            "type": "url",
+                            "value": "img/camera.png"
+        }
+            ],
             "categories": null,
             "urls": null
     }
@@ -166,9 +173,13 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.setContacttoButton = function (){
         var id = $scope.contactToSave.id
         $scope.contactforFill = JSON.parse($scope.contactToSave.contact);
-        document.getElementById(id).childNodes[0].nextSibling.setAttribute('ng-src', '{{$scope.contactforFill.photos[0].value}}');
-        document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', '{{$scope.contactforFill.photos[0].value}}');
-        console.log( document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', '{{$scope.contactforFill.photos[0].value}}'));
+        var ContactImage = $scope.contactforFill.photos;
+        if (ContactImage == null) {
+            document.getElementById(id).childNodes[0].nextSibling.setAttribute("src", "img/camera.png");
+        }
+        else {
+            document.getElementById(id).childNodes[0].nextSibling.setAttribute("src", "file:///" + $scope.contactforFill.photos[0].value);
+        }
     }
 
 
