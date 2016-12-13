@@ -56,7 +56,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
 })
 
-.controller('telCtrl', function ($scope, $state, $ionicPopup, I4MIMidataService, $cordovaContacts, $cordovaNativeAudio) {
+.controller('telCtrl', function ($scope, $compile,$state, $ionicPopup, I4MIMidataService, $cordovaContacts, $cordovaNativeAudio) {
     //vlads1 & zyssm4 getContactList & addContact
     //Get all contacts from the device. Reads the Phonenumber, Name and picture. These are then put into the html
     $scope.getContactList = function () {
@@ -121,6 +121,7 @@ angular.module('starter.controllers', ['ngCordova'])
             "urls": null
     }
 
+    // Ausgewählten Kontaktund ausgewählte Feld ID speichern Iselis1 und Vlads1
     $scope.selectContacts = function (Contact) {
       var contactList = new Array();
       if (window.localStorage.getItem("selectedContacts") != null) {
@@ -131,14 +132,14 @@ angular.module('starter.controllers', ['ngCordova'])
       var selectedContact = JSON.parse(Contact.contact);
       for (var i = 0; i < contactList.length; i++) {
           var contactObj = JSON.parse(contactList[i]);
-          if (JSON.parse(contactObj.contact).id === selectedContact.id) {
+          if (JSON.parse(contactObj.contact).id == selectedContact.id) {
               existing = true;
           }
       }
 
       if (!existing) {
 
-          var fieldId = JSON.parse(Contact.id);
+          var fieldId = Contact.id;
           for (var i = 0; i < contactList.length; i++) {
               var contactObj = JSON.parse(contactList[i]);
               if (contactObj.id === fieldId) {
@@ -147,9 +148,12 @@ angular.module('starter.controllers', ['ngCordova'])
           }
           contactList.push(JSON.stringify(Contact));
       }
-      window.localStorage.setItem("selectedContacts",  JSON.stringify(contactList));
+      window.localStorage.setItem("selectedContacts", JSON.stringify(contactList));
+        
     }
 
+    
+    // Kontakt auswählen Iselis1 und Vlads1
     $scope.pickContact = function (Contact, fieldId) {
         var localContact = {
             id: fieldId,
@@ -159,10 +163,18 @@ angular.module('starter.controllers', ['ngCordova'])
         $scope.contactToSave = localContact;
     }
 
-    // An alert dialog
-    $scope.TelPopup = function (id) {
-        $scope.fieldId = id;
+    $scope.setContacttoButton = function (){
+        var id = $scope.contactToSave.id
+        $scope.contactforFill = JSON.parse($scope.contactToSave.contact);
+        document.getElementById(id).childNodes[0].nextSibling.setAttribute('ng-src', '{{$scope.contactforFill.photos[0].value}}');
+        document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', '{{$scope.contactforFill.photos[0].value}}');
+        console.log( document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', '{{$scope.contactforFill.photos[0].value}}'));
+    }
 
+
+    // Popup Kontaktauswahl Iselis1 und Vlads1
+    $scope.TelPopup = function (event) {
+        $scope.fieldId = event.target.parentElement.id;
         $scope.data = {
             vm: [
               $scope.contacts,
@@ -179,7 +191,10 @@ angular.module('starter.controllers', ['ngCordova'])
               { text: 'Abbrechen' },
               {
                   text: '<b>Fertig</b>',
-                  onTap: function (e) { $scope.selectContacts($scope.contactToSave) }
+                  onTap: function (e) {
+                      $scope.selectContacts($scope.contactToSave);
+                      $scope.setContacttoButton();
+                  }
               }
             ]
         });
