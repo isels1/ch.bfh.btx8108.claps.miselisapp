@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 
 //isels1 ionic login dingens
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationController', 'starter.services', 'ionic-datepicker', 'ionic-timepicker', 'formlyIonic', 'nvd3', 'i4mi','jsonFormatter', 'ngCordova', 'ngStorage'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationController', 'starter.obsControllers', 'starter.services', 'starter.ownServices', 'ionic-datepicker', 'ionic-timepicker', 'formlyIonic', 'nvd3', 'i4mi','jsonFormatter', 'ngCordova', 'ngStorage'])
 
 .constant('APPNAME', 'MIAU')
 .constant('APPSECRET', '39gxbt9ge8zdz3s940ftb4fwhnl634uu')

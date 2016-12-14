@@ -1,4 +1,4 @@
-var ChartJS = function(config)
+var ChartJS = function(config, vals)
 {
   $config = config;
 
@@ -23,6 +23,10 @@ var ChartJS = function(config)
   if ($config['labels'] == "Year"){
       $config['labels'] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   }
+
+  if ($config['labels'] == "Custom") {
+      $config['labels'] = vals;
+  }
   console.log($config['labels']);
 }
 
@@ -46,11 +50,11 @@ ChartJS.prototype.line = function() {
 
 
 
-ChartJS.prototype.bar = function() {
+ChartJS.prototype.bar = function(ser) {
   var data = {
     labels: $config['labels'],
     series: [
-      [5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8]
+      ser
     ]
   };
 

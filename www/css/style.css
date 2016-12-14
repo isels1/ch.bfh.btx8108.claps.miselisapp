@@ -137,3 +137,36 @@
   max-width: 25%;
   height: auto;
 }
+
+.chart {
+  max-width: 70%;
+  height: auto;
+  float:right;
+}
+
+.chartDesc {
+  max-width: 30%;
+  height: auto;
+  float: left;
+}
+
+.inputTitle {
+  width: 100%;
+}
+
+.chartTitle {
+  width: 100%;
+}
+
+.chartContainer {
+  width: 100%
+}
+
+.inputContainer {
+  margin-top: 50px;
+}
+
+/*.button-positive {
+    max-width: 800px;
+    background-color:#268ba3 !important;
+}*/

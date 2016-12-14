@@ -4,7 +4,10 @@
             <div class="col header text-center login-img-container">
                 <img class="login-img" src="./img/logo - Kopie.PNG"/>
                 <div class="list login-list">
-                    <i4mi-midata-login user="user" controller-name="I4MIMidataLoginController"></i4mi-midata-login>
+                    <input class="login-list input" type="text" id="user" value="{{user.username}}" />
+                    <input class="login-list input" type="password" id="pw" value="{{user.password}}"/>
+                    <button class="button button-full button-positive" ng-click="newLogin()">Login</button>
+                    <!--<i4mi-midata-login user="user" controller-name="I4MIMidataLoginController"></i4mi-midata-login>-->
                 </div>
             </div>
         </section>

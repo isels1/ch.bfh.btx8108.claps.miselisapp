@@ -1,7 +1,11 @@
 angular.module('starter.medicationController', ['ngCordova'])
 
 
+<<<<<<< HEAD
 .controller('medplanCtrl', function ($scope, $state, $compile, $ionicPopup, I4MIMidataService) {
+=======
+.controller('medplanCtrl', function ($scope, $state, $ionicPopup, ownMidataService) {
+>>>>>>> origin/master
             $scope.header = [{title:'', class:'colSize bigger'},
                              {title:'Morgen',class:'MorningColor'},
                              {title:'Mittag',class:'NoonColor'},
@@ -141,11 +145,11 @@ angular.module('starter.medicationController', ['ngCordova'])
               $state.go('createMedi');
             }
 
-            var isLoggedIn = I4MIMidataService.loggedIn();
+            var isLoggedIn = ownMidataService.loggedIn();
               if (isLoggedIn) {
                 $scope.logout = function() {
                   window.localStorage.setItem("password", '');
-                  I4MIMidataService.logout();
+                  ownMidataService.logout();
                   $state.go('login');
                 };
               } else {
@@ -154,7 +158,7 @@ angular.module('starter.medicationController', ['ngCordova'])
             })
 
 
-.controller('createMediCtrl', function($scope, $compile ,I4MIMidataService, $timeout, $state, $ionicPopup, $cordovaCamera, $window) {
+.controller('createMediCtrl', function($scope, $compile ,ownMidataService, $timeout, $state, $ionicPopup, $cordovaCamera, $window) {
 
             $scope.MedTempelate =
             "<div class='row MediTemplate StyleMedi' ng-repeat='mediObj in showMedList'>"+
@@ -658,11 +662,11 @@ angular.module('starter.medicationController', ['ngCordova'])
               $state.go('medplan');
               }
 
-            var isLoggedIn = I4MIMidataService.loggedIn();
+            var isLoggedIn = ownMidataService.loggedIn();
             if (isLoggedIn) {
                 $scope.logout = function() {
                 window.localStorage.setItem("password", '');
-                I4MIMidataService.logout();
+                ownMidataService.logout();
                 $state.go('login'); };
             } else {
                 $state.go('login')

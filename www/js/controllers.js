@@ -1,7 +1,7 @@
 angular.module('starter.controllers', ['ngCordova'])
 
 //zyssm4 nav-funktionen & isels1 aufteilung und login/logout
-.controller('homeCtrl', function ($scope, $state, I4MIMidataService, $cordovaMedia) {
+.controller('homeCtrl', function ($scope, $state, ownMidataService, $cordovaMedia) {
 
    $scope.play = function(src) {
     // Play the audio file at url
@@ -44,11 +44,11 @@ angular.module('starter.controllers', ['ngCordova'])
         window.open('tel:' + number, '_system');
     }
 
-    var isLoggedIn = I4MIMidataService.loggedIn();
+    var isLoggedIn = ownMidataService.loggedIn();
     if (isLoggedIn) {
         $scope.logout = function() {
             window.localStorage.setItem("password", '');
-            I4MIMidataService.logout();
+            ownMidataService.logout();
             $state.go('login'); };
     } else {
         $state.go('login');
@@ -56,7 +56,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
 })
 
-.controller('telCtrl', function ($scope, $compile,$state, $ionicPopup, I4MIMidataService, $cordovaContacts, $cordovaNativeAudio) {
+.controller('telCtrl', function ($scope, $compile,$state, $ionicPopup, ownMidataService, $cordovaContacts, $cordovaNativeAudio) {
     //vlads1 & zyssm4 getContactList & addContact
     //Get all contacts from the device. Reads the Phonenumber, Name and picture. These are then put into the html
     $scope.getContactList = function () {
@@ -121,7 +121,7 @@ angular.module('starter.controllers', ['ngCordova'])
             "urls": null
     }
 
-    // Ausgewählten Kontaktund ausgewählte Feld ID speichern Iselis1 und Vlads1
+    // Ausgewï¿½hlten Kontaktund ausgewï¿½hlte Feld ID speichern Iselis1 und Vlads1
     $scope.selectContacts = function (Contact) {
       var contactList = new Array();
       if (window.localStorage.getItem("selectedContacts") != null) {
@@ -149,11 +149,11 @@ angular.module('starter.controllers', ['ngCordova'])
           contactList.push(JSON.stringify(Contact));
       }
       window.localStorage.setItem("selectedContacts", JSON.stringify(contactList));
-        
+
     }
 
-    
-    // Kontakt auswählen Iselis1 und Vlads1
+
+    // Kontakt auswï¿½hlen Iselis1 und Vlads1
     $scope.pickContact = function (Contact, fieldId) {
         var localContact = {
             id: fieldId,
@@ -206,18 +206,24 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.openhome = function () {
     $state.go('menu.home');
 }
-    var isLoggedIn = I4MIMidataService.loggedIn();
+    var isLoggedIn = ownMidataService.loggedIn();
     if (isLoggedIn) {
         $scope.logout = function() {
         window.localStorage.setItem("password", '');
-        I4MIMidataService.logout();
+        ownMidataService.logout();
         $state.go('login'); };
 } else {
     $state.go('login');
     }
 })
 
-.controller('loginCtrl', function ($scope, I4MIMidataService, $timeout, $state) {
+.controller('loginCtrl', function ($scope, ownMidataService, $timeout, $state) {
+    $scope.newLogin = function() {
+    ownMidataService.login($scope.user.username,
+             $scope.user.password,
+             $scope.user.role);
+    }
+
     var un = window.localStorage.getItem("username");
     var pw = window.localStorage.getItem("password");
     var srv = window.localStorage.getItem("server");
@@ -230,25 +236,28 @@ angular.module('starter.controllers', ['ngCordova'])
         // Use for testing the development environment
         $scope.user = {
             username: 'miau.claps@gmail.com',
-            server: 'https://test.midata.coop:9000'
+            server: 'https://test.midata.coop:9000',
+            role: 'member'
+
         }
 
     } else {
         $scope.user = {
             username: un,
             password: pw,
-            server: srv
+            server: srv,
+            role: 'member'
         }
 
-        I4MIMidataService.login(un, pw, srv);
+        $scope.newLogin();
 
     }
 
     // Connect with MIDATA
-    $scope.loggedIn = I4MIMidataService.loggedIn();
+    $scope.loggedIn = ownMidataService.loggedIn();
 
     var timer = $timeout(function refresh() {
-        if (I4MIMidataService.loggedIn()) {
+        if (ownMidataService.loggedIn()) {
 
             window.localStorage.setItem("username", $scope.user.username);
             window.localStorage.setItem("password", $scope.user.password);
@@ -258,44 +267,6 @@ angular.module('starter.controllers', ['ngCordova'])
         } else {
             timer = $timeout(refresh, 1000);}
     }, 1000);
-            })
-
-// Controller for the dashboard (isels1)
-// --> shows different charts for vital data
-.controller('DashboardCtrl', function($scope) {
-
-            var $configLine = {
-            name: '.ct-chartLine',
-            labels: 'Week',
-            series: "[12, 9, 7, 8, 5, 9, 0]",
-            fullWidth: "true",
-            showArea: "true",
-            };
-
-            var chartLine = new ChartJS($configLine);
-            chartLine.line();
-
-
-            var $configPie = {
-            name: '.ct-chartPie',
-            };
-
-            var data = {
-            series: [5, 3, 4]
-            };
-            var chartPie = new ChartJS($configPie);
-            chartPie.pie(data);
-
-
-
-            var $configBar = {
-            name: '.ct-chartBar',
-            labels: 'Year',
-            series: '[5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8]',
-            };
-            var chartBar = new ChartJS($configBar);
-            chartBar.bar();
-
             })
 
 .controller('settingsCtrl', function($scope, ionicTimePicker) {
