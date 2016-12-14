@@ -51,23 +51,23 @@ angular.module('starter.services', [])
 
 .factory('StateMachine', function(){
          var states = [{
-                       id: 0,
+                       id: "default",
                        name: 'idle',
                        cssClass: 'medIdle'
          }, {
-                       id: 1,
+                       id: "unchecked",
                        name: 'toTake',
                        cssClass: 'medToTake'
          }, {
                        id: 2,
-                       name: 'taken',
+                       name: 'checked',
                        cssClass: 'medTaken'
          }, {
                        id: 3,
-                       name: 'depricated',
+                       name: 'notchecked',
                        cssClass: 'medDepricated'
          }];
-         
+
          return {
          all: function() {
             return states;

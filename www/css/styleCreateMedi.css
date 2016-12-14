@@ -342,11 +342,18 @@
   width: 15%;
 }
 
-.MedibuttonStatusIMGunchecked{
+.MedibuttonStatusIMGdefault{
   align-items: center;
   height: 15%;
   width: 15%;
   content: url("../img/Xnormal.png");
+}
+
+.MedibuttonStatusIMGunchecked{
+  align-items: center;
+  height: 15%;
+  width: 15%;
+  content: url("../img/checked-checkbox-512.png");
 }
 
 .MedibuttonStatusIMGchecked{

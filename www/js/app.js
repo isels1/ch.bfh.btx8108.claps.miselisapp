@@ -12,6 +12,23 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
 .constant('APPNAME', 'MIAU')
 .constant('APPSECRET', '39gxbt9ge8zdz3s940ftb4fwhnl634uu')
 
+.directive('myDir', function () {
+    return function (scope, element, attrs) {
+      var stateOfMoment = element.parent()[0].getAttribute('state');
+      var elementCss = element.parent()["0"].firstElementChild;
+
+      scope.toTakeClickAction(stateOfMoment, elementCss)
+      //console.log(parentNode.getAttribute('state'));
+    /*  var dayID = new Array();
+      for(var i = 0; i < 7; i++){
+        if(element["0"].getAttribute("id") !== "checked"){
+        dayID.push(i);
+        }
+      }
+      scope.toTakeClickAction(dayID);*/
+    }
+  })
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
