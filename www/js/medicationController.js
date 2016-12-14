@@ -1,11 +1,9 @@
 angular.module('starter.medicationController', ['ngCordova'])
 
 
-<<<<<<< HEAD
-.controller('medplanCtrl', function ($scope, $state, $compile, $ionicPopup, I4MIMidataService) {
-=======
+
 .controller('medplanCtrl', function ($scope, $state, $ionicPopup, ownMidataService) {
->>>>>>> origin/master
+
             $scope.header = [{title:'', class:'colSize bigger'},
                              {title:'Morgen',class:'MorningColor'},
                              {title:'Mittag',class:'NoonColor'},
@@ -20,10 +18,10 @@ angular.module('starter.medicationController', ['ngCordova'])
                            {title:'Sa', status:"unchecked", id:"6"},
                            {title:'So', status:"unchecked", id:"7"}];
 
-            $scope.time = [  {title:'Morgen',text:'',class:'MorningColor colSize morning '},
-                           {title:'Mittag',class:'NoonColor colSize noon'},
-                           {title:'Abend',class:'EveningColor colSize evening '},
-                           {title:'Nacht',class:'NightColor colSize night'}];
+            $scope.time = [  {title:'Morgen',daytime:"morning",class:'MorningColor morning'},
+                           {title:'Mittag',daytime:"noon" ,class:'NoonColor  noon'},
+                           {title:'Abend',daytime:"evening" ,class:'EveningColor evening '},
+                           {title:'Nacht',daytime:"night" ,class:'NightColor  night'}];
 
 
             $scope.showLocalStorage = function(){
@@ -78,11 +76,14 @@ angular.module('starter.medicationController', ['ngCordova'])
 
 
 
-            $scope.toTakeClickAction = function (stateOfMoment, elementCss) {
+            $scope.toTakeClickAction = function (stateOfMoment, elementCss, dayelement, timeelement) {
             //var dayTime = this.$index;
             //var day = target.parentNode.id
             $scope.status = stateOfMoment;
             $scope.csschange = elementCss;
+            $scope.day = dayelement;
+            $scope.timne = timeelement;
+
 
             //var targetButton = event.target
 
@@ -91,36 +92,35 @@ angular.module('starter.medicationController', ['ngCordova'])
 
             var medList = JSON.parse(localStorage.getItem("MedicationList"));
             for(var i = 0; i < medList.medication.length; i++) {
-              var obj = JSON.parse(medList.medication[i]);
-              var id = $scope.weekday;
-              console.log($scope.csschange)
-                if (obj.interval[i] == "default"){
-                  elementCss.className = "medButtonGray";
-                }
-                if (obj.interval[id] == "default")
-                {
-                  if(dayTime == 0 &&
-                     obj.schema.Morning.state !== "default") {
-                       $scope.data.push(obj);
-                  }
-                  if(dayTime == 1 &&
-                     obj.schema.Noon.state !== "default") {
-                       $scope.data.push(obj);
-                  }
-                  if(dayTime == 2 &&
-                     obj.schema.Evening.state !== "default") {
-                       $scope.data.push(obj);
-                  }
-                  if(dayTime == 3 &&
-                     obj.schema.Night.state !== "default") {
-                       $scope.data.push(obj);
-                  }
-                }
 
-             }
+                var obj = JSON.parse(medList.medication[i]);
+                  if ($scope.time[0].daytime == "morning"){
+                    elementCss.className = "medButtonTaken";
+                  }
+                  if (obj.interval == "default")
+                  {
+                    if(dayTime == 0 &&
+                       obj.schema.Morning.state !== "default") {
+                         $scope.data.push(obj);
+                    }
+                    if(dayTime == 1 &&
+                       obj.schema.Noon.state !== "default") {
+                         $scope.data.push(obj);
+                    }
+                    if(dayTime == 2 &&
+                       obj.schema.Evening.state !== "default") {
+                         $scope.data.push(obj);
+                    }
+                    if(dayTime == 3 &&
+                       obj.schema.Night.state !== "default") {
+                         $scope.data.push(obj);
+                    }
+                  }
+
+               }
 
 
-            $scope.data =[];
+              $scope.data =[];
 
           }
 
@@ -162,7 +162,7 @@ angular.module('starter.medicationController', ['ngCordova'])
 
             $scope.MedTempelate =
             "<div class='row MediTemplate StyleMedi' ng-repeat='mediObj in showMedList'>"+
-              "<div class='HeaderBlock MediNameSize'>{{mediObj.medicament.name}}</div>"+
+              "<div class='Block MediNameSize'>{{mediObj.medicament.name}}</div>"+
               "<div class='row'>"+
                 "<img class=' MediImg ' ng-src='{{mediObj.medicament.img}}'></img>"+
                 "<div class='col'>"+
@@ -203,22 +203,22 @@ angular.module('starter.medicationController', ['ngCordova'])
 
 
 
-            $scope.timeSchema = [{title: "Morgen" , class:'HeaderBlock labelSchemaSpacer'},
-                                 {title: "Mittag" , class:'HeaderBlock labelSchemaSpacer'},
-                                 {title: "Abend" , class:'HeaderBlock labelSchemaSpacer '},
-                                 {title: "Nacht" , class:'HeaderBlock labelSchemaSpacer '}]
+            $scope.timeSchema = [{title: "Morgen" , class:' labelSchemaSpacer'},
+                                 {title: "Mittag" , class:' labelSchemaSpacer'},
+                                 {title: "Abend" , class:' labelSchemaSpacer '},
+                                 {title: "Nacht" , class:' labelSchemaSpacer '}]
 
-            $scope.lableIntervall = [{title:"Mo", class:'HeaderBlock labelIntervallSpacer'},
-                                     {title:"Di", class:'HeaderBlock labelIntervallSpacer fixer1'},
-                                     {title:"Mi", class:'HeaderBlock labelIntervallSpacer fixer1'},
-                                     {title:"Do", class:'HeaderBlock labelIntervallSpacer fixer1'},
-                                     {title:"Fr", class:'HeaderBlock labelIntervallSpacer fixer1'},
-                                     {title:"Sa", class:'HeaderBlock labelIntervallSpacer fixer1'},
-                                     {title:"So", class:'HeaderBlock labelIntervallSpacer fixer1'}]
+            $scope.lableIntervall = [{title:"Mo", class:' labelIntervallSpacer'},
+                                     {title:"Di", class:' labelIntervallSpacer fixer1'},
+                                     {title:"Mi", class:' labelIntervallSpacer fixer1'},
+                                     {title:"Do", class:' labelIntervallSpacer fixer1'},
+                                     {title:"Fr", class:' labelIntervallSpacer fixer1'},
+                                     {title:"Sa", class:' labelIntervallSpacer fixer1'},
+                                     {title:"So", class:' labelIntervallSpacer fixer1'}]
 
-            $scope.startDatumMedi = {title: "startDatumMedi", class:'HeaderBlock datumSpacer'}
+            $scope.startDatumMedi = {title: "startDatumMedi", class:' datumSpacer'}
 
-            $scope.endDatumMedi = {title: "endDatumMedi", class:'HeaderBlock datumSpacer'}
+            $scope.endDatumMedi = {title: "endDatumMedi", class:' datumSpacer'}
 
           $scope.deleteMedi = function(event){
             var data = JSON.parse(localStorage.getItem("MedicationList"));
@@ -257,23 +257,23 @@ angular.module('starter.medicationController', ['ngCordova'])
               for(var i = 0; i < data.medication.length; i++) {
                 var newElement = document.createElement('div');
                  var mediObj = JSON.parse(data.medication[i]);
-                 var buttonSchema = [{title: "../img/Xnormal.png" , class:'HeaderBlock MedibuttonStatusIMGdefault buttonSchemaSpacer fixer1'},
-                                        {title: "../img/Xnormal.png" , class:'HeaderBlock MedibuttonStatusIMGdefault buttonSchemaSpacer fixer2'},
-                                        {title: "../img/Xnormal.png" , class:'HeaderBlock MedibuttonStatusIMGdefault buttonSchemaSpacer fixer3'},
-                                        {title: "../img/Xnormal.png" , class:'HeaderBlock MedibuttonStatusIMGdefault buttonSchemaSpacer fixer4'}];
+                 var buttonSchema = [{title: "../img/Xnormal.png" , class:' MedibuttonStatusIMGdefault buttonSchemaSpacer fixer1'},
+                                        {title: "../img/Xnormal.png" , class:' MedibuttonStatusIMGdefault buttonSchemaSpacer fixer2'},
+                                        {title: "../img/Xnormal.png" , class:' MedibuttonStatusIMGdefault buttonSchemaSpacer fixer3'},
+                                        {title: "../img/Xnormal.png" , class:' MedibuttonStatusIMGdefault buttonSchemaSpacer fixer4'}];
 
-                 var amountSchema = [{title: " " , class:'HeaderBlock buttonSchemaSpacer fixer1'},
-                                        {title: " " , class:'HeaderBlock buttonSchemaSpacer fixer2'},
-                                        {title: " " , class:'HeaderBlock buttonSchemaSpacer fixer3'},
-                                        {title: " " , class:'HeaderBlock buttonSchemaSpacer fixer4'}];
+                 var amountSchema = [{title: " " , class:' buttonSchemaSpacer fixer1'},
+                                        {title: " " , class:' buttonSchemaSpacer fixer2'},
+                                        {title: " " , class:' buttonSchemaSpacer fixer3'},
+                                        {title: " " , class:' buttonSchemaSpacer fixer4'}];
 
-                var buttonIntervall = [{title:"Mo", class:'HeaderBlock MedibuttonStatusIMGdefault buttonIntervallSpacer '},
-                                          {title:"Di", class:'HeaderBlock MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1 '},
-                                          {title:"Mi", class:'HeaderBlock MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1'},
-                                          {title:"Do", class:'HeaderBlock MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1'},
-                                          {title:"Fr", class:'HeaderBlock MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1'},
-                                          {title:"Sa", class:'HeaderBlock MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1'},
-                                          {title:"So", class:'HeaderBlock MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1'}];
+                var buttonIntervall = [{title:"Mo", class:' MedibuttonStatusIMGdefault buttonIntervallSpacer '},
+                                          {title:"Di", class:' MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1 '},
+                                          {title:"Mi", class:' MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1'},
+                                          {title:"Do", class:' MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1'},
+                                          {title:"Fr", class:' MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1'},
+                                          {title:"Sa", class:' MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1'},
+                                          {title:"So", class:' MedibuttonStatusIMGdefault buttonIntervallSpacer fixer1'}];
 
 
                 $scope.startDatumMedi.title = mediObj.startDate;
@@ -281,41 +281,41 @@ angular.module('starter.medicationController', ['ngCordova'])
 
 
                 if(mediObj.schema.Morning.state == "unchecked"){
-                  buttonSchema[0].class = "HeaderBlock MedibuttonStatusIMGunchecked buttonSchemaSpacer fixer1";
+                  buttonSchema[0].class = " MedibuttonStatusIMGunchecked buttonSchemaSpacer fixer1";
                   amountSchema[0].title = mediObj.schema.Morning.amount;
                 }
                 if(mediObj.schema.Noon.state == "unchecked"){
-                  buttonSchema[1].class = "HeaderBlock MedibuttonStatusIMGunchecked buttonSchemaSpacer fixer2";
+                  buttonSchema[1].class = " MedibuttonStatusIMGunchecked buttonSchemaSpacer fixer2";
                   amountSchema[1].title = mediObj.schema.Noon.amount;
                 }
                 if(mediObj.schema.Evening.state == "unchecked"){
-                  buttonSchema[2].class = "HeaderBlock MedibuttonStatusIMGunchecked buttonSchemaSpacer fixer3";
+                  buttonSchema[2].class = " MedibuttonStatusIMGunchecked buttonSchemaSpacer fixer3";
                   amountSchema[2].title = mediObj.schema.Evening.amount;
                 }
                 if(mediObj.schema.Night.state == "unchecked"){
-                  buttonSchema[3].class = "HeaderBlock MedibuttonStatusIMGunchecked buttonSchemaSpacer fixer4";
+                  buttonSchema[3].class = " MedibuttonStatusIMGunchecked buttonSchemaSpacer fixer4";
                   amountSchema[3].title = mediObj.schema.Night.amount;
                 }
                 if(mediObj.interval[0] == "unchecked"){
-                  buttonIntervall[0].class = "HeaderBlock MedibuttonStatusIMGunchecked buttonIntervallSpacer";
+                  buttonIntervall[0].class = " MedibuttonStatusIMGunchecked buttonIntervallSpacer";
                 }
                 if(mediObj.interval[1] == "unchecked"){
-                  buttonIntervall[1].class = "HeaderBlock MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
+                  buttonIntervall[1].class = " MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
                 }
                 if(mediObj.interval[2] == "unchecked"){
-                  buttonIntervall[2].class = "HeaderBlock MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
+                  buttonIntervall[2].class = " MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
                 }
                 if(mediObj.interval[3] == "unchecked"){
-                  buttonIntervall[3].class = "HeaderBlock MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
+                  buttonIntervall[3].class = " MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
                 }
                 if(mediObj.interval[4] == "unchecked"){
-                  buttonIntervall[4].class = "HeaderBlock MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
+                  buttonIntervall[4].class = " MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
                 }
                 if(mediObj.interval[5] == "unchecked"){
-                  buttonIntervall[5].class = "HeaderBlock MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
+                  buttonIntervall[5].class = " MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
                 }
                 if(mediObj.interval[6] == "unchecked"){
-                  buttonIntervall[6].class = "HeaderBlock MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
+                  buttonIntervall[6].class = " MedibuttonStatusIMGunchecked buttonIntervallSpacer fixer1";
                 }
 
                 var itemToShow = {

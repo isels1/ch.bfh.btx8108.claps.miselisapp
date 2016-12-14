@@ -16,8 +16,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
     return function (scope, element, attrs) {
       var stateOfMoment = element.parent()[0].getAttribute('state');
       var elementCss = element.parent()["0"].firstElementChild;
-
-      scope.toTakeClickAction(stateOfMoment, elementCss)
+      var dayelement = element.parent()["0"].parentElement.id;
+      var timeelement = element.parent()["0"].attributes[1].value;
+      scope.toTakeClickAction(stateOfMoment, elementCss, dayelement, timeelement)
       //console.log(parentNode.getAttribute('state'));
     /*  var dayID = new Array();
       for(var i = 0; i < 7; i++){

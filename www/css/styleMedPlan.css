@@ -73,15 +73,17 @@
 
 .smallMediPic{
   align-items: center;
-  height: 50%;
-  width: 50%;
+  margin-top: 7%;
+  height: 42%;
+  width: 42%;
   content: url("../img/ButtonMediGray.png");
 }
 
 .medButtonGray{
   align-items: center;
-  height: 30%;
-  width: 30%;
+  margin-top: 7%;
+  height: 42%;
+  width: 42%;
   content: url("../img/ButtonMediGray.png");
 }
 
