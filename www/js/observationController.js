@@ -67,77 +67,39 @@ angular.module('starter.obsControllers', ['ngCordova'])
     });
     }
 
-    $scope.getObservation = function(resource) {
-      res = "Observation";
+    $scope.drawChartCallback = function(result) {
+      var dates = new Array();
+      var vals = new Array();
+      result = result.reverse();
+
+      if (result.length > 5) {
+        result = result.slice(Math.max(result.length - 5, 1));
+      }
+
+      for (var i = 0; i < result.length; i++){
+        vals.push(result[i].value);
+        var d = new Date(result[i].time);
+        var currentMinutes = d.getMinutes();
+        if (currentMinutes.toString().length == 1) {
+          currentMinutes = "0" + currentMinutes;
+        }
+        dates.push(d.getDate() + "." + d.getMonth() + "." + d.getFullYear() + " - " + d.getHours() + ":" + currentMinutes + " Uhr");
+      }
+
+      var $configBar = {
+        name: '.ct-chartBar',
+        labels: 'Custom',
+        series: vals
+      };
+      var chartBar = new ChartJS($configBar, dates);
+      chartBar.bar(vals);
+    }
+
+    $scope.getObservation = function() {
       params = {};
-      ownMidataService.search(res, params).then(function(observations) {
-        result = [];
-        //--> only pulses
-        if(resource == "p") {
-          for (var i = 0; i < observations.length; i++) {
-            if(observations[i]._fhir == null) {
-              if(observations[i].code.coding["0"].display == "Herzschlag" ||
-                  observations[i].code.coding["0"].display == "Herzfrequenz")
-              {
-                result.push({time: observations[i].effectiveDateTime,
-                            value: observations[i].valueQuantity.value});
-              }
-            }
-          }
-          console.log(result); //return
-        //--> only weights
-        } else if (resource == "w") {
-          for (var i = 0; i < observations.length; i++) {
-            if(observations[i]._fhir != null) {
-              if(observations[i]._fhir.code.coding["0"].display == "Weight Measured" ||
-                  observations[i]._fhir.code.coding["0"].display == "Body weight Measured" ||
-                  observations[i]._fhir.code.coding["0"].display == "Gewicht")
-              {
-                result.push({time: observations[i]._fhir.effectiveDateTime,
-                            value: observations[i]._fhir.valueQuantity.value});
-              }
-            }
-          }
-          console.log(result); //return
-        //--> only blood pressures
-        } else if (resource == "bp") {
-          for (var i = 0; i < observations.length; i++) {
-            if(observations[i]._fhir == null) {
-              if(observations[i].code.coding["0"].display == "Blood Pressure") {
-                result.push({time: observations[i].effectiveDateTime,
-                            valueSys: observations[i].component["0"].valueQuantity.value,
-                            valueDia: observations[i].component["1"].valueQuantity.value});
-              }
-            }
-          }
-          console.log(result); //return
-        } else {
-          //return all obs
-        }
-
-        var dates = new Array();
-        var vals = new Array();
-        for (var i = 0; i < result.length; i++){
-          vals.push(result[i].value);
-          var d = new Date(result[i].time);
-          var currentMinutes = d.getMinutes();
-          if (currentMinutes.toString().length == 1) {
-            currentMinutes = "0" + currentMinutes;
-          }
-          dates.push(d.getDate() + "." + d.getMonth() + "." + d.getFullYear() + " - " + d.getHours() + ":" + currentMinutes + " Uhr");
-        }
-
-        var vals = vals.reverse();
-        var $configBar = {
-          name: '.ct-chartBar',
-          labels: 'Custom',
-          series: vals
-        };
-        var chartBar = new ChartJS($configBar, dates.reverse());
-        chartBar.bar(vals);
-      });
+      ownMidataService.getWeight(params, $scope.drawChartCallback);
     }
 
     //HARD CODED WEIGHT
-    $scope.getObservation("w");
+    $scope.getObservation();
 });

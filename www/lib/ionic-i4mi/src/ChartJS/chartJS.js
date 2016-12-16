@@ -1,8 +1,6 @@
 var ChartJS = function(config, vals)
 {
   $config = config;
-
-
   // Change value from weekly
 
   if ($config['labels'] == "Day"){
@@ -24,6 +22,7 @@ var ChartJS = function(config, vals)
       $config['labels'] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   }
 
+//CUSTOM VALUES FOR LABELS
   if ($config['labels'] == "Custom") {
       $config['labels'] = vals;
   }
@@ -49,7 +48,7 @@ ChartJS.prototype.line = function() {
 };
 
 
-
+//changes
 ChartJS.prototype.bar = function(ser) {
   var data = {
     labels: $config['labels'],

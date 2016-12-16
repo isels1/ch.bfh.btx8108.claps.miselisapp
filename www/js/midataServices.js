@@ -54,7 +54,7 @@ angular.module('starter.ownServices', [])
   // Search function (call it with ownMidataService.search(Resource, {}))
   // Searches for a resrouce with a defined type
   // If the params are defined, it will look up for the resource with the given params
-  // --> resourceTyoe:  Can be any 'fhir' resource as a string. Example: "Patient" or "Person"
+  // --> resourceTyoe:  Can be any 'fhir' resource as a string. Example: "Patient", "Person" or "Observation"
   // --> params:        A JSON object with the given params. Can also be empty "{}"
   //                    Look up for the possible params at http://build.fhir.org/search.html and the specific resource doc
   // IMPORTANT:         This is an asynchronus call. You have to use the '.then(function (response) {})' notation.
@@ -64,6 +64,115 @@ angular.module('starter.ownServices', [])
   //                    });
   function search(resourceType, params) {
     return md.search(resourceType, params);
+  }
+
+  // Get weight funciton (call it with ownMidataService.getWeight(params, callbackFunction))
+  // Calls the getObservation function and filters for the weight
+  // If the params are defined, it will look up for the resource with the given params
+  // --> params:        A JSON object with the given params. Can also be empty "{}"
+  //                    Look up for the possible params at http://build.fhir.org/search.html and the specific resource doc
+  // --> callback:      A callbackfunction which has to be defined by the "caller" of the function to hande the result array
+  // IMPORTANT:         This function calls an asynchronus request. Therefore, the callbackfunction is essential!
+  // EXAMPLE:
+  //                    $scope.callback = function() { //Handle the result (for example draw a chart) }
+  //                    ownMidataService.getWeight({}, $scope.callback);
+  function getWeight(params, callback) {
+    var obsType = 'w';
+    return getObservation(obsType, params, callback);
+  }
+
+  // Get pulse funciton (call it with ownMidataService.getPulse(params, callbackFunction))
+  // Calls the getObservation function and filters for the pulse
+  // If the params are defined, it will look up for the resource with the given params
+  // --> params:        A JSON object with the given params. Can also be empty "{}"
+  //                    Look up for the possible params at http://build.fhir.org/search.html and the specific resource doc
+  // --> callback:      A callbackfunction which has to be defined by the "caller" of the function to hande the result array
+  // IMPORTANT:         This function calls an asynchronus request. Therefore, the callbackfunction is essential!
+  // EXAMPLE:
+  //                    $scope.callback = function() { //Handle the result (for example draw a chart) }
+  //                    ownMidataService.getPulse({}, $scope.callback);
+  function getPulse(params, callback) {
+    var obsType = 'p';
+    return getObservation(obsType, params, callback);
+  }
+
+  // Get blood pressure funciton (call it with ownMidataService.getBloodPressure(params, callbackFunction))
+  // Calls the getObservation function and filters for the blood pressure
+  // If the params are defined, it will look up for the resource with the given params
+  // --> params:        A JSON object with the given params. Can also be empty "{}"
+  //                    Look up for the possible params at http://build.fhir.org/search.html and the specific resource doc
+  // --> callback:      A callbackfunction which has to be defined by the "caller" of the function to hande the result array
+  // IMPORTANT:         This function calls an asynchronus request. Therefore, the callbackfunction is essential!
+  // EXAMPLE:
+  //                    $scope.callback = function() { //Handle the result (for example draw a chart) }
+  //                    ownMidataService.getBloodPressure({}, $scope.callback);
+  function getBloodPressure(params, callback) {
+    var obsType = 'bp';
+    return getObservation(obsType, params, callback);
+  }
+
+  // Get observation funciton (call it with ownMidataService.getObservation(obsType, params, callbackFunction))
+  // Calls the search function for the "Observation" fhir resource.
+  // If the params are defined, it will look up for the resource with the given params
+  // --> obsType:       Can be one of the following values:
+  //                    'w' (for weight Observation), 'p' (for pulse Observation), 'bp' (for blood pressure Observation)
+  // --> params:        A JSON object with the given params. Can also be empty "{}"
+  //                    Look up for the possible params at http://build.fhir.org/search.html and the specific resource doc
+  // --> callback:      A callbackfunction which has to be defined by the "caller" of the function to hande the result array
+  // IMPORTANT:         This function calls an asynchronus request. Therefore, the callbackfunction is essential!
+  // EXAMPLE:
+  //                    $scope.callback = function() { //Handle the result (for example draw a chart) }
+  //                    ownMidataService.getObservation('w', {}, $scope.callback);
+  function getObservation(obsType, params, callback) {
+    res = "Observation";
+    params = {};
+    // THX TO ZWAHLEN 4 THIS!
+    search(res, params).then(function(observations) {
+      result = [];
+      //--> only pulses
+      if(obsType == "p") {
+        for (var i = 0; i < observations.length; i++) {
+          if(observations[i]._fhir == null) {
+            if(observations[i].code.coding["0"].display == "Herzschlag" ||
+                observations[i].code.coding["0"].display == "Herzfrequenz")
+            {
+              result.push({time: observations[i].effectiveDateTime,
+                          value: observations[i].valueQuantity.value});
+            }
+          }
+        }
+        console.log(result);
+      //--> only weights
+      } else if (obsType == "w") {
+        for (var i = 0; i < observations.length; i++) {
+          if(observations[i]._fhir != null) {
+            if(observations[i]._fhir.code.coding["0"].display == "Weight Measured" ||
+                observations[i]._fhir.code.coding["0"].display == "Body weight Measured" ||
+                observations[i]._fhir.code.coding["0"].display == "Gewicht")
+            {
+              result.push({time: observations[i]._fhir.effectiveDateTime,
+                          value: observations[i]._fhir.valueQuantity.value});
+            }
+          }
+        }
+        console.log(result);
+      //--> only blood pressures
+      } else if (obsType == "bp") {
+        for (var i = 0; i < observations.length; i++) {
+          if(observations[i]._fhir == null) {
+            if(observations[i].code.coding["0"].display == "Blood Pressure") {
+              result.push({time: observations[i].effectiveDateTime,
+                          valueSys: observations[i].component["0"].valueQuantity.value,
+                          valueDia: observations[i].component["1"].valueQuantity.value});
+            }
+          }
+        }
+        console.log(result);
+      } else {
+        //return all obs
+      }
+      callback(result);
+      });
   }
 
   // Save function (call it with ownMidataService.save(val, type))
@@ -207,6 +316,10 @@ angular.module('starter.ownServices', [])
     loggedIn: loggedIn,
     logout: logout,
     search: search,
-    save: save
+    save: save,
+    getWeight: getWeight,
+    getPulse: getPulse,
+    getBloodPressure: getBloodPressure,
+    getObservation: getObservation
   }
 }]);

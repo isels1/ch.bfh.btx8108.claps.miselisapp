@@ -219,9 +219,20 @@ angular.module('starter.controllers', ['ngCordova'])
 
 .controller('loginCtrl', function ($scope, ownMidataService, $timeout, $state) {
     $scope.newLogin = function() {
-    ownMidataService.login($scope.user.username,
-             $scope.user.password,
-             $scope.user.role);
+      var user = document.getElementById("user").value;
+      var pass = document.getElementById("pw").value;
+
+      if (user != '' && $scope.user.username !== user) {
+        $scope.user.username = user;
+      }
+
+      if (pass != '' && $scope.user.password !== pass) {
+        $scope.user.password = pass;
+      }
+
+      ownMidataService.login($scope.user.username,
+               $scope.user.password,
+               $scope.user.role);
     }
 
     var un = window.localStorage.getItem("username");
@@ -232,13 +243,16 @@ angular.module('starter.controllers', ['ngCordova'])
        pw == undefined || pw == "" || pw == null ||
        srv == undefined || srv == "" || srv == null) {
 
-
         // Use for testing the development environment
         $scope.user = {
+            //username: 'gruppe4@bfh.ch',
+            //password: 'PW4clapps@midata',
             username: 'miau.claps@gmail.com',
+            password: 'Miau123456!',
+            //username: 'sina@midata.coop',
+            //password: 'Sina123456',
             server: 'https://test.midata.coop:9000',
             role: 'member'
-
         }
 
     } else {
@@ -276,20 +290,29 @@ angular.module('starter.controllers', ['ngCordova'])
         console.log('Time not selected');
       } else {
         var selectedTime = new Date(val * 1000);
+        var currentMinutes = selectedTime.getUTCMinutes();
+        if (currentMinutes.toString().length == 1) {
+          currentMinutes = "0" + currentMinutes;
+        }
+        var currentHours = selectedTime.getUTCHours();
+        if (currentHours.toString().length == 1) {
+          currentHours = "0" + currentHours;
+        }
+
         if($scope.selectedTime == 'morning') {
-          window.localStorage.setItem('morningTime', selectedTime.getUTCHours() + ':' + selectedTime.getUTCMinutes());
+          window.localStorage.setItem('morningTime', currentHours + ':' + currentMinutes);
           document.getElementById('setTimeMorning').innerHTML = window.localStorage.getItem('morningTime');
 
         } else if ($scope.selectedTime == 'noon') {
-          window.localStorage.setItem('noonTime', selectedTime.getUTCHours() + ':' + selectedTime.getUTCMinutes());
+          window.localStorage.setItem('noonTime', currentHours + ':' + currentMinutes);
           document.getElementById('setTimeNoon').innerHTML = window.localStorage.getItem('noonTime');
 
         } else if ($scope.selectedTime == 'evening') {
-          window.localStorage.setItem('eveningTime', selectedTime.getUTCHours() + ':' + selectedTime.getUTCMinutes());
+          window.localStorage.setItem('eveningTime', currentHours + ':' + currentMinutes);
           document.getElementById('setTimeEvening').innerHTML = window.localStorage.getItem('eveningTime');
 
         } else if ($scope.selectedTime == 'night') {
-          window.localStorage.setItem('nightTime', selectedTime.getUTCHours() + ':' + selectedTime.getUTCMinutes());
+          window.localStorage.setItem('nightTime', currentHours + ':' + currentMinutes);
           document.getElementById('setTimeNight').innerHTML = window.localStorage.getItem('nightTime');
 
         }
