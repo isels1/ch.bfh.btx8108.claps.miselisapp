@@ -26,7 +26,7 @@
           </div>
           <div class="col  setMedPlan" ng-app='app' ng-controller="medplanCtrl" >
             <div class="row  setMedPlan {{days.class}}" id='{{$index}}' ng-repeat="days in days"><label class="TextDefine">{{days.title}}</label>
-            <div class="col  setMedPlan colSize {{time.class}}" daytime="{{time.daytime}}" state="default" ng-repeat="time in time"  >{{time.text}}
+            <div class="col  setMedPlan colSize {{time.class}}" id='{{$index}}' daytime="{{time.daytime}}" state="default" ng-repeat="time in time"  >{{time.text}}
               <img class="medButtonGray"></img>
               <div my-dir></div>
             </div>

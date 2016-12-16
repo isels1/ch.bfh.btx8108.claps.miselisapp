@@ -7,18 +7,32 @@
 // 'starter.controllers' is found in controllers.js
 
 //isels1 ionic login dingens
+
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationController', 'starter.obsControllers', 'starter.services', 'starter.ownServices', 'ionic-datepicker', 'ionic-timepicker', 'formlyIonic', 'nvd3', 'i4mi','jsonFormatter', 'ngCordova', 'ngStorage'])
 
 .constant('APPNAME', 'MIAU')
 .constant('APPSECRET', '39gxbt9ge8zdz3s940ftb4fwhnl634uu')
+.constant(loopNr = 0)
+
+
 
 .directive('myDir', function () {
     return function (scope, element, attrs) {
-      var stateOfMoment = element.parent()[0].getAttribute('state');
-      var elementCss = element.parent()["0"].firstElementChild;
-      var dayelement = element.parent()["0"].parentElement.id;
-      var timeelement = element.parent()["0"].attributes[1].value;
-      scope.toTakeClickAction(stateOfMoment, elementCss, dayelement, timeelement)
+      var morningElement = new Array;
+      var noonElement = new Array;
+      var eveningElement = new Array;
+      var nightElement = new Array;
+
+      for(i = 0; i < 29 ; i++){
+        if(i%4 === 1){
+          morningElement.push(element.parent().parent().children()["1"])
+          noonElement.push(element.parent().parent().children()["2"])
+          eveningElement.push(element.parent().parent().children()["3"])
+          nightElement.push(element.parent().parent().children()["4"])
+        }
+      }
+      loopNr = loopNr + 1;
+      scope.toTakeClickAction(morningElement, noonElement, eveningElement, nightElement , loopNr)
       //console.log(parentNode.getAttribute('state'));
     /*  var dayID = new Array();
       for(var i = 0; i < 7; i++){
