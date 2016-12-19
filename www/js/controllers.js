@@ -44,7 +44,7 @@ angular.module('starter.controllers', ['ngCordova'])
         window.open('tel:' + number, '_system');
     }
 
-    var isLoggedIn = ownMidataService.loggedIn();
+  /*  var isLoggedIn = ownMidataService.loggedIn();
     if (isLoggedIn) {
         $scope.logout = function() {
             window.localStorage.setItem("password", '');
@@ -52,7 +52,7 @@ angular.module('starter.controllers', ['ngCordova'])
             $state.go('login'); };
     } else {
         $state.go('login');
-    }
+    }*/
 
 })
 
@@ -128,6 +128,7 @@ angular.module('starter.controllers', ['ngCordova'])
            contactList = JSON.parse(window.localStorage.getItem("selectedContacts"));
       }
 
+
       var existing = false;
       var selectedContact = JSON.parse(Contact.contact);
       for (var i = 0; i < contactList.length; i++) {
@@ -159,16 +160,20 @@ angular.module('starter.controllers', ['ngCordova'])
             id: fieldId,
             contact: JSON.stringify(Contact)
         }
-
         $scope.contactToSave = localContact;
+
+        $scope.photo = JSON.parse(localContact.contact);
+        $scope.photovalue = $scope.photo.photos["0"].value;
+        window.localStorage.setItem("photoOfContact", $scope.photovalue);
     }
 
     $scope.setContacttoButton = function (){
         var id = $scope.contactToSave.id
+        $scope.picture = window.localStorage.getItem("photoOfContact");
+
         $scope.contactforFill = JSON.parse($scope.contactToSave.contact);
-        document.getElementById(id).childNodes[0].nextSibling.setAttribute('ng-src', '{{$scope.contactforFill.photos[0].value}}');
-        document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', '{{$scope.contactforFill.photos[0].value}}');
-        console.log( document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', '{{$scope.contactforFill.photos[0].value}}'));
+        document.getElementById(id).childNodes[0].nextSibling.setAttribute('ng-src', $scope.picture);
+        document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', $scope.picture);
     }
 
 
@@ -206,7 +211,7 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.openhome = function () {
     $state.go('menu.home');
 }
-    var isLoggedIn = ownMidataService.loggedIn();
+  /*  var isLoggedIn = ownMidataService.loggedIn();
     if (isLoggedIn) {
         $scope.logout = function() {
         window.localStorage.setItem("password", '');
@@ -214,10 +219,10 @@ angular.module('starter.controllers', ['ngCordova'])
         $state.go('login'); };
 } else {
     $state.go('login');
-    }
+  }*/
 })
 
-.controller('loginCtrl', function ($scope, ownMidataService, $timeout, $state) {
+/*.controller('loginCtrl', function ($scope, ownMidataService, $timeout, $state) {
     $scope.newLogin = function() {
       var user = document.getElementById("user").value;
       var pass = document.getElementById("pw").value;
@@ -247,8 +252,8 @@ angular.module('starter.controllers', ['ngCordova'])
         $scope.user = {
             //username: 'gruppe4@bfh.ch',
             //password: 'PW4clapps@midata',
-            username: 'miau.claps@gmail.com',
-            password: 'Miau123456!',
+            //username: 'miau.claps@gmail.com',
+            //password: 'Miau123456!',
             //username: 'sina@midata.coop',
             //password: 'Sina123456',
             server: 'https://test.midata.coop:9000',
@@ -281,7 +286,7 @@ angular.module('starter.controllers', ['ngCordova'])
         } else {
             timer = $timeout(refresh, 1000);}
     }, 1000);
-            })
+  })*/
 
 .controller('settingsCtrl', function($scope, ionicTimePicker) {
   var ipObj1 = {

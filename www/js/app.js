@@ -14,7 +14,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
 .constant('APPSECRET', '39gxbt9ge8zdz3s940ftb4fwhnl634uu')
 .constant(loopNr = 0)
 
-
+.config(['$compileProvider', function($compileProvider) {
+            $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob|content):|data:image\//);
+        }])
 
 .directive('myDir', function () {
     return function (scope, element, attrs) {
@@ -131,14 +133,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
         templateUrl: 'templates/createMedi.html',
           controller : 'createMediCtrl'
         })
-        .state('login', {
+      /*  .state('login', {
                url: '/login',
                templateUrl: 'templates/login.html',
                controller: 'loginCtrl'
         });
-
+*/
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/tel');
 
 });
