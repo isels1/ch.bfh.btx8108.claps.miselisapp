@@ -1,11 +1,11 @@
 <ion-view view-title="MIAU" cache-view="false">
-    <ion-content ng-controller="loginCtrl" scroll="false">
+    <ion-content ng-controller="loginCtrl" scroll="false"  >
         <section class="bg-container">
             <div class="col header text-center login-img-container">
                 <img class="login-img" src="./img/logo - Kopie.PNG"/>
                 <div class="list login-list">
-                    <input class="login-list input" type="text" id="user" value="{{user.username}}" />
-                    <input class="login-list input" type="password" id="pw" value="{{user.password}}"/>
+                    <input class="login-list input" type="text" id="user" value="" />
+                    <input class="login-list input" type="password" id="pw" value=""/>
                     <button class="button button-full button-positive" ng-click="newLogin()">Login</button>
                     <!--<i4mi-midata-login user="user" controller-name="I4MIMidataLoginController"></i4mi-midata-login>-->
                 </div>

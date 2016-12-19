@@ -222,8 +222,9 @@ angular.module('starter.controllers', ['ngCordova'])
   }
 })
 
-.controller('loginCtrl', function ($scope, ownMidataService, $timeout, $state) {
+.controller('loginCtrl', function ($scope, $compile, ownMidataService, $timeout, $state) {
   $scope.newLogin = function() {
+
     var user = document.getElementById("user").value;
     var pass = document.getElementById("pw").value;
 
@@ -240,37 +241,42 @@ angular.module('starter.controllers', ['ngCordova'])
              $scope.user.role);
   }
 
-    var un = window.localStorage.getItem("username");
-    var pw = window.localStorage.getItem("password");
-    var srv = window.localStorage.getItem("server");
+      var un = window.localStorage.getItem("username");
+      var pw = window.localStorage.getItem("password");
+      var srv = window.localStorage.getItem("server");
 
-    if(un == undefined || un == "" || un == null ||
-       pw == undefined || pw == "" || pw == null ||
-       srv == undefined || srv == "" || srv == null) {
+      if(un == undefined || un == "" || un == null ||
+         pw == undefined || pw == "" || pw == null ||
+         srv == undefined || srv == "" || srv == null) {
 
-        // Use for testing the development environment
-        $scope.user = {
-            //username: 'gruppe4@bfh.ch',
-            //password: 'PW4clapps@midata',
-            username: 'miau.claps@gmail.com',
-            password: 'Miau123456!',
-            //username: 'sina@midata.coop',
-            //password: 'Sina123456',
-            server: 'https://test.midata.coop:9000',
-            role: 'member'
-        }
+          // Use for testing the development environment
+          $scope.user = {
+              //username: 'gruppe4@bfh.ch',
+              //password: 'PW4clapps@midata',
+              username: 'miau.claps@gmail.com',
+              password: 'Miau123456!',
+              //username: 'sina@midata.coop',
+              //password: 'Sina123456',
+              server: 'https://test.midata.coop:9000',
+              role: 'member'
+          }
 
-    } else {
-        $scope.user = {
-            username: un,
-            password: pw,
-            server: srv,
-            role: 'member'
-        }
+          document.getElementById("user").value = $scope.user.username;
+          document.getElementById("pw").value = $scope.user.password;
 
-        $scope.newLogin();
+      } else {
+          $scope.user = {
+              username: un,
+              password: pw,
+              server: srv,
+              role: 'member'
+          }
 
-    }
+          document.getElementById("user").value = $scope.user.username;
+          document.getElementById("pw").value = $scope.user.password;
+
+          $scope.newLogin();
+      }
 
     // Connect with MIDATA
     $scope.loggedIn = ownMidataService.loggedIn();
