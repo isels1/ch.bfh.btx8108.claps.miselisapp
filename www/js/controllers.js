@@ -44,7 +44,7 @@ angular.module('starter.controllers', ['ngCordova'])
         window.open('tel:' + number, '_system');
     }
 
-  /*  var isLoggedIn = ownMidataService.loggedIn();
+    var isLoggedIn = ownMidataService.loggedIn();
     if (isLoggedIn) {
         $scope.logout = function() {
             window.localStorage.setItem("password", '');
@@ -52,7 +52,7 @@ angular.module('starter.controllers', ['ngCordova'])
             $state.go('login'); };
     } else {
         $state.go('login');
-    }*/
+    }
 
 })
 
@@ -211,7 +211,7 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.openhome = function () {
     $state.go('menu.home');
 }
-  /*  var isLoggedIn = ownMidataService.loggedIn();
+    var isLoggedIn = ownMidataService.loggedIn();
     if (isLoggedIn) {
         $scope.logout = function() {
         window.localStorage.setItem("password", '');
@@ -219,26 +219,26 @@ angular.module('starter.controllers', ['ngCordova'])
         $state.go('login'); };
 } else {
     $state.go('login');
-  }*/
+  }
 })
 
-/*.controller('loginCtrl', function ($scope, ownMidataService, $timeout, $state) {
-    $scope.newLogin = function() {
-      var user = document.getElementById("user").value;
-      var pass = document.getElementById("pw").value;
+.controller('loginCtrl', function ($scope, ownMidataService, $timeout, $state) {
+  $scope.newLogin = function() {
+    var user = document.getElementById("user").value;
+    var pass = document.getElementById("pw").value;
 
-      if (user != '' && $scope.user.username !== user) {
-        $scope.user.username = user;
-      }
-
-      if (pass != '' && $scope.user.password !== pass) {
-        $scope.user.password = pass;
-      }
-
-      ownMidataService.login($scope.user.username,
-               $scope.user.password,
-               $scope.user.role);
+    if (user != '' && $scope.user.username !== user) {
+      $scope.user.username = user;
     }
+
+    if (pass != '' && $scope.user.password !== pass) {
+      $scope.user.password = pass;
+    }
+
+    ownMidataService.login($scope.user.username,
+             $scope.user.password,
+             $scope.user.role);
+  }
 
     var un = window.localStorage.getItem("username");
     var pw = window.localStorage.getItem("password");
@@ -252,8 +252,8 @@ angular.module('starter.controllers', ['ngCordova'])
         $scope.user = {
             //username: 'gruppe4@bfh.ch',
             //password: 'PW4clapps@midata',
-            //username: 'miau.claps@gmail.com',
-            //password: 'Miau123456!',
+            username: 'miau.claps@gmail.com',
+            password: 'Miau123456!',
             //username: 'sina@midata.coop',
             //password: 'Sina123456',
             server: 'https://test.midata.coop:9000',
@@ -286,7 +286,7 @@ angular.module('starter.controllers', ['ngCordova'])
         } else {
             timer = $timeout(refresh, 1000);}
     }, 1000);
-  })*/
+  })
 
 .controller('settingsCtrl', function($scope, ionicTimePicker) {
   var ipObj1 = {

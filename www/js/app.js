@@ -133,14 +133,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
         templateUrl: 'templates/createMedi.html',
           controller : 'createMediCtrl'
         })
-      /*  .state('login', {
+        .state('login', {
                url: '/login',
                templateUrl: 'templates/login.html',
                controller: 'loginCtrl'
         });
-*/
+
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tel');
+  $urlRouterProvider.otherwise('/login');
 
 });
