@@ -3,17 +3,9 @@
 
 <ion-view view-title="Medikationsplan">
   <ion-content  class="wrapper" scroll="false">
-    <div>
-      <button class="" ng-click="showLocalStorage()">
-        Test PopUp localStorage (not Styled)
-      </button>
-      <button class="" ng-click="opencreateMedi()">
-        Nav to createMedi (Test)
-      </button>
-      <button class="" ng-click="changeCSS()">
-        Test ColorBlindMode
-      </button>
-    </div>
+    <img class="AddMedi" ng-click="opencreateMedi()">
+      <img class="ColorBlindMode" ng-click="changeCSS()"/>
+
     <div class="leftNavigation">
       <button id="sideButtonleft" class="navButton" ng-click="openhome()" >
         <img class="navImg" src="img\ButtonHomeLeft.PNG"></img>
@@ -26,8 +18,8 @@
           </div>
           <div class="col  setMedPlan" ng-app='app' ng-controller="medplanCtrl" >
             <div class="row  setMedPlan {{days.class}}" id='{{$index}}' ng-repeat="days in days"><label class="TextDefine">{{days.title}}</label>
-            <div class="col  setMedPlan colSize {{time.class}}" id='{{$index}}' daytime="{{time.daytime}}" state="default" ng-repeat="time in time"  >{{time.text}}
-              <img class="medButtonGray"></img>
+            <div class="col  setMedPlan colSize {{time.class}}" id='{{$index}}' daytime="{{time.daytime}}" state="default" ng-repeat="time in time"   >{{time.text}}
+              <img class="medButtonGray" id='{{$index}}' ng-click="showLocalStorage($event)"></img>
               <div my-dir></div>
             </div>
             </div>

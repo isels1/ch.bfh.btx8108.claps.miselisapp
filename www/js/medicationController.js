@@ -24,34 +24,31 @@ angular.module('starter.medicationController', ['ngCordova'])
                            {title:'Nacht',daytime:"night" ,class:'NightColor  night'}];
 
 
-            $scope.showLocalStorage = function(){
-
+            $scope.showLocalStorage = function(event){
+              var DayId = event.target.parentElement.parentElement.id;
+              var TimeId = event.target.parentElement.id;
+              var target = event.target.classList["0"]
+              console.log(target);
 
             $scope.data =[];
 
             var medList = JSON.parse(localStorage.getItem("MedicationList"));
 
             for(var i = 0; i < medList.medication.length; i++) {
-                var obj = medList.medication[i];
-                console.log(obj);
+                var obj = JSON.parse(medList.medication[i]);
                 $scope.data.push(obj);
+
             }
 
-            //for(var i = 0; i < localStorage.length; i++){
-            //$scope.data.push(JSON.parse(localStorage.getItem("Medi".concat(i))));
-            //};
-
-            //for(var i = $scope.data.length - 1; i >= 0; i--) {
-            //if($scope.data[i] === null) {
-            //$scope.data.splice(i, 1);
-            //}};
 
             var customTemplate = "";
 
             for(var i = 0; i < $scope.data.length; i++) {
-                customTemplate += '<div class="row mediPopUp"><img class="smallMediPic"></img>'+ $scope.data[i].name +
+                customTemplate += '<div class="row mediPopUp"><img ng-src="{{$scope.data.medicament.img}}"></img><label>{{$scope.data.medicament.name}}</label>'+
                 '<ion-toggle></ion-toggle></div>' ;
             }
+
+           if(target == "medButtonTaken"){
 
             $ionicPopup.show({
                              template: customTemplate,
@@ -71,7 +68,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                                        ]
                              });
 
-
+                          }
             };
 
             $scope.id = 28;
@@ -197,7 +194,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                 }
                 if($scope.loopNr == 16){
                   if($scope.DayDoState == "unchecked" && $scope.Nightstate == "unchecked"){
-                    $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
+                    $scope.nightElement["0"].firstElementChild.className = "medButtonTaken";
                   }
                 }
 
