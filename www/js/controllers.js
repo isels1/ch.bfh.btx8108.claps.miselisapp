@@ -56,7 +56,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
 })
 
-.controller('telCtrl', function ($scope, $compile,$state, $ionicPopup, ownMidataService, $cordovaContacts, $cordovaNativeAudio) {
+.controller('telCtrl', function ($scope, $compile, $state, $ionicPopup, ownMidataService, $cordovaContacts, $cordovaNativeAudio) {
     //vlads1 & zyssm4 getContactList & addContact
     //Get all contacts from the device. Reads the Phonenumber, Name and picture. These are then put into the html
     $scope.getContactList = function () {
@@ -153,7 +153,6 @@ angular.module('starter.controllers', ['ngCordova'])
 
     }
 
-
     // Kontakt ausw�hlen Iselis1 und Vlads1
     $scope.pickContact = function (Contact, fieldId) {
         var localContact = {
@@ -161,19 +160,46 @@ angular.module('starter.controllers', ['ngCordova'])
             contact: JSON.stringify(Contact)
         }
         $scope.contactToSave = localContact;
-
-        $scope.photo = JSON.parse(localContact.contact);
-        $scope.photovalue = $scope.photo.photos["0"].value;
-        window.localStorage.setItem("photoOfContact", $scope.photovalue);
+        window.localStorage.setItem("pickedContacts", JSON.stringify(localContact));
+        
     }
 
     $scope.setContacttoButton = function (){
-        var id = $scope.contactToSave.id
-        $scope.picture = window.localStorage.getItem("photoOfContact");
+        $scope.ContactInLocalstorage = JSON.parse(window.localStorage.getItem("pickedContacts"));
 
-        $scope.contactforFill = JSON.parse($scope.contactToSave.contact);
-        document.getElementById(id).childNodes[0].nextSibling.setAttribute('ng-src', $scope.picture);
-        document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', $scope.picture);
+        var contact = JSON.parse($scope.ContactInLocalstorage.contact);
+        var id = $scope.ContactInLocalstorage.id
+
+        var photo = contact.photos;
+        
+        if (photo != null) {
+            document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', photo[0].value);
+        }
+        
+        //document.getElementById(id).childNodes[1].nextSibling.nodeValue = contact.displayName;
+        var contactName = document.getElementById(id).childNodes[3];
+            contactName.textContent = contact.displayName;
+
+        var contactButton = document.getElementById(id);
+        contactButton.setAttribute("phoneNumber", contact.phoneNumbers[0].value);
+        contactButton.removeAttribute("editMode");
+        contactButton.setAttribute("editMode", "false");
+
+        console.log(id)
+        console.log(contact.phoneNumbers[0].value);
+        //console.log(photo[0].value)
+
+    }
+
+    $scope.Anrufen = function () {
+        /*var defaultImage = "img/addCross.png";
+        $scope.ContactInLocalstorage = JSON.parse(window.localStorage.getItem("pickedContacts"));
+        var contact = JSON.parse($scope.ContactInLocalstorage.contact);
+        var id = $scope.ContactInLocalstorage.id;
+        if (document.getElementById(id).childNodes[0].nextSibling.getAttribute('src') =! defaultImage) {
+            console.log("Fuuuuck");
+        }*/
+        console.log('Whuut?');
     }
 
 
@@ -205,21 +231,58 @@ angular.module('starter.controllers', ['ngCordova'])
         });
     }
 
+    $scope.DialNumberPopup = function (event) {
+        $scope.fieldId = event.target.parentElement.id;
+        $scope.data = {
+            vm: [
+              $scope.contacts,
+            ]
+
+        };
+        $ionicPopup.show({
+            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId)"> <div class="item item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
+            title: 'Kontakt anrufen:',
+            subTitle: '',
+            scope: $scope,
+            cssClass: 'dialNumberPopup',
+            buttons: [
+              { text: 'Abbrechen' },
+              {
+                  text: '<b>Anrufen</b>',
+                  onTap: function (e) {
+
+                  }
+              }
+            ]
+        });
+    }
+
     $scope.openmedi = function () {
-    $state.go('medplan');
-}
+        $state.go('medplan');   
+    }
     $scope.openhome = function () {
-    $state.go('menu.home');
-}
+        $state.go('menu.home');
+    }
     var isLoggedIn = ownMidataService.loggedIn();
     if (isLoggedIn) {
         $scope.logout = function() {
         window.localStorage.setItem("password", '');
         ownMidataService.logout();
         $state.go('login'); };
-} else {
+    } else {
     $state.go('login');
-  }
+    }
+
+    $scope.clickAction = function (e) {
+        var btnId = e.target.parentElement.id;
+        var editMode = document.getElementById(btnId).getAttribute("editMode");
+        if (editMode === "true") {
+            $scope.getContactList();
+            $scope.TelPopup(e);
+        } else {
+            $scope.Anrufen();
+        }
+    }
 })
 
 .controller('loginCtrl', function ($scope, $compile, ownMidataService, $timeout, $state) {
