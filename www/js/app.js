@@ -12,12 +12,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
 
 .constant('APPNAME', 'MIAU')
 .constant('APPSECRET', '39gxbt9ge8zdz3s940ftb4fwhnl634uu')
+
+//needed constant during the directive call (with this it is possible to easily step trought the generated elements)
 .constant(loopNr = 0)
+
 
 .config(['$compileProvider', function($compileProvider) {
             $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob|content):|data:image\//);
         }])
 
+
+//zyssm4 init call for collection all generated objects of the medplan.
 .directive('myDir', function () {
     return function (scope, element, attrs) {
       var morningElement = new Array;
@@ -25,6 +30,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
       var eveningElement = new Array;
       var nightElement = new Array;
 
+      //get each generated element in the html, and then fill it into the given arrays
       for(i = 0; i < 29 ; i++){
         if(i%4 === 1){
           morningElement.push(element.parent().parent().children()["1"])
@@ -35,15 +41,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
       }
       loopNr = loopNr + 1;
       scope.toTakeClickAction(morningElement, noonElement, eveningElement, nightElement , loopNr)
-      //console.log(parentNode.getAttribute('state'));
-    /*  var dayID = new Array();
-      for(var i = 0; i < 7; i++){
-        if(element["0"].getAttribute("id") !== "checked"){
-        dayID.push(i);
-        }
-      }
-      scope.toTakeClickAction(dayID);*/
-    }
+  }
   })
 
 .run(function($ionicPlatform) {

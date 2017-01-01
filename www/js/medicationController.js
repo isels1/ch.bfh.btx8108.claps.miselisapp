@@ -1,5 +1,11 @@
 angular.module('starter.medicationController', ['ngCordova'])
-
+/*----------------------------------------------------------------------------*/
+/* Medication Controller
+/* zyssm4
+/* The comments should show "what is what" and "how to use it"
+/*----------------------------------------------------------------------------*/
+// Use this service like all others:
+// --> Add reference to your index.html (<script src="js/medicationController.js"></script>)
 
 
 .controller('medplanCtrl', function ($scope, $state, $ionicPopup, ownMidataService) {
@@ -24,11 +30,11 @@ angular.module('starter.medicationController', ['ngCordova'])
                            {title:'Nacht',daytime:"night" ,class:'NightColor  night'}];
 
 
+            //The event retrives the element infromation
             $scope.showLocalStorage = function(event){
               var DayId = event.target.parentElement.parentElement.id;
               var TimeId = event.target.parentElement.id;
               var target = event.target.classList["0"]
-              console.log(target);
 
             $scope.data =[];
 
@@ -48,6 +54,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                 '<ion-toggle></ion-toggle></div>' ;
             }
 
+          // when a button is set to the CSS class medButtonTake the ionicPopup will be able to show up
            if(target == "medButtonTaken"){
 
             $ionicPopup.show({
@@ -73,6 +80,7 @@ angular.module('starter.medicationController', ['ngCordova'])
 
             $scope.id = 28;
 
+            //This function will get
             $scope.toTakeClickAction = function (morningElement, noonElement, eveningElement, nightElement, loopNr) {
 
             $scope.morningElement = morningElement;
@@ -263,13 +271,10 @@ angular.module('starter.medicationController', ['ngCordova'])
               }
 
 
-          //  console.log($scope.nightElement["0"]);
 
 
             for(var i = 0; i < $scope.medList.medication.length; i++) {
                 var obj = JSON.parse($scope.medList.medication[i]);
-
-              //  console.log($scope.timeElement );
                   if ($scope.nightElement == "1"){
 
                   }
@@ -301,6 +306,7 @@ angular.module('starter.medicationController', ['ngCordova'])
           }
         }
 
+          //With this Function the CSS class of the Buttons can be changed. It just cnages the Href
             $scope.changeCSS = function (){
               var css = document.getElementById("original")
               if(css.getAttribute('href') == "css/styleMedPlanColorNormal.css"){
@@ -397,6 +403,7 @@ angular.module('starter.medicationController', ['ngCordova'])
 
             $scope.endDatumMedi = {title: "endDatumMedi", class:' datumSpacer'}
 
+
           $scope.deleteMedi = function(event){
             var data = JSON.parse(localStorage.getItem("MedicationList"));
             var targetID = event.target.id;
@@ -405,7 +412,7 @@ angular.module('starter.medicationController', ['ngCordova'])
               tempElements = JSON.parse(data.medication[i]);
               if (tempElements.id == targetID) {
                 var elementToDelete = data.medication[i];
-                data.medication.splice(elementToDelete, 1);
+                data.medication.splice(elementToDelete, 1); //The chosen element gets deleted out of the array
                 localStorage.setItem("MedicationList", JSON.stringify(data));
 
               }
@@ -422,6 +429,7 @@ angular.module('starter.medicationController', ['ngCordova'])
               medication: []
             }
 
+          //This Function gets the localstorage and shows the medicaments in the given template
           $scope.loadMediList = function(divName) {
             var data = JSON.parse(localStorage.getItem("MedicationList"));
             if(data != null){
@@ -430,6 +438,7 @@ angular.module('starter.medicationController', ['ngCordova'])
               }
             }
 
+            //if there is atleast one medicament it will be filled into the template
             if(data !== null){
               for(var i = 0; i < data.medication.length; i++) {
                 var newElement = document.createElement('div');
@@ -542,6 +551,8 @@ angular.module('starter.medicationController', ['ngCordova'])
 
             $scope.addMedicament = function(){
 
+
+              //Hardcoded PopUp template
             var customTemplate =
             '<div>'+
             //Header
@@ -711,6 +722,8 @@ angular.module('starter.medicationController', ['ngCordova'])
                                        {
                                          text: '<b>Speichern</b>',
                                          type: 'button-positive',
+
+                                         //The Inputdate will be set to various variables, so they can be saved into the localStorage with the saveMedi() function
                                          onTap: function(e) {
                                            var MediName = document.getElementById("MediName").value;
                                            var DayTimeMoring = document.getElementById("DayTimeMoring").getAttribute("data-id");
@@ -773,7 +786,7 @@ angular.module('starter.medicationController', ['ngCordova'])
 
 
 
-
+                  //This Json wil function as an vessel which holds al the relevant data about an medicament
                   var medicament = {
                     id: $scope.id,
                     name: MediName,
@@ -808,7 +821,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                 $window.location.reload();
               }
 
-        //camera example
+        //Start the Camera, Take a Photo, Show the Picture
         $scope.takePicture = function() {
                 var options = {
                     quality : 75,
