@@ -35,6 +35,8 @@ angular.module('starter.medicationController', ['ngCordova'])
               var DayId = event.target.parentElement.parentElement.id;
               var TimeId = event.target.parentElement.id;
               var target = event.target.classList["0"]
+              $scope.popUpDayId = event.target.parentElement.parentElement.id;
+              $scope.popUpTimeId = event.target.id;
 
             $scope.data =[];
 
@@ -43,15 +45,49 @@ angular.module('starter.medicationController', ['ngCordova'])
             for(var i = 0; i < medList.medication.length; i++) {
                 var obj = JSON.parse(medList.medication[i]);
                 $scope.data.push(obj);
-
             }
-
+/*{"medication":
+["{\"id\":10,
+\"name\":\"\",
+\"schema\":
+  {\"Morning\":
+    {\"amount\":\"\",\"state\":\"unchecked\"},
+  \"Noon\":
+    {\"amount\":\"\",\"state\":\"default\"},
+  \"Evening\":
+    {\"amount\":\"\",\"state\":\"default\"},
+  \"Night\":
+    {\"amount\":\"\",\"state\":\"unchecked\"}},
+\"interval\":
+  [\"unchecked\",\"default\",\"unchecked\",\"default\",\"default\",\"unchecked\",\"unchecked\"],
+\"startDate\":\"\",
+\"endDate\":\"\"}"
+*/
 
             var customTemplate = "";
 
             for(var i = 0; i < $scope.data.length; i++) {
-                customTemplate += '<div class="row mediPopUp"><img ng-src="{{$scope.data.medicament.img}}"></img><label>{{$scope.data.medicament.name}}</label>'+
-                '<ion-toggle></ion-toggle></div>' ;
+              if($scope.popUpTimeId == 0){
+                if($scope.data[i].schema.Morning.state == "unchecked"){
+                  customTemplate += "<div>"  + $scope.data[i].name + "  Anzahl: "+ $scope.data[i].schema.Morning.amount +  "</div>";
+                }
+              }
+              if($scope.popUpTimeId == 1){
+                if($scope.data[i].schema.Noon.state == "unchecked"){
+                  customTemplate += "<div>"  + $scope.data[i].name + "  Anzahl: "+ $scope.data[i].schema.Noon.amount +  "</div>";
+                }
+              }
+              if($scope.popUpTimeId == 2){
+                if($scope.data[i].schema.Evening.state == "unchecked"){
+                  customTemplate +=  "<div>"  + $scope.data[i].name + "  Anzahl: "+ $scope.data[i].schema.Evening.amount +  "</div>";
+                }
+              }
+              if($scope.popUpTimeId == 3){
+                if($scope.data[i].schema.Night.state == "unchecked"){
+                  customTemplate +=  "<div>"  + $scope.data[i].name + "  Anzahl: "+ $scope.data[i].schema.Night.amount +  "</div>";
+                }
+              }
+
             }
 
           // when a button is set to the CSS class medButtonTake the ionicPopup will be able to show up
@@ -379,7 +415,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                     "<div class='{{endDatumMedi.class}}' id='{{ 'endDatumMedi'+$index}}'>{{mediObj.medicament.endDate}}</div>"+
                   "</div>"+
                 "</div>"+
-                "<img class='ThrashImg' id='{{mediObj.medicament.id}}' ng-click='deleteMedi($event)'></img>"+
+                "<img class='ThrashImg' id='{{mediObj.medicament.id}}' data-indetifier='{{$index}}' ng-click='deleteMedi($event)'></img>"+
               "</div>"+
             "</div>";
 
@@ -405,18 +441,11 @@ angular.module('starter.medicationController', ['ngCordova'])
 
 
           $scope.deleteMedi = function(event){
-            var data = JSON.parse(localStorage.getItem("MedicationList"));
+            $scope.data = JSON.parse(localStorage.getItem("MedicationList"));
             var targetID = event.target.id;
-
-            for (var i = 0; i < data.medication.length; i++) {
-              tempElements = JSON.parse(data.medication[i]);
-              if (tempElements.id == targetID) {
-                var elementToDelete = data.medication[i];
-                data.medication.splice(elementToDelete, 1); //The chosen element gets deleted out of the array
-                localStorage.setItem("MedicationList", JSON.stringify(data));
-
-              }
-            }
+            var elementToDelete = event.target.dataset.indetifier;
+                $scope.data.medication.splice(elementToDelete, 1); //The chosen element gets deleted out of the array
+                localStorage.setItem("MedicationList", JSON.stringify($scope.data));
 
             $window.location.reload();
 
