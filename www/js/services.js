@@ -9,7 +9,7 @@ angular.module('starter.services', [])
                        name: 'toTake',
                        cssClass: 'medToTake'
          }, {
-                       id: 2,
+                       id: "taken",
                        name: 'checked',
                        cssClass: 'medTaken'
          }, {

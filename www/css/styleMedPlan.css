@@ -205,3 +205,43 @@
   font-size: 1.5vw;
   text-align: center;
 }
+
+/*------------------*/
+/*--PopUp MediPlan--*/
+/*------------------*/
+.toTakePopUp{
+
+  float: left;
+  margin-top: 5%;
+  width: 100%;
+}
+
+.IMGTakePopUp{
+  align-items: center !important;
+  align-content: center !important;
+  float: left;
+  width: 10%;
+  height: 10%;
+}
+
+.textTakePopUp{
+  align-items: center !important;
+  align-content: center !important;
+  float: left;
+  font-size: 1.5vw;
+}
+
+/*--------------*/
+/*--Toogle Box--*/
+/*--------------*/
+
+.item-toggle{
+  align-items: center !important;
+  align-content: center !important;
+  width: 10%;
+  margin-bottom: 1%;
+  padding-bottom: 5%;
+  float: left;
+  background-color: inherit;
+  border: none;
+}
