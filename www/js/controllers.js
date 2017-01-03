@@ -56,7 +56,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
 })
 
-.controller('telCtrl', function ($scope, $compile, $state, $ionicPopup, ownMidataService, $cordovaContacts, $cordovaNativeAudio) {
+.controller('telCtrl', function ($scope, $compile,  $state, $ionicPopup, ownMidataService, $cordovaContacts, $cordovaNativeAudio) {
     //vlads1 & zyssm4 getContactList & addContact
     //Get all contacts from the device. Reads the Phonenumber, Name and picture. These are then put into the html
     $scope.getContactList = function () {
@@ -166,7 +166,7 @@ angular.module('starter.controllers', ['ngCordova'])
         }
         $scope.contactToSave = localContact;
         window.localStorage.setItem("pickedContacts", JSON.stringify(localContact));
-        
+
     }
 
     $scope.setContacttoButton = function (){
@@ -176,35 +176,39 @@ angular.module('starter.controllers', ['ngCordova'])
         var id = $scope.ContactInLocalstorage.id
 
         var photo = contact.photos;
-        
+
         if (photo != null) {
             document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', photo[0].value);
         }
-        
+
         //document.getElementById(id).childNodes[1].nextSibling.nodeValue = contact.displayName;
         var contactName = document.getElementById(id).childNodes[3];
             contactName.textContent = contact.displayName;
 
-        var contactButton = document.getElementById(id);
-        contactButton.setAttribute("phoneNumber", contact.phoneNumbers[0].value);
-        contactButton.removeAttribute("editMode");
-        contactButton.setAttribute("editMode", "false");
+        $scope.contactButton = document.getElementById(id);
+        $scope.contactButton.setAttribute("phoneNumber", contact.phoneNumbers[0].value);
+        $scope.contactButton.removeAttribute("editMode");
+        $scope.contactButton.setAttribute("editMode", "false");
 
-        console.log(id)
-        console.log(contact.phoneNumbers[0].value);
-        //console.log(photo[0].value)
+
 
     }
 
-    $scope.callContact = function () {
-
-        console.log('Whuut?');
-
-    }
+    $scope.Edit = true;
 
     $scope.changeEditMode = function () {
-        $scope.contactButton.setAttribute("editMode");
-        $scope.contactButton.setAttribute("editMode", "true");
+      if($scope.Edit == true){
+        for(i = 1; i < 9; i++){
+            document.getElementById("button" + i).setAttribute("data-toSet", true);
+            }
+        $scope.Edit = false;
+      }
+      else if($scope.Edit == false){
+        for(i = 1; i < 9; i++){
+            document.getElementById("button" + i).setAttribute("data-toSet", false);
+            }
+        $scope.Edit = true;
+      }
     }
 
 
@@ -237,6 +241,7 @@ angular.module('starter.controllers', ['ngCordova'])
     }
 
     $scope.DialNumberPopup = function (event) {
+      console.log(event.target);
         $scope.fieldId = event.target.parentElement.id;
         $scope.data = {
             vm: [
@@ -256,7 +261,7 @@ angular.module('starter.controllers', ['ngCordova'])
                   text: '<b>Anrufen</b>',
                   onTap: function (e) {
 
-                      $scope.CallContact();
+                      console.log('Whuut?');
 
                   }
               }
@@ -265,7 +270,7 @@ angular.module('starter.controllers', ['ngCordova'])
     }
 
     $scope.openmedi = function () {
-        $state.go('medplan');   
+        $state.go('medplan');
     }
     $scope.openhome = function () {
         $state.go('menu.home');
@@ -280,14 +285,15 @@ angular.module('starter.controllers', ['ngCordova'])
     $state.go('login');
     }
 
-    $scope.clickAction = function (e) {
-        var btnId = e.target.parentElement.id;
-        var editMode = document.getElementById(btnId).getAttribute("editMode");
+    $scope.clickAction = function (event) {
+      editMode = event.target.parentElement.getAttribute("data-toSet");
         if (editMode === "true") {
+            event.target.parentElement.setAttribute("data-toSet", false);
             $scope.getContactList();
-            $scope.TelPopup(e);
+            $scope.TelPopup(event);
+
         } else {
-            $scope.DialNumberPopup();
+            $scope.DialNumberPopup(event);
         }
     }
 })

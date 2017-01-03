@@ -28,11 +28,8 @@ padding-bottom:0 !important;
 
 .editButton {
     position: absolute;
-    right: 0%;
-    top: 0%;
+    left: 0%;
     background-color:#008A9D;
-    background-position: top;
-    background-repeat: no-repeat;
     font-size: 3vh;
     color:white;
     border: none;
