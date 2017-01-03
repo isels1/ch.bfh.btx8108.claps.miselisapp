@@ -116,7 +116,12 @@ angular.module('starter.controllers', ['ngCordova'])
             "organizations": null,
             "birthday": null,
             "note": "",
-            "photos": null,
+            "photos": [
+                {
+
+                    "value": "img/Arzt.jpg"
+                }
+            ],
             "categories": null,
             "urls": null
     }
@@ -191,15 +196,15 @@ angular.module('starter.controllers', ['ngCordova'])
 
     }
 
-    $scope.Anrufen = function () {
-        /*var defaultImage = "img/addCross.png";
-        $scope.ContactInLocalstorage = JSON.parse(window.localStorage.getItem("pickedContacts"));
-        var contact = JSON.parse($scope.ContactInLocalstorage.contact);
-        var id = $scope.ContactInLocalstorage.id;
-        if (document.getElementById(id).childNodes[0].nextSibling.getAttribute('src') =! defaultImage) {
-            console.log("Fuuuuck");
-        }*/
+    $scope.callContact = function () {
+
         console.log('Whuut?');
+
+    }
+
+    $scope.changeEditMode = function () {
+        $scope.contactButton.setAttribute("editMode");
+        $scope.contactButton.setAttribute("editMode", "true");
     }
 
 
@@ -251,6 +256,8 @@ angular.module('starter.controllers', ['ngCordova'])
                   text: '<b>Anrufen</b>',
                   onTap: function (e) {
 
+                      $scope.CallContact();
+
                   }
               }
             ]
@@ -280,7 +287,7 @@ angular.module('starter.controllers', ['ngCordova'])
             $scope.getContactList();
             $scope.TelPopup(e);
         } else {
-            $scope.Anrufen();
+            $scope.DialNumberPopup();
         }
     }
 })

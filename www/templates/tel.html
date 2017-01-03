@@ -10,6 +10,12 @@
             </button>
         </div>
 
+        <div class="editButtonContainer">
+            <button class="editButton" id="editButton1" ng-click="addContact()">
+                 <span class="editLabel">Bearbeiten</span>
+            </button>
+        </div>
+
         <div class="content">
             <div class="row ColContainer">
                 <div class="col btn_size">
@@ -62,7 +68,7 @@
                     </button>
                 </div>
                 <div class="col btn_size">
-                    <button class="callButton" ng-click="Anrufen()">
+                    <button class="callButton" ng-click="CallContact()">
                         <img class="imgTel" ng-src="img/NOTRUF.png"></img>
                         <span class="telLabel" style='margin-left:-13%'>Notruf</span>
                     </button>

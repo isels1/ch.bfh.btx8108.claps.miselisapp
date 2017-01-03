@@ -1,6 +1,4 @@
-﻿/*Portrait: width 601px height 881px
-Landscape: width 962px height 529px*/
-.telLabel{
+﻿.telLabel{
 padding-bottom:0 !important;
 }
 
@@ -28,6 +26,19 @@ padding-bottom:0 !important;
   padding: 10px;
 }
 
+.editButton {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    background-color:#008A9D;
+    background-position: top;
+    background-repeat: no-repeat;
+    font-size: 3vh;
+    color:white;
+    border: none;
+    border-radius: 5%;
+}
+
 .callButton{
   background-color:#008A9D;
   background-position: top;
@@ -37,7 +48,6 @@ padding-bottom:0 !important;
   position: relative;
   border: none;
   border-radius: 5%;
-
 }
 
 .row1{
