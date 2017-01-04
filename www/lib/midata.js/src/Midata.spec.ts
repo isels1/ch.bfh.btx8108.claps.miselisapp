@@ -8,12 +8,16 @@ describe('Midata', () => {
 
     var midata;
 
-    beforeEach(() => {
-        midata = new Midata(
+    function createMidataObject() {
+        return new Midata(
             'https://test.midata.coop:9000',
             'testapp',
             'mysecret'
         );
+    }
+
+    beforeEach(() => {
+        midata = createMidataObject();
     });
 
     describe('with valid credentials', () => {
@@ -61,13 +65,24 @@ describe('Midata', () => {
             expect(midata.user).toBeUndefined();
 
             login.then((response) => {
-                expect(midata.user).toEqual({name: 'testuser2@testuser.com'});
+                expect(midata.user).toEqual(jasmine.objectContaining({name: 'testuser2@testuser.com'}));
+                expect(midata.user.id).toBeDefined();
                 done();
             })
-            .catch(() => {
-                done();
+            .catch((err) => {
+                fail(err);
             });
         });
+
+        it('#login() should persist the login to localstorage', (done) => {
+            login.then((response) => {
+                var newMidata = createMidataObject();
+                expect(newMidata.loggedIn).toBe(true);
+            })
+            .catch((err) => {
+                fail(err);
+            });
+        })
 
         it('#loggedIn should be true when the user is logged in', (done) => {
             expect(midata.loggedIn).toBe(false);
