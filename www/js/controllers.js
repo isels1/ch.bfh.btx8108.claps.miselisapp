@@ -298,7 +298,7 @@ angular.module('starter.controllers', ['ngCordova'])
     }
 })
 
-.controller('loginCtrl', function ($scope, $compile, ownMidataService, $timeout, $state) {
+.controller('loginCtrl', function ($scope, $window, $compile, ownMidataService, $timeout, $state) {
   $scope.newLogin = function() {
 
     var user = document.getElementById("user").value;
@@ -444,8 +444,33 @@ angular.module('starter.controllers', ['ngCordova'])
     ionicTimePicker.openTimePicker(ipObj1);
   }
 
+  var value = true;
+
+  $scope.getSettings = function(){
+    var statusLocal = localStorage.getItem('ColorBLindMode');
+    if(statusLocal == "true"){
+      $scope.state = { checked: true };
+    }else if(statusLocal == "false"){
+      $scope.state = { checked: false };
+    }else{
+      $scope.state = { checked: false };
+    }
+    return $scope.state.checked
+
+  };
+
+  value = $scope.getSettings();
+  $scope.colorBlindModeStatus = { checked : value};
 
 
-
+  $scope.colorBlindMode = function(event) {
+    if($scope.colorBlindModeStatus.checked == true){
+      localStorage.setItem("ColorBLindMode", JSON.stringify(true));
+    }
+    else if($scope.colorBlindModeStatus.checked == false){
+      localStorage.setItem("ColorBLindMode", JSON.stringify(false));
+    }
+    location.reload();
+  };
 
 });

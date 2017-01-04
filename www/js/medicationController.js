@@ -51,310 +51,307 @@ angular.module('starter.medicationController', ['ngCordova'])
             var customTemplate = "";
 
 
-            for(var i = 0; i < $scope.data.length; i++) {
+          for(var i = 0; i < $scope.data.length; i++) {
 
-                //Montag Morgen
-                if($scope.popUpTimeId == 0){
-                    if($scope.popUpDayId == 0){
-                    if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[0] == "unchecked"){
-                      customTemplate += "<div class='toTakePopUp'>" +
-                                          "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                          "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                          "  Anzahl: " +
-                                          $scope.data[i].schema.Morning.amount +
-                                          "</span>"+
-                                        "</div>";
-                    }
-                  }
-                }
-
-                //Dienstag Morgen
-                if($scope.popUpTimeId == 0){
-                    if($scope.popUpDayId == 1){
-                    if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[1] == "unchecked"){
-                      customTemplate += "<div class='toTakePopUp'>" +
-                                          "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                          "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                          "  Anzahl: " +
-                                          $scope.data[i].schema.Morning.amount +
-                                          "</span>"+
-                                        "</div>";
-                    }
-                  }
-                }
-
-                //Mittwoch Morgen
-                if($scope.popUpTimeId == 0){
-                    if($scope.popUpDayId == 1){
-                    if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[2] == "unchecked"){
-                      customTemplate += "<div class='toTakePopUp'>" +
-                                          "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                          "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                          "  Anzahl: " +
-                                          $scope.data[i].schema.Morning.amount +
-                                          "</span>"+
-                                        "</div>";
-                    }
-                  }
-                }
-
-                //Donnerstag Morgen
-                if($scope.popUpTimeId == 0){
-                    if($scope.popUpDayId == 3){
-                    if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[3] == "unchecked"){
-                      customTemplate += "<div class='toTakePopUp'>" +
-                                          "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                          "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                          "  Anzahl: " +
-                                          $scope.data[i].schema.Morning.amount +
-                                          "</span>"+
-                                        "</div>";
-                    }
-                  }
-                }
-
-                //Freitag Morgen
-                if($scope.popUpTimeId == 0){
-                    if($scope.popUpDayId == 4){
-                    if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[4] == "unchecked"){
-                      customTemplate += "<div class='toTakePopUp'>" +
-                                          "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                          "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                          "  Anzahl: " +
-                                          $scope.data[i].schema.Morning.amount +
-                                          "</span>"+
-                                        "</div>";
-                    }
-                  }
-                }
-
-                //Samstag Morgen
-                if($scope.popUpTimeId == 0){
-                    if($scope.popUpDayId == 5){
-                    if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[5] == "unchecked"){
-                      customTemplate += "<div class='toTakePopUp'>" +
-                                          "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                          "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                          "  Anzahl: " +
-                                          $scope.data[i].schema.Morning.amount +
-                                          "</span>"+
-                                        "</div>";
-                    }
-                  }
-                }
-
-
-              //Sonntag Morgen
-              if($scope.popUpTimeId == 0){
-                  if($scope.popUpDayId == 6){
-                  if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[6] == "unchecked"){
-                    customTemplate += "<div class='toTakePopUp'>" +
-                                        "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                        "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                        "  Anzahl: " +
-                                        $scope.data[i].schema.Morning.amount +
-                                        "</span>"+
-                                      "</div>";
-                  }
-                }
-              }
-
-              //Montag Mittag
-              if($scope.popUpTimeId == 1){
-                  if($scope.popUpDayId == 0){
-                  if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[0] == "unchecked"){
-                    customTemplate += "<div class='toTakePopUp'>" +
-                                        "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                        "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                        "  Anzahl: " +
-                                        $scope.data[i].schema.Noon.amount +
-                                        "</span>"+
-                                      "</div>";
-                  }
-                }
-              }
-
-              //Dienstag Mittag
-              if($scope.popUpTimeId == 1){
-                  if($scope.popUpDayId == 1){
-                  if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[1] == "unchecked"){
-                    customTemplate += "<div class='toTakePopUp'>" +
-                                        "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                        "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                        "  Anzahl: " +
-                                        $scope.data[i].schema.Noon.amount +
-                                        "</span>"+
-                                      "</div>";
-                  }
-                }
-              }
-
-              //Mittwoch Mittag
-              if($scope.popUpTimeId == 1){
-                  if($scope.popUpDayId == 2){
-                  if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[2] == "unchecked"){
-                    customTemplate += "<div class='toTakePopUp'>" +
-                                        "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                        "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                        "  Anzahl: " +
-                                        $scope.data[i].schema.Noon.amount +
-                                        "</span>"+
-                                      "</div>";
-                  }
-                }
-              }
-
-              //Donnerstag Mittag
-              if($scope.popUpTimeId == 1){
-                  if($scope.popUpDayId == 3){
-                  if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[3] == "unchecked"){
-                    customTemplate += "<div class='toTakePopUp'>" +
-                                        "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                        "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                        "  Anzahl: " +
-                                        $scope.data[i].schema.Noon.amount +
-                                        "</span>"+
-                                      "</div>";
-                  }
-                }
-              }
-
-              //Freitag Mittag
-              if($scope.popUpTimeId == 1){
-                  if($scope.popUpDayId == 4){
-                  if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[4] == "unchecked"){
-                    customTemplate += "<div class='toTakePopUp'>" +
-                                        "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                        "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                        "  Anzahl: " +
-                                        $scope.data[i].schema.Noon.amount +
-                                        "</span>"+
-                                      "</div>";
-                  }
-                }
-              }
-
-              //Samstag Mittag
-              if($scope.popUpTimeId == 1){
-                  if($scope.popUpDayId == 5){
-                  if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[5] == "unchecked"){
-                    customTemplate += "<div class='toTakePopUp'>" +
-                                        "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                        "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                        "  Anzahl: " +
-                                        $scope.data[i].schema.Noon.amount +
-                                        "</span>"+
-                                      "</div>";
-                  }
-                }
-              }
-
-
-            //Sonntag Mittag
-            if($scope.popUpTimeId == 1){
-                if($scope.popUpDayId == 6){
-                if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[6] == "unchecked"){
-                  customTemplate += "<div class='toTakePopUp'>" +
-                                      "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                      "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                      "  Anzahl: " +
-                                      $scope.data[i].schema.Noon.amount +
-                                      "</span>"+
-                                    "</div>";
-                }
+          //Montag Morgen
+          if($scope.popUpTimeId == 0){
+              if($scope.popUpDayId == 0){
+              if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[0] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Morning.amount +
+                                    "</span>"+
+                                  "</div>";
               }
             }
+          }
 
-            //Montag Abend
-            if($scope.popUpTimeId == 2){
-                if($scope.popUpDayId == 0){
-                if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[0] == "unchecked"){
-                  customTemplate += "<div class='toTakePopUp'>" +
-                                      "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                      "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                      "  Anzahl: " +
-                                      $scope.data[i].schema.Evening.amount +
-                                      "</span>"+
-                                    "</div>";
-                }
+          //Dienstag Morgen
+          if($scope.popUpTimeId == 0){
+              if($scope.popUpDayId == 1){
+              if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[1] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Morning.amount +
+                                    "</span>"+
+                                  "</div>";
               }
             }
+          }
 
-            //Dienstag Abend
-            if($scope.popUpTimeId == 2){
-                if($scope.popUpDayId == 1){
-                if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[1] == "unchecked"){
-                  customTemplate += "<div class='toTakePopUp'>" +
-                                      "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                      "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                      "  Anzahl: " +
-                                      $scope.data[i].schema.Evening.amount +
-                                      "</span>"+
-                                    "</div>";
-                }
+          //Mittwoch Morgen
+          if($scope.popUpTimeId == 0){
+              if($scope.popUpDayId == 1){
+              if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[2] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Morning.amount +
+                                    "</span>"+
+                                  "</div>";
               }
             }
+          }
 
-            //Mittwoch Abend
-            if($scope.popUpTimeId == 2){
-                if($scope.popUpDayId == 2){
-                if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[2] == "unchecked"){
-                  customTemplate += "<div class='toTakePopUp'>" +
-                                      "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                      "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                      "  Anzahl: " +
-                                      $scope.data[i].schema.Evening.amount +
-                                      "</span>"+
-                                    "</div>";
-                }
+          //Donnerstag Morgen
+          if($scope.popUpTimeId == 0){
+              if($scope.popUpDayId == 3){
+              if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[3] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Morning.amount +
+                                    "</span>"+
+                                  "</div>";
               }
             }
+          }
 
-            //Donnerstag Abend
-            if($scope.popUpTimeId == 2){
-                if($scope.popUpDayId == 3){
-                if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[3] == "unchecked"){
-                  customTemplate += "<div class='toTakePopUp'>" +
-                                      "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                      "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                      "  Anzahl: " +
-                                      $scope.data[i].schema.Evening.amount +
-                                      "</span>"+
-                                    "</div>";
-                }
+          //Freitag Morgen
+          if($scope.popUpTimeId == 0){
+              if($scope.popUpDayId == 4){
+              if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[4] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Morning.amount +
+                                    "</span>"+
+                                  "</div>";
               }
             }
+          }
 
-            //Freitag Abend
-            if($scope.popUpTimeId == 2){
-                if($scope.popUpDayId == 4){
-                if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[4] == "unchecked"){
-                  customTemplate += "<div class='toTakePopUp'>" +
-                                      "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                      "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                      "  Anzahl: " +
-                                      $scope.data[i].schema.Evening.amount +
-                                      "</span>"+
-                                    "</div>";
-                }
+          //Samstag Morgen
+          if($scope.popUpTimeId == 0){
+              if($scope.popUpDayId == 5){
+              if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[5] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Morning.amount +
+                                    "</span>"+
+                                  "</div>";
               }
             }
+          }
 
-            //Samstag Abend
-            if($scope.popUpTimeId == 2){
-                if($scope.popUpDayId == 5){
-                if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[5] == "unchecked"){
-                  customTemplate += "<div class='toTakePopUp'>" +
-                                      "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
-                                      "<span class='textTakePopUp'>" + $scope.data[i].name  +
-                                      "  Anzahl: " +
-                                      $scope.data[i].schema.Evening.amount +
-                                      "</span>"+
-                                    "</div>";
-                }
+          //Sonntag Morgen
+          if($scope.popUpTimeId == 0){
+              if($scope.popUpDayId == 6){
+              if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[6] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Morning.amount +
+                                    "</span>"+
+                                  "</div>";
               }
             }
+          }
 
+          //Montag Mittag
+          if($scope.popUpTimeId == 1){
+              if($scope.popUpDayId == 0){
+              if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[0] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Noon.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Dienstag Mittag
+          if($scope.popUpTimeId == 1){
+              if($scope.popUpDayId == 1){
+              if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[1] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Noon.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Mittwoch Mittag
+          if($scope.popUpTimeId == 1){
+              if($scope.popUpDayId == 2){
+              if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[2] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Noon.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Donnerstag Mittag
+          if($scope.popUpTimeId == 1){
+              if($scope.popUpDayId == 3){
+              if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[3] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Noon.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Freitag Mittag
+          if($scope.popUpTimeId == 1){
+              if($scope.popUpDayId == 4){
+              if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[4] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Noon.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Samstag Mittag
+          if($scope.popUpTimeId == 1){
+              if($scope.popUpDayId == 5){
+              if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[5] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Noon.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Sonntag Mittag
+          if($scope.popUpTimeId == 1){
+              if($scope.popUpDayId == 6){
+              if($scope.data[i].schema.Noon.state == "unchecked" && $scope.data[i].interval[6] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Noon.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Montag Abend
+          if($scope.popUpTimeId == 2){
+              if($scope.popUpDayId == 0){
+              if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[0] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Evening.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Dienstag Abend
+          if($scope.popUpTimeId == 2){
+              if($scope.popUpDayId == 1){
+              if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[1] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Evening.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Mittwoch Abend
+          if($scope.popUpTimeId == 2){
+              if($scope.popUpDayId == 2){
+              if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[2] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Evening.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Donnerstag Abend
+          if($scope.popUpTimeId == 2){
+              if($scope.popUpDayId == 3){
+              if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[3] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Evening.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Freitag Abend
+          if($scope.popUpTimeId == 2){
+              if($scope.popUpDayId == 4){
+              if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[4] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Evening.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
+
+          //Samstag Abend
+          if($scope.popUpTimeId == 2){
+              if($scope.popUpDayId == 5){
+              if($scope.data[i].schema.Evening.state == "unchecked" && $scope.data[i].interval[5] == "unchecked"){
+                customTemplate += "<div class='toTakePopUp'>" +
+                                    "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
+                                    "<span class='textTakePopUp'>" + $scope.data[i].name  +
+                                    "  Anzahl: " +
+                                    $scope.data[i].schema.Evening.amount +
+                                    "</span>"+
+                                  "</div>";
+              }
+            }
+          }
 
           //Sonntag Abend
           if($scope.popUpTimeId == 2){
@@ -669,6 +666,18 @@ angular.module('starter.medicationController', ['ngCordova'])
 
             $scope.id = 28;
 
+            $scope.checkMode = function(){
+              $scope.colorBlindMode = JSON.parse(localStorage.getItem("ColorBLindMode"));
+
+              var css = document.getElementById("original")
+                if($scope.colorBlindMode == true){
+                  css.setAttribute('href', "css/styleMedPlanColorBlind.css");
+                }else if($scope.colorBlindMode == false){
+                  css.setAttribute('href', "css/styleMedPlanColorNormal.css");
+                }
+
+            }
+
             //This function will get
             $scope.toTakeClickAction = function (morningElement, noonElement, eveningElement, nightElement, loopNr) {
 
@@ -681,6 +690,7 @@ angular.module('starter.medicationController', ['ngCordova'])
             $scope.dayTimeArr = new Array;
             $scope.daSta =[];
             $scope.medList = JSON.parse(localStorage.getItem("MedicationList"));
+
 
 
 
@@ -991,15 +1001,6 @@ angular.module('starter.medicationController', ['ngCordova'])
           }
         }
 
-          //With this Function the CSS class of the Buttons can be changed. It just cnages the Href
-            $scope.changeCSS = function (){
-              var css = document.getElementById("original")
-              if(css.getAttribute('href') == "css/styleMedPlanColorNormal.css"){
-                css.setAttribute('href', "css/styleMedPlanColorBlind.css");
-              }else{
-                css.setAttribute('href', "css/styleMedPlanColorNormal.css");
-              }
-            }
 
 
             $scope.opentel = function () {

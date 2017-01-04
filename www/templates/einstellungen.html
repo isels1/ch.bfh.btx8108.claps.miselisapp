@@ -42,6 +42,12 @@
             </button>
           </div>
         </div>
+        <div>
+          <ion-toggle ng-model="colorBlindModeStatus.checked"
+            ng-change="colorBlindMode($event)">
+            Farbenblind Modus
+          </ion-toggle>
+        </div>
       </div>
     </div>
   </ion-content>
