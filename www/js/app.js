@@ -106,7 +106,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
     })
 
     .state('menu.dashboard', {
-               url: '/dashboard',
+               url: '/weight',
            views: {
            'menuContent' :{
            templateUrl: 'templates/dashboard.html',

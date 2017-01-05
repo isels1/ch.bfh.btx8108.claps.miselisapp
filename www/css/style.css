@@ -153,12 +153,12 @@
 }
 
 .settingsChangeImg {
-  margin-top: 40%;
+  margin-top: 20%;
   width: 100%;
 }
 
 .timeSettings {
-  border-color: #ddd;
+    border-color: #ddd;
     background-color: #fff;
     color: #444;
     position: relative;
@@ -172,7 +172,7 @@
 }
 
 .chart {
-  max-width: 70%;
+  max-width: 75%;
   height: auto;
   float:right;
 }
