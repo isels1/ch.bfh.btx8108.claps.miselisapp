@@ -3,21 +3,21 @@
   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 </ion-nav-buttons>
   <ion-content class="wrapper" scroll="false" ng-init="getSettings()">
-    <div class="imp-container">
-      <div class="timeSet-container">
-      <div><h3>Einstellungen</h3></div>
-      <div class="settingsContainer">
-        <div class="timeSettings">
-          <div id="morningTimeSettings" class="mornigSettings">
-            <div class="settingTitle">Einnahmezeit Morgen: </div>
-            <div class="settingsTime" id="setTimeMorning"></div>
-            <div class="settingsChange" id="changeTimeMorning">
-              <button id="btnChangeTimeMorning" ng-click="changeTime('morning')" class="button button-full button-positive settingsBtn" >
-                <img class="settingsChangeImg" src="img\Time_new.png"></img>
-              </button>
-            </div>
+<div class="imp-container">
+  <div class="timeSet-container">
+    <div><h3>Einstellungen</h3></div>
+    <div class="settingsContainer">
+      <div class="timeSettings">
+        <div id="morningTimeSettings" class="settingsRow">
+          <div class="settingTitle">Einnahmezeit Morgen: </div>
+          <div class="settingsTime" id="setTimeMorning"></div>
+          <div class="settingsChange" id="changeTimeMorning">
+            <button id="btnChangeTimeMorning" ng-click="changeTime('morning')" class="button button-full button-positive settingsBtn" >
+              <img class="settingsChangeImg" src="img\Time_new.png"></img>
+            </button>
           </div>
-          <div id="noonTimeSettings" class="noonSettings">
+        </div>
+          <div id="noonTimeSettings" class="settingsRow">
             <div class="settingTitle">Einnahmezeit Mittag: </div>
             <div class="settingsTime" id="setTimeNoon"></div>
             <div class="settingsChange" id="changeTimeNoon">
@@ -26,7 +26,7 @@
               </button>
             </div>
           </div>
-          <div id="eveningTimeSettings" class="eveningSettings">
+          <div id="eveningTimeSettings" class="settingsRow">
             <div class="settingTitle">Einnahmezeit Abend: </div>
             <div class="settingsTime" id="setTimeEvening"></div>
             <div class="settingsChange" id="changeTimeEvening">
@@ -35,7 +35,7 @@
               </button>
             </div>
           </div>
-          <div id="nightTimeSettings" class="nightSettings">
+          <div id="nightTimeSettings" class="settingsRow">
             <div class="settingTitle">Einnahmezeit Nacht: </div>
             <div class="settingsTime" id="setTimeNight"></div>
             <div class="settingsChange" id="changeTimeNight">
@@ -44,15 +44,25 @@
               </button>
             </div>
           </div>
-        </div>
-          <div>
-            <ion-toggle ng-model="colorBlindModeStatus.checked"
-              ng-change="colorBlindMode($event)">
-              Farbenblind Modus
-            </ion-toggle>
-          </div>
+      </div>
+      <div>
+        <ion-toggle ng-model="colorBlindModeStatus.checked"
+        ng-change="colorBlindMode($event)">
+        Farbenblind Modus
+        </ion-toggle>
+      </div>
+      <div class="timeSettings">
+        <div class="settingsRow">
+        <div class="settingTitle notificationSettings">Notifikation auslösen</div>
+        <div class="settingsChange">
+          <button ng-click="scheduleInstantNotification()" class="button button-full button-positive settingsBtn">
+            <img class="settingsChangeImg" src="img\notify_w.png"></img>
+          </button>
         </div>
       </div>
+      </div>
+    </div>
   </div>
+</div>
   </ion-content>
 </ion-view>

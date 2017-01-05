@@ -99,28 +99,7 @@
 /*-----------            -----------*/
 /*----------------------------------*/
 
-.mornigSettings {
-  height: 20%;
-  /*position:relative;*/
-  display: flex;
-  /*justify-content: center;*/
-}
-
-.noonSettings {
-  height: 20%;
-  /*position:relative;*/
-  display: flex;
-  /*justify-content: center;*/
-}
-
-.eveningSettings {
-  height: 20%;
-  /*position:relative;*/
-  display: flex;
-  /*justify-content: center;*/
-}
-
-.nightSettings {
+.settingsRow {
   height: 20%;
   /*position:relative;*/
   display: flex;
@@ -128,9 +107,7 @@
 }
 
 .settingTitle {
-  float:left;
   width: 30%;
-  font-weight: bold;
 }
 
 .settingsTime {
@@ -171,6 +148,11 @@
     font-size: 16px;
 }
 
+.notificationSettings {
+  display: block;
+  width: 76%;
+}
+
 .chart {
   max-width: 75%;
   height: auto;
@@ -197,6 +179,21 @@
 
 .inputContainer {
   margin-top: 50px;
+}
+
+.ionic_timepicker_popup .heading {
+  height: 44px;
+  background-color: #268ba3 !important;
+  color: #ffffff;
+  text-align: center;
+  line-height: 44px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.ionic_timepicker_popup .button_set, .ionic_timepicker_popup .button_close {
+  background-color: #268ba3 !important;
+  color: #ffffff;
 }
 
 /*.button-positive {

@@ -370,7 +370,7 @@ angular.module('starter.controllers', ['ngCordova'])
     }, 1000);
   })
 
-.controller('settingsCtrl', function($scope, ionicTimePicker) {
+.controller('settingsCtrl', function($scope, ionicTimePicker, $cordovaLocalNotification) {
   var ipObj1 = {
     callback: function (val) {      //Mandatory
       if (typeof (val) === 'undefined') {
@@ -471,6 +471,31 @@ angular.module('starter.controllers', ['ngCordova'])
       localStorage.setItem("ColorBLindMode", JSON.stringify(false));
     }
     location.reload();
+  };
+
+  $scope.scheduleInstantNotification = function() {
+    $cordovaLocalNotification.schedule({
+      id: 1,
+      text: 'Instant Notification',
+      title: 'Instant'
+    }).then(function() {
+      console.log("Instant Notification set");
+    });
+  };
+
+  $scope.scheduleNotificationFiveSecondsFromNow = function() {
+    var now = new Date().getTime();
+    var _5SecondsFromNow = new Date(now + 5000);
+
+    $cordovaLocalNotification.schedule({
+      id: 2,
+      date: _5SecondsFromNow,
+      text: 'Notification After 5 Seconds Has Been Triggered',
+      title: 'After 5 Seconds',
+      sound: sound
+    }).then(function() {
+      console.log("Notification After 5 seconds set");
+    });
   };
 
 });
