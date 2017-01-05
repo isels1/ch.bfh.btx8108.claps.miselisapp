@@ -8,6 +8,11 @@
     height:100%;
 }
 
+.imp-container {
+  margin: 15px auto !important;
+  max-width: 650px;
+}
+
 
 /*----------------------------------*/
 /*-----------            -----------*/
@@ -124,18 +129,46 @@
 
 .settingTitle {
   float:left;
-  width: 20%;
+  width: 30%;
+  font-weight: bold;
 }
 
 .settingsTime {
   float:left;
-  width: 20%;
+  width: 33%;
+  margin-left: 3%;
 }
 
 .settingsChange {
-  float: left;;
-  max-width: 25%;
   height: auto;
+  float: right;
+  max-width: 33%;
+}
+
+.settingsBtn {
+  margin-top: 0px !important;
+  max-width: 45%;
+  float: right;
+  background-color: #268ba3 !important;
+}
+
+.settingsChangeImg {
+  margin-top: 40%;
+  width: 100%;
+}
+
+.timeSettings {
+  border-color: #ddd;
+    background-color: #fff;
+    color: #444;
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: -1px;
+    padding: 16px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 16px;
 }
 
 .chart {
