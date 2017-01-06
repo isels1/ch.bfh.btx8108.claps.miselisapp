@@ -126,7 +126,7 @@ angular.module('starter.controllers', ['ngCordova'])
             "urls": null
     }
 
-    // Ausgew�hlten Kontaktund ausgew�hlte Feld ID speichern Iselis1 und Vlads1
+    // Ausgewaehlten Kontakt und ausgewaehlte Feld ID speichern Iselis1 und Vlads1
     $scope.selectContacts = function (Contact) {
       var contactList = new Array();
       if (window.localStorage.getItem("selectedContacts") != null) {
@@ -158,7 +158,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
     }
 
-    // Kontakt ausw�hlen Iselis1 und Vlads1
+    // Kontakt auswaehlen Iselis1 und Vlads1
     $scope.pickContact = function (Contact, fieldId) {
         var localContact = {
             id: fieldId,
@@ -166,6 +166,7 @@ angular.module('starter.controllers', ['ngCordova'])
         }
         $scope.contactToSave = localContact;
         window.localStorage.setItem("pickedContacts", JSON.stringify(localContact));
+        document.getElementById(id).setAttribute('background', 'red');
 
     }
 
@@ -222,7 +223,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
         };
         $ionicPopup.show({
-            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId)"> <div class="item item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
+            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId)"> <div class="item item-divider custom-item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
             title: 'Telefonliste:',
             subTitle: 'Bitte waehlen Sie einen Kontakt aus',
             scope: $scope,
@@ -250,15 +251,15 @@ angular.module('starter.controllers', ['ngCordova'])
 
         };
         $ionicPopup.show({
-            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId)"> <div class="item item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
-            title: 'Kontakt anrufen:',
+            template: '',
+            title: 'Anrufen?',
             subTitle: '',
             scope: $scope,
             cssClass: 'dialNumberPopup',
             buttons: [
-              { text: 'Abbrechen' },
+              { text: 'Nein' },
               {
-                  text: '<b>Anrufen</b>',
+                  text: '<b>Ja</b>',
                   onTap: function (e) {
 
                       console.log('Whuut?');

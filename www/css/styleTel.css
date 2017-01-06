@@ -21,9 +21,10 @@ padding-bottom:0 !important;
 }
 
 .col.btn_size{
-  max-width: 20%  !important;
+  max-width: 25%  !important;
   max-height: 5%  !important;
-  padding: 10px;
+  padding: 20px;
+  margin-left: 35px;
 }
 
 .editButton {
@@ -40,7 +41,7 @@ padding-bottom:0 !important;
   background-color:#008A9D;
   background-position: top;
   background-repeat: no-repeat;
-  font-size: 2vh;
+  font-size: 3vh;
   color:white;
   position: relative;
   border: none;
@@ -67,8 +68,14 @@ padding-bottom:0 !important;
 
 }
 
-.popu-title{
+.popup-title{
     width: 150%;
+    font-size: 150%;
+}
+
+.popup-subTitle{
+    width: 150%;
+    font-size: 150%;
 }
 .popup-body {
 
@@ -76,6 +83,13 @@ padding-bottom:0 !important;
     height: 200%;
     background-color: #008A9D;
 
+}
+
+.custom-item-divider.item-divider {
+  background-color: #336688;
+}
+.custom-item-divider.item.activated {
+  background-color: red;
 }
 
 .popup-buttons{
