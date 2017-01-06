@@ -166,7 +166,6 @@ angular.module('starter.controllers', ['ngCordova'])
         }
         $scope.contactToSave = localContact;
         window.localStorage.setItem("pickedContacts", JSON.stringify(localContact));
-        document.getElementById(id).setAttribute('background', 'red');
 
     }
 
@@ -223,7 +222,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
         };
         $ionicPopup.show({
-            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId)"> <div class="item item-divider custom-item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
+            template: '<div class="list listlength" ng-show="contacts"> <div class="card divs" ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId); higlight($event)" id = {{$index}}> <div class="item item-divider custom-item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
             title: 'Telefonliste:',
             subTitle: 'Bitte waehlen Sie einen Kontakt aus',
             scope: $scope,
@@ -240,6 +239,23 @@ angular.module('starter.controllers', ['ngCordova'])
             ]
         });
     }
+
+    $scope.higlight = function(event){
+    $scope.tester = event.target.parentElement.parentElement.parentElement.id;
+    $scope.id = event.target.parentElement.parentElement.parentElement;
+
+    if($scope.tester == ""){
+      $scope.id = event.target.parentElement.parentElement;
+    }
+
+    if($scope.id.id != undefined){
+      if($scope.lastID != null){
+      document.getElementById($scope.lastID).childNodes[3].className = "item item-text-wrap"
+      }
+      $scope.id.childNodes[3].className = "item item-text-wrap color"
+      $scope.lastID = $scope.id.id;
+    }
+  }
 
     $scope.DialNumberPopup = function (event) {
       console.log(event.target);

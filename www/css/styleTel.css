@@ -12,6 +12,12 @@ padding-bottom:0 !important;
   float: right;
   }
 
+
+.color {
+  background-color: yellow !important;
+  overflow: hidden !important;
+}
+
 .col.ColContainer{
   align-content: center;
 }
