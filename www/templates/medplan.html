@@ -3,13 +3,16 @@
 
 <ion-view view-title="Medikationsplan">
   <ion-content  class="wrapper" scroll="false">
-    <img class="AddMedi" ng-click="opencreateMedi()">
-
     <div class="leftNavigation">
       <button id="sideButtonleft" class="navButton" ng-click="openhome()" >
         <img class="navImg" src="img\ButtonHomeLeft.PNG"></img>
       </button>
     </div>
+
+        <button class="editButton" ng-click="opencreateMedi()">
+             Medikament erfassen
+        </button>
+
     <div class="content" ng-init="checkMode()">
         <div class="col setMedPlan">
           <div class="row setMedPlan">

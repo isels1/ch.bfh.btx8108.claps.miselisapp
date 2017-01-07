@@ -1,5 +1,63 @@
 ﻿.telLabel{
 padding-bottom:0 !important;
+text-align: center;
+}
+
+.TelpopUp .popup {
+    width: 30% !important;
+    height: 100% !important;
+}
+
+.TelpopUp  .popup-title {
+    color: #FFF;
+    font-size: 2vw;
+}
+
+.TelpopUp .popup-head{
+  width: 100%;
+}
+
+.TelpopUp .popup-body {
+  width: 120%;
+  height: 120%;
+
+
+}
+
+.TelpopUp .popup-sub-title{
+  font-size: 1.5vw;
+  color: #FFF;
+}
+
+
+.contactSize{
+    align-items: center;
+    width: 130%;
+    height: 130%;
+    margin-left: 15%;
+}
+
+.contactPicture{
+  align-content: center;
+  width: 100%;
+  height: 120%;
+  padding-right: 2%;
+}
+
+.fixTelButtons{
+    align-content: center;
+    margin-left: 8%;
+    margin-right: -8%;
+}
+
+.emergencyButton{
+  background-color: #008800 !important;
+}
+
+.contactName{
+  text-align: center;
+  font-size: 1.2vw;
+  color: #FFF;
 }
 
 .col.NavColLeft{
@@ -14,7 +72,7 @@ padding-bottom:0 !important;
 
 
 .color {
-  background-color: yellow !important;
+  background-color: #59a8e5 !important;
   overflow: hidden !important;
 }
 
@@ -29,8 +87,7 @@ padding-bottom:0 !important;
 .col.btn_size{
   max-width: 25%  !important;
   max-height: 5%  !important;
-  padding: 20px;
-  margin-left: 35px;
+  margin: 1px;
 }
 
 .editButton {
@@ -65,30 +122,8 @@ padding-bottom:0 !important;
 }
 
 .imgTel{
-  width: 100%;
-  height: 100%;
-}
-
-.popup-container {
-    align-items: center;
-
-}
-
-.popup-title{
-    width: 150%;
-    font-size: 150%;
-}
-
-.popup-subTitle{
-    width: 150%;
-    font-size: 150%;
-}
-.popup-body {
-
-    width: 150%;
-    height: 200%;
-    background-color: #008A9D;
-
+  width: 170px;
+  height: 170px;
 }
 
 .custom-item-divider.item-divider {
@@ -96,8 +131,4 @@ padding-bottom:0 !important;
 }
 .custom-item-divider.item.activated {
   background-color: red;
-}
-
-.popup-buttons{
-    font-size: 20%;
 }

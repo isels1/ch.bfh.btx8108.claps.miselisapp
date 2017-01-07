@@ -222,11 +222,11 @@ angular.module('starter.controllers', ['ngCordova'])
 
         };
         $ionicPopup.show({
-            template: '<div class="list listlength" ng-show="contacts"> <div class="card divs" ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId); higlight($event)" id = {{$index}}> <div class="item item-divider custom-item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
+            template: '<div class="list listlength contactSize" ng-show="contacts"> <div class="card divs " ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId); higlight($event)" id = {{$index}}> <div class="item item-divider custom-item-divider contactName"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"><p><img class="contactPicture" src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
             title: 'Telefonliste:',
-            subTitle: 'Bitte waehlen Sie einen Kontakt aus',
+            subTitle: 'Bitte w&auml;hlen Sie einen Kontakt aus',
             scope: $scope,
-            cssClass: 'TelPopup',
+            cssClass: 'TelpopUp',
             buttons: [
               { text: 'Abbrechen' },
               {
@@ -271,7 +271,7 @@ angular.module('starter.controllers', ['ngCordova'])
             title: 'Anrufen?',
             subTitle: '',
             scope: $scope,
-            cssClass: 'dialNumberPopup',
+            cssClass: 'my-custom-popup',
             buttons: [
               { text: 'Nein' },
               {

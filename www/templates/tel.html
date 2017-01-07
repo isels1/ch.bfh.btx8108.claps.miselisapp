@@ -16,7 +16,7 @@
             </button>
         </div>
 
-        <div class="content">
+        <div class="content fixTelButtons">
             <div class="row ColContainer">
                 <div class="col btn_size">
                     <button class="callButton" id="button1" data-toSet="true" ng-click="clickAction($event)">
@@ -68,9 +68,9 @@
                     </button>
                 </div>
                 <div class="col btn_size">
-                    <button class="callButton" ng-click="CallContact()">
-                        <img class="imgTel" ng-src="img/NOTRUF.png"></img>
-                        <span class="telLabel" style='margin-left:-13%'>Notruf</span>
+                    <button class="callButton emergencyButton" data-toSet="false" ng-click="clickAction($event)">
+                        <img class="imgTel emergencyButton" ng-src="img/NOTRUF.png"></img>
+                        <span class="telLabel emergencyButton" style='margin-left:-13%'>Notruf</span>
                     </button>
                 </div>
                 <div class="col btn_size">
