@@ -2,7 +2,7 @@
   <ion-nav-buttons side="left">
   <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
 </ion-nav-buttons>
-  <ion-content class="wrapper" scroll="false" ng-init="getSettings()">
+  <ion-content class="wrapper" scroll="true" ng-init="getSettings()">
 <div class="imp-container">
   <div class="timeSet-container">
     <div><h3>Einstellungen</h3></div>
@@ -45,12 +45,6 @@
             </div>
           </div>
       </div>
-      <div>
-        <ion-toggle ng-model="colorBlindModeStatus.checked"
-        ng-change="colorBlindMode($event)">
-        Farbenblind Modus
-        </ion-toggle>
-      </div>
       <div class="timeSettings">
         <div class="settingsRow">
         <div class="settingTitle notificationSettings">Notifikation auslösen</div>
@@ -59,6 +53,12 @@
             <img class="settingsChangeImg" src="img\notify_w.png"></img>
           </button>
         </div>
+      </div>
+      <div>
+        <ion-toggle ng-model="colorBlindModeStatus.checked"
+        ng-change="colorBlindMode($event)">
+        Farbenblind Modus
+        </ion-toggle>
       </div>
       </div>
     </div>

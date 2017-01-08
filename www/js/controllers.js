@@ -202,12 +202,14 @@ angular.module('starter.controllers', ['ngCordova'])
             document.getElementById("button" + i).setAttribute("data-toSet", true);
             }
         $scope.Edit = false;
+        document.getElementById("editButton1").className = "editButton colorEditButton"
       }
       else if($scope.Edit == false){
         for(i = 1; i < 9; i++){
             document.getElementById("button" + i).setAttribute("data-toSet", false);
             }
         $scope.Edit = true;
+        document.getElementById("editButton1").className = "editButton"
       }
     }
 
@@ -243,14 +245,14 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.higlight = function(event){
     $scope.tester = event.target.parentElement.parentElement.parentElement.id;
     $scope.id = event.target.parentElement.parentElement.parentElement;
-
+    console.log($scope.id);
     if($scope.tester == ""){
       $scope.id = event.target.parentElement.parentElement;
     }
 
     if($scope.id.id != undefined){
       if($scope.lastID != null){
-      document.getElementById($scope.lastID).childNodes[3].className = "item item-text-wrap"
+      document.getElementById($scope.lastID).childNodes[3].className = "item item-text-wrap whitecolor"
       }
       $scope.id.childNodes[3].className = "item item-text-wrap color"
       $scope.lastID = $scope.id.id;
