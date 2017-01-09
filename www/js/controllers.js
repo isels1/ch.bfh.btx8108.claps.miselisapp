@@ -77,54 +77,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
 
     }
-    //Add the pre defined contact below on the device
-    $scope.addContact = function () {
-        $cordovaContacts.save($scope.dummyContacts).then(function (result) {
-            console.log(result.phoneNumbers["0"].value);
-        }, function (err) {
-            // Contact error
-        });
-    }
 
-    $scope.dummyContacts = {
-            "displayName": "jones",
-            "name": {
-                "givenName": "jones",
-                "formatted": "jones "
-            },
-            "nickname": null,
-            "phoneNumbers": [
-                {
-                    "value": "0311234567",
-                    "type": "mobile"
-                }
-            ],
-            "emails": [
-                {
-                    "value": "xddf@dd.com",
-                    "type": "home"
-                }
-            ],
-            "addresses": [
-                {
-                    "type": "home",
-                    "formatted": "This Address, An Address",
-                    "streetAddress": "This Address, An Address"
-                }
-            ],
-            "ims": null,
-            "organizations": null,
-            "birthday": null,
-            "note": "",
-            "photos": [
-                {
-
-                    "value": "img/Arzt.jpg"
-                }
-            ],
-            "categories": null,
-            "urls": null
-    }
 
     // Ausgewaehlten Kontakt und ausgewaehlte Feld ID speichern Iselis1 und Vlads1
     $scope.selectContacts = function (Contact) {
@@ -169,6 +122,35 @@ angular.module('starter.controllers', ['ngCordova'])
 
     }
 
+    $scope.loadContactFromLocal = function(){
+      $scope.ContactInLocalstorage = JSON.parse(window.localStorage.getItem("selectedContacts"));
+      for(i = 1; i < 11; i++){
+        for(j = 0; j < $scope.ContactInLocalstorage.length; j++){
+          var id = JSON.parse($scope.ContactInLocalstorage[j]);
+          var obj = JSON.parse(id.contact);
+          $scope.buttonId = "button" + i;
+
+          if($scope.buttonId == id.id){
+
+          var photo = obj.photos[0].value;
+
+          if (photo != null) {
+            document.getElementById($scope.buttonId).childNodes[0].nextSibling.setAttribute('src', obj.photos[0].value);
+          }
+
+          //document.getElementById(id).childNodes[1].nextSibling.nodeValue = contact.displayName;
+          var contactName = document.getElementById($scope.buttonId).childNodes[3];
+              contactName.textContent = obj.displayName;
+
+          $scope.contactButton = document.getElementById($scope.buttonId);
+          $scope.contactButton.setAttribute("phoneNumber", obj.phoneNumbers[0].value);
+          $scope.contactButton.removeAttribute("editMode");
+          $scope.contactButton.setAttribute("editMode", "false");
+
+        }
+      }
+    }
+  }
     $scope.setContacttoButton = function (){
         $scope.ContactInLocalstorage = JSON.parse(window.localStorage.getItem("pickedContacts"));
 
@@ -176,7 +158,6 @@ angular.module('starter.controllers', ['ngCordova'])
         var id = $scope.ContactInLocalstorage.id
 
         var photo = contact.photos;
-
         if (photo != null) {
             document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', photo[0].value);
         }
