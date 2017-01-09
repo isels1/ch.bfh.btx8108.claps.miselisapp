@@ -13,6 +13,18 @@
   margin-left: 10%;
 }
 
+.editButton {
+    position: absolute;
+    left: 0%;
+    background-color:#008A9D;
+    font-size: 3vh;
+    color:white;
+    border: none;
+    border-radius: 5%;
+}
+
+
+
 .AnzahlSpacer{
   visibility: hidden;
   margin-left: 10%;

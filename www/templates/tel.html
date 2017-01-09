@@ -16,23 +16,23 @@
             </button>
         </div>
 
-        <div class="content">
+        <div class="content fixTelButtons" ng-init="loadContactFromLocal()">
             <div class="row ColContainer">
                 <div class="col btn_size">
                     <button class="callButton" id="button1" data-toSet="true" ng-click="clickAction($event)">
-                        <img class="imgTel" ng-src="img/addCross.png"></img>
+                        <img class="imgTel" src="img/addCross.png"></img>
                         <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
                     </button>
                 </div>
                 <div class="col btn_size">
                     <button class="callButton" data-toSet="true" id="button2" ng-click="clickAction($event)">
-                        <img class="imgTel" ng-src="img/addCross.png"></img>
+                        <img class="imgTel" src="img/addCross.png"></img>
                         <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
                     </button>
                 </div>
                 <div class="col btn_size">
                     <button class="callButton" data-toSet="true" id="button3" ng-click="clickAction($event)">
-                        <img class="imgTel" ng-src="img/addCross.png"></img>
+                        <img class="imgTel" src="img/addCross.png"></img>
                         <span class="telLabel" >Kontakt hinzuf&uuml;gen</span>
                     </button>
                 </div>
@@ -41,19 +41,19 @@
             <div class="row ">
                 <div class="col btn_size">
                     <button class="callButton" data-toSet="true" id="button4" ng-click="clickAction($event) ">
-                        <img class="imgTel" ng-src="img/addCross.png"></img>
+                        <img class="imgTel" src="img/addCross.png"></img>
                         <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
                     </button>
                 </div>
                 <div class="col btn_size">
                     <button class="callButton" data-toSet="true" id="button5"  ng-click="clickAction($event) ">
-                        <img class="imgTel" ng-src="img/addCross.png"></img>
+                        <img class="imgTel" src="img/addCross.png"></img>
                         <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
                     </button>
                 </div>
                 <div class="col btn_size">
                     <button class="callButton" data-toSet="true" id="button6" ng-click="clickAction($event) ">
-                        <img class="imgTel" ng-src="img/addCross.png"></img>
+                        <img class="imgTel" src="img/addCross.png"></img>
                         <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
                     </button>
                 </div>
@@ -63,19 +63,19 @@
             <div class="row">
                 <div class="col btn_size">
                     <button class="callButton" data-toSet="true" id="button7" ng-click="clickAction($event) ">
-                        <img class="imgTel" ng-src="img/addCross.png"></img>
+                        <img class="imgTel" src="img/addCross.png"></img>
                         <span class="telLabel" style='margin-left:-17%'>Hausarzt</span>
                     </button>
                 </div>
                 <div class="col btn_size">
-                    <button class="callButton" ng-click="CallContact()">
-                        <img class="imgTel" ng-src="img/NOTRUF.png"></img>
-                        <span class="telLabel" style='margin-left:-13%'>Notruf</span>
+                    <button class="callButton emergencyButton" data-toSet="false" ng-click="clickAction($event)">
+                        <img class="imgTel emergencyButton" src="img/NOTRUF.png"></img>
+                        <span class="telLabel emergencyButton" style='margin-left:-13%'>Notruf</span>
                     </button>
                 </div>
                 <div class="col btn_size">
                     <button class="callButton" data-toSet="true" id="button8"  ng-click="clickAction($event)">
-                        <img class="imgTel" ng-src="img/addCross.png"></img>
+                        <img class="imgTel" src="img/addCross.png"></img>
                         <span class="telLabel" style='margin-left:-12%'>Spitex</span>
                     </button>
                 </div>

@@ -37,12 +37,6 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.dashboard = function () {
                 $state.go('menu.dashboard');
             }
-    $scope.data = {
-        phoneNumber: "041788722744"
-    };
-    $scope.dialNumber = function (number) {
-        window.open('tel:' + number, '_system');
-    }
 
     var isLoggedIn = ownMidataService.loggedIn();
     if (isLoggedIn) {
@@ -77,56 +71,9 @@ angular.module('starter.controllers', ['ngCordova'])
 
 
     }
-    //Add the pre defined contact below on the device
-    $scope.addContact = function () {
-        $cordovaContacts.save($scope.dummyContacts).then(function (result) {
-            console.log(result.phoneNumbers["0"].value);
-        }, function (err) {
-            // Contact error
-        });
-    }
 
-    $scope.dummyContacts = {
-            "displayName": "jones",
-            "name": {
-                "givenName": "jones",
-                "formatted": "jones "
-            },
-            "nickname": null,
-            "phoneNumbers": [
-                {
-                    "value": "0311234567",
-                    "type": "mobile"
-                }
-            ],
-            "emails": [
-                {
-                    "value": "xddf@dd.com",
-                    "type": "home"
-                }
-            ],
-            "addresses": [
-                {
-                    "type": "home",
-                    "formatted": "This Address, An Address",
-                    "streetAddress": "This Address, An Address"
-                }
-            ],
-            "ims": null,
-            "organizations": null,
-            "birthday": null,
-            "note": "",
-            "photos": [
-                {
 
-                    "value": "img/Arzt.jpg"
-                }
-            ],
-            "categories": null,
-            "urls": null
-    }
-
-    // Ausgew�hlten Kontaktund ausgew�hlte Feld ID speichern Iselis1 und Vlads1
+    // Ausgewaehlten Kontakt und ausgewaehlte Feld ID speichern Iselis1 und Vlads1
     $scope.selectContacts = function (Contact) {
       var contactList = new Array();
       if (window.localStorage.getItem("selectedContacts") != null) {
@@ -158,7 +105,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
     }
 
-    // Kontakt ausw�hlen Iselis1 und Vlads1
+    // Kontakt auswaehlen Iselis1 und Vlads1
     $scope.pickContact = function (Contact, fieldId) {
         var localContact = {
             id: fieldId,
@@ -169,6 +116,35 @@ angular.module('starter.controllers', ['ngCordova'])
 
     }
 
+    $scope.loadContactFromLocal = function(){
+      $scope.ContactInLocalstorage = JSON.parse(window.localStorage.getItem("selectedContacts"));
+      for(i = 1; i < 11; i++){
+        for(j = 0; j < $scope.ContactInLocalstorage.length; j++){
+          var id = JSON.parse($scope.ContactInLocalstorage[j]);
+          var obj = JSON.parse(id.contact);
+          $scope.buttonId = "button" + i;
+
+          if($scope.buttonId == id.id){
+
+          var photo = obj.photos[0].value;
+
+          if (photo != null) {
+            document.getElementById($scope.buttonId).childNodes[0].nextSibling.setAttribute('src', obj.photos[0].value);
+          }
+
+          //document.getElementById(id).childNodes[1].nextSibling.nodeValue = contact.displayName;
+          var contactName = document.getElementById($scope.buttonId).childNodes[3];
+              contactName.textContent = obj.displayName;
+
+          $scope.contactButton = document.getElementById($scope.buttonId);
+          $scope.contactButton.setAttribute("data-phoneNumber", obj.phoneNumbers[0].value);
+          $scope.contactButton.removeAttribute("data-toSet");
+          $scope.contactButton.setAttribute("data-toSet", "false");
+
+        }
+      }
+    }
+  }
     $scope.setContacttoButton = function (){
         $scope.ContactInLocalstorage = JSON.parse(window.localStorage.getItem("pickedContacts"));
 
@@ -176,7 +152,6 @@ angular.module('starter.controllers', ['ngCordova'])
         var id = $scope.ContactInLocalstorage.id
 
         var photo = contact.photos;
-
         if (photo != null) {
             document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', photo[0].value);
         }
@@ -186,9 +161,9 @@ angular.module('starter.controllers', ['ngCordova'])
             contactName.textContent = contact.displayName;
 
         $scope.contactButton = document.getElementById(id);
-        $scope.contactButton.setAttribute("phoneNumber", contact.phoneNumbers[0].value);
-        $scope.contactButton.removeAttribute("editMode");
-        $scope.contactButton.setAttribute("editMode", "false");
+        $scope.contactButton.setAttribute("data-phoneNumber", contact.phoneNumbers[0].value);
+        $scope.contactButton.removeAttribute("data-toSet");
+        $scope.contactButton.setAttribute("data-toSet", "false");
 
 
 
@@ -202,12 +177,14 @@ angular.module('starter.controllers', ['ngCordova'])
             document.getElementById("button" + i).setAttribute("data-toSet", true);
             }
         $scope.Edit = false;
+        document.getElementById("editButton1").className = "editButton colorEditButton"
       }
       else if($scope.Edit == false){
         for(i = 1; i < 9; i++){
             document.getElementById("button" + i).setAttribute("data-toSet", false);
             }
         $scope.Edit = true;
+        document.getElementById("editButton1").className = "editButton"
       }
     }
 
@@ -222,11 +199,11 @@ angular.module('starter.controllers', ['ngCordova'])
 
         };
         $ionicPopup.show({
-            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId)"> <div class="item item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
+            template: '<div class="list listlength contactSize" ng-show="contacts"> <div class="card divs " ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId); higlight($event)" id = {{$index}}> <div class="item item-divider custom-item-divider contactName"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"><p><img class="contactPicture" src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
             title: 'Telefonliste:',
-            subTitle: 'Bitte waehlen Sie einen Kontakt aus',
+            subTitle: 'Bitte w&auml;hlen Sie einen Kontakt aus',
             scope: $scope,
-            cssClass: 'TelPopup',
+            cssClass: 'TelpopUp',
             buttons: [
               { text: 'Abbrechen' },
               {
@@ -240,31 +217,43 @@ angular.module('starter.controllers', ['ngCordova'])
         });
     }
 
-    $scope.DialNumberPopup = function (event) {
-      console.log(event.target);
-        $scope.fieldId = event.target.parentElement.id;
-        $scope.data = {
-            vm: [
-              $scope.contacts,
-            ]
+    $scope.higlight = function(event){
+    $scope.tester = event.target.parentElement.parentElement.parentElement.id;
+    $scope.id = event.target.parentElement.parentElement.parentElement;
+    if($scope.tester == ""){
+      $scope.id = event.target.parentElement.parentElement;
+    }
 
-        };
+    if($scope.id.id != undefined){
+      if($scope.lastID != null){
+      document.getElementById($scope.lastID).childNodes[3].className = "item item-text-wrap whitecolor"
+      }
+      $scope.id.childNodes[3].className = "item item-text-wrap color"
+      $scope.lastID = $scope.id.id;
+    }
+  }
+
+    $scope.DialNumberPopup = function (event) {
+        $scope.fieldId = event.target.parentElement.id;
+        $scope.data = event.target.parentElement;
+        $scope.telNr = $scope.data.getAttribute("data-phoneNumber");
         $ionicPopup.show({
-            template: '<div class="list listlength" ng-show="contacts"> <div class="card" ng-repeat="Contact in contacts" ng-click="pickContact(Contact, fieldId)"> <div class="item item-divider"> {{ Contact.displayName }} </div> <div class="item item-text-wrap"> <p><strong>Foto</strong></p> <p><img src="{{Contact.photos[0].value}}"></img></p> </div> </div> </div>',
-            title: 'Kontakt anrufen:',
+            template: '',
+            title: 'Anrufen?',
             subTitle: '',
             scope: $scope,
-            cssClass: 'dialNumberPopup',
+            cssClass: 'my-custom-popup',
             buttons: [
-              { text: 'Abbrechen' },
+              { text: 'Nein' },
               {
-                  text: '<b>Anrufen</b>',
-                  onTap: function (e) {
+                    text: '<b>Ja</b>',
+                    onTap: function () {
 
-                      console.log('Whuut?');
+                              document.location.href = "tel:" + $scope.telNr ;
 
-                  }
-              }
+                    }
+                }
+
             ]
         });
     }
