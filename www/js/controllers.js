@@ -37,12 +37,6 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.dashboard = function () {
                 $state.go('menu.dashboard');
             }
-    $scope.data = {
-        phoneNumber: "041788722744"
-    };
-    $scope.dialNumber = function (number) {
-        window.open('tel:' + number, '_system');
-    }
 
     var isLoggedIn = ownMidataService.loggedIn();
     if (isLoggedIn) {
@@ -143,9 +137,9 @@ angular.module('starter.controllers', ['ngCordova'])
               contactName.textContent = obj.displayName;
 
           $scope.contactButton = document.getElementById($scope.buttonId);
-          $scope.contactButton.setAttribute("phoneNumber", obj.phoneNumbers[0].value);
-          $scope.contactButton.removeAttribute("editMode");
-          $scope.contactButton.setAttribute("editMode", "false");
+          $scope.contactButton.setAttribute("data-phoneNumber", obj.phoneNumbers[0].value);
+          $scope.contactButton.removeAttribute("data-toSet");
+          $scope.contactButton.setAttribute("data-toSet", "false");
 
         }
       }
@@ -167,9 +161,9 @@ angular.module('starter.controllers', ['ngCordova'])
             contactName.textContent = contact.displayName;
 
         $scope.contactButton = document.getElementById(id);
-        $scope.contactButton.setAttribute("phoneNumber", contact.phoneNumbers[0].value);
-        $scope.contactButton.removeAttribute("editMode");
-        $scope.contactButton.setAttribute("editMode", "false");
+        $scope.contactButton.setAttribute("data-phoneNumber", contact.phoneNumbers[0].value);
+        $scope.contactButton.removeAttribute("data-toSet");
+        $scope.contactButton.setAttribute("data-toSet", "false");
 
 
 
@@ -226,7 +220,6 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.higlight = function(event){
     $scope.tester = event.target.parentElement.parentElement.parentElement.id;
     $scope.id = event.target.parentElement.parentElement.parentElement;
-    console.log($scope.id);
     if($scope.tester == ""){
       $scope.id = event.target.parentElement.parentElement;
     }
@@ -241,14 +234,9 @@ angular.module('starter.controllers', ['ngCordova'])
   }
 
     $scope.DialNumberPopup = function (event) {
-      console.log(event.target);
         $scope.fieldId = event.target.parentElement.id;
-        $scope.data = {
-            vm: [
-              $scope.contacts,
-            ]
-
-        };
+        $scope.data = event.target.parentElement;
+        $scope.telNr = $scope.data.getAttribute("data-phoneNumber");
         $ionicPopup.show({
             template: '',
             title: 'Anrufen?',
@@ -258,13 +246,14 @@ angular.module('starter.controllers', ['ngCordova'])
             buttons: [
               { text: 'Nein' },
               {
-                  text: '<b>Ja</b>',
-                  onTap: function (e) {
+                    text: '<b>Ja</b>',
+                    onTap: function () {
 
-                      console.log('Whuut?');
+                              document.location.href = "tel:" + $scope.telNr ;
 
-                  }
-              }
+                    }
+                }
+
             ]
         });
     }
