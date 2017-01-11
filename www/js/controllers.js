@@ -1,24 +1,22 @@
 angular.module('starter.controllers', ['ngCordova'])
 
 //zyssm4 nav-funktionen & isels1 aufteilung und login/logout
-.controller('homeCtrl', function ($scope, $state, ownMidataService, $cordovaMedia) {
+.controller('homeCtrl', function ($scope, $state, ownMidataService, $cordovaLocalNotification) {
 
-   $scope.play = function(src) {
-    // Play the audio file at url
-    var my_media = new Media(src,
-        // success callback
-        function () {
-            console.log("playAudio():Audio Success");
-        },
-        // error callback
-        function (err) {
-            console.log("playAudio():Audio Error: " + err);
-        }
-    );
+   $scope.play = function() {
 
-    // Play audio
-    my_media.play();
-}
+       $cordovaLocalNotification.schedule({
+         id: 1,
+         text: 'Easter Egg',
+         title: 'MIAU',
+         sound: 'file://sounds/miau.mp3'
+       }).then(function() {
+         console.log("Instant Notification set");
+       });
+     };
+
+    }
+    
     $scope.opentel = function () {
         $state.go('tel');
     }
@@ -466,7 +464,7 @@ angular.module('starter.controllers', ['ngCordova'])
     $cordovaLocalNotification.schedule({
       id: 1,
       text: 'Instant Notification',
-      title: 'Instant'
+      title: 'Instant',
     }).then(function() {
       console.log("Instant Notification set");
     });
