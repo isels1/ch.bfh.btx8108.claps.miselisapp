@@ -484,7 +484,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                               title: 'Medikamente',
                               subTitle: 'Bitte tragen Sie die eingenommenen Medikamente ein',
                               scope: $scope,
-                              cssClass: 'my-custom-popup',
+                              cssClass: 'mediPlanPopUp',
                               buttons: [
                                         { text: 'Cancel' },
                                         {
@@ -730,40 +730,50 @@ angular.module('starter.medicationController', ['ngCordova'])
                 $scope.Nighttaken = new Array;
                 $scope.Nighttaken.push($scope.dayTimeArr[i].Night.taken);
 
-
-
-
-
                 if($scope.loopNr == 1){//MO
                   if($scope.DayMoState == "unchecked" && $scope.Morningstate == "unchecked" && $scope.Morningtaken["0"] == false){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.morningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonTaken";
                   }
+                  else{
+                    $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
+                  }
                 }
+
                 if($scope.loopNr == 2){
                   if($scope.DayMoState == "unchecked" && $scope.Noonstate == "unchecked" && $scope.Noontaken["0"] == false){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.noonElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
                   }
+                  else{
+                    $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
+                  }
                 }
+
                 if($scope.loopNr == 3){
                   if($scope.DayMoState == "unchecked" && $scope.Eveningstate == "unchecked" && $scope.Eveningtaken["0"] == false){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.eveningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 4){
                   if($scope.DayMoState == "unchecked" &&  $scope.Nightstate == "unchecked" && $scope.Nighttaken["0"] == false){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.nightElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
 
@@ -771,32 +781,44 @@ angular.module('starter.medicationController', ['ngCordova'])
                   if($scope.DayDiState == "unchecked" && $scope.Morningstate == "unchecked" &&  $scope.Morningtaken["0"] == false){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.morningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 6){
                   if($scope.DayDiState == "unchecked" && $scope.Noonstate == "unchecked" && $scope.Noontaken["0"] == false){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken"){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 7){
                   if($scope.DayDiState == "unchecked" && $scope.Eveningstate == "unchecked" && $scope.Eveningtaken["0"] == false){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.eveningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 8){
                   if($scope.DayDiState == "unchecked" && $scope.Nightstate == "unchecked" && $scope.Nighttaken["0"] == false){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.nightElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
 
@@ -804,32 +826,44 @@ angular.module('starter.medicationController', ['ngCordova'])
                   if($scope.DayMiState == "unchecked" && $scope.Morningstate == "unchecked" && $scope.Morningtaken["0"] == false){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.morningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 10){
                   if($scope.DayMiState == "unchecked" && $scope.Noonstate == "unchecked" && $scope.Noontaken["0"] == false){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.noonElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 11){
                   if($scope.DayMiState == "unchecked" && $scope.Eveningstate == "unchecked" && $scope.Eveningtaken["0"] == false){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.eveningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 12){
                   if($scope.DayMiState == "unchecked" && $scope.Nightstate == "unchecked" && $scope.Nighttaken["0"] == false){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.nightElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
 
@@ -837,32 +871,44 @@ angular.module('starter.medicationController', ['ngCordova'])
                   if($scope.DayDoState == "unchecked" && $scope.Morningstate == "unchecked" && $scope.Morningtaken["0"] == false){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.morningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 14){
                   if($scope.DayDoState == "unchecked" && $scope.Noonstate == "unchecked" &&  $scope.Noontaken["0"] == false){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken"){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 15){
                   if($scope.DayDoState == "unchecked" && $scope.Eveningstate == "unchecked" && $scope.Eveningtaken["0"] == false){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.eveningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 16){
                   if($scope.DayDoState == "unchecked" && $scope.Nightstate == "unchecked" && $scope.Nighttaken["0"] == false){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.nightElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
 
@@ -870,32 +916,44 @@ angular.module('starter.medicationController', ['ngCordova'])
                   if($scope.DayFrState == "unchecked" && $scope.Morningstate == "unchecked" && $scope.Morningtaken["0"] == false){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.morningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 18){
                   if($scope.DayFrState == "unchecked" && $scope.Noonstate == "unchecked" && $scope.Noontaken["0"] == false){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken"){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 19){
                   if($scope.DayFrState == "unchecked" && $scope.Eveningstate == "unchecked" && $scope.Eveningtaken["0"] == false){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.eveningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 20){
                   if($scope.DayFrState == "unchecked" && $scope.Nightstate == "unchecked" && $scope.Nighttaken["0"] == false){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.nightElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
 
@@ -903,32 +961,44 @@ angular.module('starter.medicationController', ['ngCordova'])
                   if($scope.DaySaState == "unchecked" && $scope.Morningstate == "unchecked" && $scope.Morningtaken["0"] == false){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.morningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 22){
                   if($scope.DaySaState == "unchecked" && $scope.Noonstate == "unchecked" && $scope.Noontaken["0"] == false){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken"){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 23){
                   if($scope.DaySaState == "unchecked" && $scope.Eveningstate == "unchecked" && $scope.Eveningtaken["0"] == false){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.eveningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 24){
                   if($scope.DaySaState == "unchecked" && $scope.Nightstate == "unchecked" && $scope.Nighttaken["0"] == false){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.nightElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
 
@@ -936,32 +1006,44 @@ angular.module('starter.medicationController', ['ngCordova'])
                   if($scope.DaySoState == "unchecked" && $scope.Morningstate == "unchecked" && $scope.Morningtaken["0"] == false){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.morningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 26){
                   if($scope.DaySoState == "unchecked" && $scope.Noonstate == "unchecked" && $scope.Noontaken["0"] == false){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.noonElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 27){
                   if($scope.DaySoState == "unchecked" && $scope.Eveningstate == "unchecked" && $scope.Eveningtaken["0"] == false){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.eveningElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.eveningElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.eveningElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
                 if($scope.loopNr == 28){
                   if($scope.DaySoState == "unchecked" && $scope.Nightstate == "unchecked" && $scope.Nighttaken["0"] == false){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else{
+                  else if($scope.nightElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.nightElement["0"].firstElementChild.className = "medButtonTaken";
+                  }
+                  else{
+                    $scope.nightElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
                 }
               }
@@ -1025,7 +1107,6 @@ angular.module('starter.medicationController', ['ngCordova'])
                 $state.go('login')
               }
             })
-
 
 .controller('createMediCtrl', function($scope, $compile ,ownMidataService, $timeout, $state, $ionicPopup, $cordovaCamera, $window) {
 
@@ -1397,7 +1478,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                              title: 'Medikament erfassen',
                              subTitle: 'Bitte geben Sie die Daten des neuen Mediamentes ein',
                              scope: $scope,
-                             cssClass: 'my-custom-popup',
+                             cssClass: 'createMediPopUp',
                              buttons: [
                                        { text: 'Zurück' },
                                        {

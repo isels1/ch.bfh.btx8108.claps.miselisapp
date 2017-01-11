@@ -8,7 +8,7 @@
       Your Name Here&#xD;
     </author>
   <content src="index.html"/>
-    <access origin="*" />
+  <access origin="*"/>
   <access origin="tel:*" launch-external="true"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>

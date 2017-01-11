@@ -22,7 +22,8 @@
     "cordova-plugin-device",
     "cordova-plugin-splashscreen",
     "cordova-plugin-contacts",
-    "cordova-plugin-compat"
+    "cordova-plugin-compat",
+    "cordova-plugin-camera"
   ],
   "cordovaPlatforms": [
     {

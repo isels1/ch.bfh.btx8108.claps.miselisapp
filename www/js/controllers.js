@@ -235,19 +235,23 @@ angular.module('starter.controllers', ['ngCordova'])
         $scope.fieldId = event.target.parentElement.id;
         $scope.data = event.target.parentElement;
         $scope.telNr = $scope.data.getAttribute("data-phoneNumber");
+        $scope.emergencyNr = "112";
         $ionicPopup.show({
             template: '',
             title: 'Anrufen?',
             subTitle: '',
             scope: $scope,
-            cssClass: 'my-custom-popup',
+            cssClass: 'DialNumberPopUpSytle',
             buttons: [
               { text: 'Nein' },
               {
                     text: '<b>Ja</b>',
                     onTap: function () {
-
-                              document.location.href = "tel:" + $scope.telNr ;
+                      if($scope.data.getAttribute("id") == "emergencyButtonCall"){
+                          document.location.href = "tel:"  + $scope.emergencyNr ;
+                        }else{
+                          document.location.href = "tel:" + $scope.telNr ;
+                        }
 
                     }
                 }
@@ -428,6 +432,15 @@ angular.module('starter.controllers', ['ngCordova'])
 
   $scope.changeTime = function(time) {
     $scope.selectedTime = time;
+    if(time == 'morning'){
+      ipObj1.inputTime = 28800;
+    }else if(time == 'noon') {
+      ipObj1.inputTime = 43200;
+    }else if(time == 'evening'){
+      ipObj1.inputTime = 64800;
+    }else{
+      ipObj1.inputTime = 79200;
+    }
     ionicTimePicker.openTimePicker(ipObj1);
   }
 

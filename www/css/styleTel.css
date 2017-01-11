@@ -3,6 +3,34 @@ padding-bottom:0 !important;
 text-align: center;
 }
 
+
+.DialNumberPopUpSytle .popup {
+    width: 20% !important;
+    height: 20% !important;
+}
+
+.DialNumberPopUpSytle  .popup-title {
+    color: #FFF;
+    font-size: 2vw;
+}
+
+.DialNumberPopUpSytle .popup-head{
+  width: 100%;
+}
+
+.DialNumberPopUpSytle .popup-body {
+  width: 120%;
+  height: 120%;
+
+
+}
+
+.DialNumberPopUpSytle .popup-sub-title{
+  font-size: 1.5vw;
+  color: #FFF;
+}
+
+
 .TelpopUp .popup {
     width: 30% !important;
     height: 100% !important;
