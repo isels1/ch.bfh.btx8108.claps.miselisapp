@@ -792,7 +792,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                   if($scope.DayDiState == "unchecked" && $scope.Noonstate == "unchecked" && $scope.Noontaken["0"] == false){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else if($scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken"){
+                  else if($scope.noonElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
                   }
                   else{
@@ -882,7 +882,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                   if($scope.DayDoState == "unchecked" && $scope.Noonstate == "unchecked" &&  $scope.Noontaken["0"] == false){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else if($scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken"){
+                  else if($scope.noonElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
                   }
                   else{
@@ -927,7 +927,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                   if($scope.DayFrState == "unchecked" && $scope.Noonstate == "unchecked" && $scope.Noontaken["0"] == false){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else if($scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken"){
+                  else if($scope.noonElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
                   }
                   else{
@@ -972,7 +972,7 @@ angular.module('starter.medicationController', ['ngCordova'])
                   if($scope.DaySaState == "unchecked" && $scope.Noonstate == "unchecked" && $scope.Noontaken["0"] == false){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken";
                   }
-                  else if($scope.noonElement["0"].firstElementChild.className = "medButtonNotTaken"){
+                  else if($scope.noonElement["0"].firstElementChild.className != "medButtonNotTaken"){
                     $scope.noonElement["0"].firstElementChild.className = "medButtonTaken";
                   }
                   else{

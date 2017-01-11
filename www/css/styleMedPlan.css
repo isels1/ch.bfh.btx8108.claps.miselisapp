@@ -238,6 +238,8 @@
   float: left;
   margin-top: 5%;
   width: 100%;
+  align-items: center !important;
+  align-content: center !important;
 }
 
 .IMGTakePopUp{

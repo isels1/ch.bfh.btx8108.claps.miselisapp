@@ -15,8 +15,8 @@ angular.module('starter.controllers', ['ngCordova'])
        });
      };
 
-    }
-    
+
+
     $scope.opentel = function () {
         $state.go('tel');
     }
@@ -478,23 +478,9 @@ angular.module('starter.controllers', ['ngCordova'])
       id: 1,
       text: 'Instant Notification',
       title: 'Instant',
+      icon: 'res:/icon.png'
     }).then(function() {
       console.log("Instant Notification set");
-    });
-  };
-
-  $scope.scheduleNotificationFiveSecondsFromNow = function() {
-    var now = new Date().getTime();
-    var _5SecondsFromNow = new Date(now + 5000);
-
-    $cordovaLocalNotification.schedule({
-      id: 2,
-      date: _5SecondsFromNow,
-      text: 'Notification After 5 Seconds Has Been Triggered',
-      title: 'After 5 Seconds',
-      sound: sound
-    }).then(function() {
-      console.log("Notification After 5 seconds set");
     });
   };
 
