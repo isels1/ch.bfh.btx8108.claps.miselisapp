@@ -53,7 +53,6 @@ angular.module('starter.medicationController', ['ngCordova'])
 
           for(var i = 0; i < $scope.data.length; i++) {
 
-          //Montag Morgen
           if($scope.popUpTimeId == 0){
               if($scope.popUpDayId == 0){
               if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[0] == "unchecked"){
@@ -68,7 +67,6 @@ angular.module('starter.medicationController', ['ngCordova'])
             }
           }
 
-          //Dienstag Morgen
           if($scope.popUpTimeId == 0){
               if($scope.popUpDayId == 1){
               if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[1] == "unchecked"){
@@ -83,9 +81,8 @@ angular.module('starter.medicationController', ['ngCordova'])
             }
           }
 
-          //Mittwoch Morgen
           if($scope.popUpTimeId == 0){
-              if($scope.popUpDayId == 1){
+              if($scope.popUpDayId == 2){
               if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[2] == "unchecked"){
                 customTemplate += "<div class='toTakePopUp'>" +
                                     "<img class='IMGTakePopUp' src=" + $scope.data[i].img + "></img>" +
@@ -97,6 +94,7 @@ angular.module('starter.medicationController', ['ngCordova'])
               }
             }
           }
+
 
           //Donnerstag Morgen
           if($scope.popUpTimeId == 0){
