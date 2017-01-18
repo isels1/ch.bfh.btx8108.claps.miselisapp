@@ -1,11 +1,11 @@
 .wrapper{
   position:absolute;
-   width:100%;
-   height:100%;
+  width:100%;
+  height:100%;
 }
 
 .scroll {
-    height:100%;
+  height:100%;
 }
 
 .imp-container {
@@ -14,9 +14,9 @@
 }
 
 .login-img {
-    width: 60%;
-    margin: 0 auto;
-    height: auto;
+  width: 60%;
+  margin: 0 auto;
+  height: auto;
 }
 
 /*----------------------------------*/
@@ -26,58 +26,49 @@
 /*----------------------------------*/
 
 .leftNavigation {
-    height: 100%;
-    width: 15%;
-    float: left;
-    position:relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  width: 15%;
+  float: left;
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.content{
-    float:left;
-    width:70%;
 
+.content{
+  float:left;
+  width:70%;
 }
+
 .rightNavigation {
-    height: 100%;
-    width: 15%;
-    float: right;
-    position:relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  width: 15%;
+  float: right;
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navImg {
-    width:100%;
-    height:auto;
+  width:100%;
+  height:auto;
 }
 
 .navButton {
-    width: 100%;
-    height:auto;
-
-    background: transparent;
-    border: none !important;
-    font-size:0;
-    padding: 0;
-
-    /* Firefox */
-    /*margin-top: -moz-calc(100%);
-    /* WebKit */
-    /*margin-top: -webkit-calc(100%);
-    /* Opera */
-    /*margin-top: -o-calc(100%);
-    /* Standard */
-    /*margin-top: calc(100%);*/
+  width: 100%;
+  height:auto;
+  background: transparent;
+  border: none !important;
+  font-size:0;
+  padding: 0;
 }
 
 #NavButton {
-    background: transparent;
-    border: none !important;
-    font-size:0;
-    padding-top: 15%;
+  background: transparent;
+  border: none !important;
+  font-size:0;
+  padding-top: 15%;
 }
 
 #spacer{
@@ -106,9 +97,7 @@
 
 .settingsRow {
   height: 20%;
-  /*position:relative;*/
   display: flex;
-  /*justify-content: center;*/
 }
 
 .settingTitle {
@@ -140,17 +129,17 @@
 }
 
 .timeSettings {
-    border-color: #ddd;
-    background-color: #fff;
-    color: #444;
-    position: relative;
-    z-index: 2;
-    display: block;
-    margin: -1px;
-    padding: 16px;
-    border-width: 1px;
-    border-style: solid;
-    font-size: 16px;
+  border-color: #ddd;
+  background-color: #fff;
+  color: #444;
+  position: relative;
+  z-index: 2;
+  display: block;
+  margin: -1px;
+  padding: 16px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 16px;
 }
 
 .notificationSettings {
@@ -200,8 +189,3 @@
   background-color: #268ba3 !important;
   color: #ffffff;
 }
-
-/*.button-positive {
-    max-width: 800px;
-    background-color:#268ba3 !important;
-}*/

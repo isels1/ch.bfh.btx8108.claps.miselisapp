@@ -1,10 +1,11 @@
 .col{
   height : auto;
 }
+
 .wrapper{
   position:absolute;
-   width:100%;
-   height:100%;
+  width:100%;
+  height:100%;
 }
 
 .amountDayTime{
@@ -14,33 +15,34 @@
 }
 
 .editButton {
-    position: absolute;
-    left: 0%;
-    background-color:#008A9D;
-    font-size: 3vh;
-    color:white;
-    border: none;
-    border-radius: 5%;
+  position: absolute;
+  left: 0%;
+  background-color:#008A9D;
+  font-size: 3vh;
+  color:white;
+  border: none;
+  border-radius: 5%;
 }
-
-
 
 .AnzahlSpacer{
   visibility: hidden;
   margin-left: 10%;
 }
+
 .fixer1{
   margin-left: 17%;
 }
+
 .fixer2{
   margin-left: 20%;
 }
+
 .menuButtons{
-    width: 8%;
-    height: 8%;
-    margin-left: 7%;
-    margin-top: 2%;
-    float: left;
+  width: 8%;
+  height: 8%;
+  margin-left: 7%;
+  margin-top: 2%;
+  float: left;
 }
 
 .medButton{
@@ -62,10 +64,10 @@
 }
 
 .mediPopUp{
-    width: 100%;
-    float: left;
-    display: block;
-    margin-top: -5%;
+  width: 100%;
+  float: left;
+  display: block;
+  margin-top: -5%;
 }
 
 .MediPopUpStyle{
@@ -77,7 +79,7 @@
 }
 
 .mediPopUpFont{
-    font-size: 2vw;
+  font-size: 2vw;
 }
 
 .ImgDayTimePopUp{
@@ -94,7 +96,6 @@
   height: 50px;
   width: :50px;
   float: left;
-
 }
 
 .gg{
@@ -122,42 +123,38 @@
   font-size: 2vw !important;
 }
 
-
 .createMediPopUp .popup{
-      width: 100%;
-      height: 100%;
-      border: none;
-          color: #FFF;
-    }
+  width: 100%;
+  height: 100%;
+  border: none;
+  color: #FFF;
+}
 
 .createMediPopUp .popup-head{
-      width: 100%;
-      height: 12%;
-      border: none;
-          color: #FFF;
-    }
+  width: 100%;
+  height: 12%;
+  border: none;
+  color: #FFF;
+}
 
 .createMediPopUp .popup-title{
-      color: #FFF;
-      font-size: 2vw;
-      border: none;
-    }
+  color: #FFF;
+  font-size: 2vw;
+  border: none;
+}
 
 .createMediPopUp .popup-sub-title{
-    font-size: 1.5vw;
-    color: #FFF;
-    border: none;
-    }
+  font-size: 1.5vw;
+  color: #FFF;
+  border: none;
+}
 
 .createMediPopUp .popup-body{
-       width: 100%;
-       height: 80%;
-       border: none;
-           color: #FFF;
-
-    }
-
-
+  width: 100%;
+  height: 80%;
+  border: none;
+  color: #FFF;
+}
 
 .CreateMediButton{
   width: 28%;
@@ -242,30 +239,27 @@
 }
 
 .StyleMedi{
-    background-color: #268ba3;
-    font-size: 2vw;
-    border: 1px !important;
-    border-radius: 2px;
-    border-color: #111 !important;
-    border-style: solid !important;
-    margin: 10px;
-    width: 99%;
-    color: #FFF;
-
+  background-color: #268ba3;
+  font-size: 2vw;
+  border: 1px !important;
+  border-radius: 2px;
+  border-color: #111 !important;
+  border-style: solid !important;
+  margin: 10px;
+  width: 99%;
+  color: #FFF;
 }
 
 .datumSpacerText{
   margin-right: 3%;
 }
 
-
-
 .mediBox{
   width: 100%;
   height: 25%;
   font-size: 1.5vw;
   background-color: #CCCCCC;
-    float: left;
+  float: left;
 }
 
 .mediBoxImg{
@@ -280,7 +274,7 @@
 
 .MediTemplate{
   display: block;
-    float: left;
+  float: left;
 }
 
 .labelIntervallSpacer{
@@ -294,7 +288,6 @@
 .labelIntervallSpacer.fixer1{
   margin-left: 3%;
 }
-
 
 .labelSchemaSpacer{
   height: 12%;
@@ -310,7 +303,6 @@
 
 .datumSpacer{
   margin-top: 4.5%
-
 }
 
 .pullItBack{
@@ -324,17 +316,16 @@
   margin-top: 1%;
   float: left;
   text-align: center;
-
 }
 
 .buttonSchemaSpacer.fixer1{
   margin-left: 8%;
 }
 .buttonSchemaSpacer.fixer2{
-    margin-left: 14%;
+  margin-left: 14%;
 }
 .buttonSchemaSpacer.fixer3{
-    margin-left: 14%;
+  margin-left: 14%;
 }
 .buttonSchemaSpacer.fixer4{
   margin-left: 14%;
@@ -352,10 +343,10 @@
   margin-left: 3%;
 }
 .buttonIntervallSpacer.fixer2{
-    margin-left: 7.5%;
+  margin-left: 7.5%;
 }
 .buttonIntervallSpacer.fixer3{
-    margin-left: 8%;
+  margin-left: 8%;
 }
 .buttonIntervallSpacer.fixer4{
   margin-left: 8%;
@@ -387,7 +378,6 @@
   width: 15%;
   content: url("../img/checked-checkbox-512.png");
 }
-
 
 .buttonStatusIMG{
   align-items: center;

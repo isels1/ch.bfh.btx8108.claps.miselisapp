@@ -53,6 +53,8 @@ angular.module('starter.medicationController', ['ngCordova'])
 
           for(var i = 0; i < $scope.data.length; i++) {
 
+            //Steps trought each entry of the localStorage and compares the mediID with the ID of the different Buttons.
+            //created by zyssm4
           if($scope.popUpTimeId == 0){
               if($scope.popUpDayId == 0){
               if($scope.data[i].schema.Morning.state == "unchecked" && $scope.data[i].interval[0] == "unchecked"){
@@ -728,6 +730,8 @@ angular.module('starter.medicationController', ['ngCordova'])
                 $scope.Nighttaken = new Array;
                 $scope.Nighttaken.push($scope.dayTimeArr[i].Night.taken);
 
+                //Sets the PopUp on the MedicationList, there are 28 loops because it happens when the View is build, so it has to repeat each step afert a new elemnt of the ng-repeat is build, which happens 28 times.
+                //created by zyssm4
                 if($scope.loopNr == 1){//MO
                   if($scope.DayMoState == "unchecked" && $scope.Morningstate == "unchecked" && $scope.Morningtaken["0"] == false){
                     $scope.morningElement["0"].firstElementChild.className = "medButtonNotTaken";

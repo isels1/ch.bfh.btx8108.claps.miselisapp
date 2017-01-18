@@ -4,33 +4,30 @@
 </ion-nav-buttons>
   <ion-content class="wrapper">
   <!--Logo row-->
-  <div class="row responsive-lg">
-    <div class="col">
-      <div id="logo" ng-click="play()">
-        <img src="img\logo.PNG" />
+    <div class="row responsive-lg">
+      <div class="col">
+        <div id="logo" ng-click="play()">
+          <img src="img\logo.PNG" />
+        </div>
       </div>
     </div>
-  </div>
-
-
-  <!--Button Row-->
-  <div class="row responsive-lg" id="spacer">
-    <div class="col"></div>
-    <!--TelButton-->
-    <div class="col">
-      <button id="NavButton" ng-click="opentel()" >
-        <img class="ImgButton" src="img\Tel.PNG"></img>
-      </button>
+    <!--Button Row-->
+    <div class="row responsive-lg" id="spacer">
+      <div class="col"></div>
+      <!--TelButton-->
+      <div class="col">
+        <button id="NavButton" ng-click="opentel()" >
+          <img class="ImgButton" src="img\Tel.PNG"></img>
+        </button>
+      </div>
+      <div class="col"></div>
+      <!--MediButon-->
+      <div class="col">
+        <button id="NavButton" ng-click="openmedi()" >
+          <img class="ImgButton" src="img\medi.PNG"></img>
+        </button>
+      </div>
+      <div class="col"></div>
     </div>
-    <div class="col"></div>
-    <!--MediButon-->
-    <div class="col">
-      <button id="NavButton" ng-click="openmedi()" >
-        <img class="ImgButton" src="img\medi.PNG"></img>
-      </button>
-    </div>
-    <div class="col"></div>
-  </div>
-
-</ion-content>
+  </ion-content>
 </ion-view>

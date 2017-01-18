@@ -3,37 +3,7 @@ angular.module('starter.obsControllers', ['ngCordova'])
 // Controller for the dashboard (isels1)
 // --> shows different charts for vital data
 .controller('DashboardCtrl', function($scope, $state, ownMidataService, $ionicPopup) {
-/*
-  var $configLine = {
-    name: '.ct-chartLine',
-    labels: 'Week',
-    series: "[12, 9, 7, 8, 5, 9, 0]",
-    fullWidth: "true",
-    showArea: "true"
-  };
 
-  var chartLine = new ChartJS($configLine);
-  chartLine.line();
-
-
-  /*var $configPie = {
-    name: '.ct-chartPie',
-  };
-
-  var data = {
-    series: [5, 3, 4]
-  };
-
-  var chartPie = new ChartJS($configPie);
-  chartPie.pie(data);
-*/
-  /*var $configBar = {
-    name: '.ct-chartBar',
-    labels: 'Year',
-    series: '[5, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8]'
-  };
-  var chartBar = new ChartJS($configBar);
-  chartBar.bar();*/
 
   $scope.saveWeight = function () {
     var val = document.getElementById('obsWheigtInput').value;

@@ -1,17 +1,17 @@
 ﻿.telLabel{
-padding-bottom:0 !important;
-text-align: center;
+  padding-bottom:0 !important;
+  text-align: center;
 }
 
 
 .DialNumberPopUpSytle .popup {
-    width: 20% !important;
-    height: 20% !important;
+  width: 20% !important;
+  height: 20% !important;
 }
 
 .DialNumberPopUpSytle  .popup-title {
-    color: #FFF;
-    font-size: 2vw;
+  color: #FFF;
+  font-size: 2vw;
 }
 
 .DialNumberPopUpSytle .popup-head{
@@ -21,8 +21,6 @@ text-align: center;
 .DialNumberPopUpSytle .popup-body {
   width: 120%;
   height: 120%;
-
-
 }
 
 .DialNumberPopUpSytle .popup-sub-title{
@@ -30,15 +28,14 @@ text-align: center;
   color: #FFF;
 }
 
-
 .TelpopUp .popup {
-    width: 30% !important;
-    height: 100% !important;
+  width: 30% !important;
+  height: 100% !important;
 }
 
 .TelpopUp  .popup-title {
-    color: #FFF;
-    font-size: 2vw;
+  color: #FFF;
+  font-size: 2vw;
 }
 
 .TelpopUp .popup-head{
@@ -48,8 +45,6 @@ text-align: center;
 .TelpopUp .popup-body {
   width: 120%;
   height: 120%;
-
-
 }
 
 .TelpopUp .popup-sub-title{
@@ -59,10 +54,10 @@ text-align: center;
 
 
 .contactSize{
-    align-items: center;
-    width: 130%;
-    height: 130%;
-    margin-left: 15%;
+  align-items: center;
+  width: 130%;
+  height: 130%;
+  margin-left: 15%;
 }
 
 .contactPicture{
@@ -73,9 +68,9 @@ text-align: center;
 }
 
 .fixTelButtons{
-    align-content: center;
-    margin-left: 8%;
-    margin-right: -8%;
+  align-content: center;
+  margin-left: 8%;
+  margin-right: -8%;
 }
 
 .emergencyButton{
@@ -96,7 +91,7 @@ text-align: center;
 .col.NavColRight{
   width: 25%;
   float: right;
-  }
+}
 
 
 .color {
@@ -129,13 +124,13 @@ text-align: center;
 }
 
 .editButton {
-    position: absolute;
-    left: 0%;
-    background-color:#008A9D;
-    font-size: 4vh;
-    color:white;
-    border: none;
-    border-radius: 5%;
+  position: absolute;
+  left: 0%;
+  background-color:#008A9D;
+  font-size: 4vh;
+  color:white;
+  border: none;
+  border-radius: 5%;
 }
 
 .callButton{

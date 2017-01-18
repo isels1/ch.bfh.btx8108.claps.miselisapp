@@ -20,21 +20,26 @@ angular.module('starter.controllers', ['ngCordova'])
     $scope.opentel = function () {
         $state.go('tel');
     }
+
     $scope.openmedi = function () {
         $state.go('medplan');
     }
+
     $scope.openeinstellungen = function () {
         $state.go('menu.einstellungen');
     }
+
     $scope.openimpressum = function () {
         $state.go('menu.impressum');
     }
+
     $scope.openhome = function () {
         $state.go('menu.home');
     }
+
     $scope.dashboard = function () {
-                $state.go('menu.dashboard');
-            }
+        $state.go('menu.dashboard');
+    }
 
     var isLoggedIn = ownMidataService.loggedIn();
     if (isLoggedIn) {
@@ -49,6 +54,7 @@ angular.module('starter.controllers', ['ngCordova'])
 })
 
 .controller('telCtrl', function ($scope, $compile,  $state, $ionicPopup, ownMidataService, $cordovaContacts, $cordovaNativeAudio) {
+
     //vlads1 & zyssm4 getContactList & addContact
     //Get all contacts from the device. Reads the Phonenumber, Name and picture. These are then put into the html
     $scope.getContactList = function () {
@@ -66,18 +72,15 @@ angular.module('starter.controllers', ['ngCordova'])
         }, function (error) {
             console.log("ERROR: " + error);
         });
-
-
     }
 
 
-    // Ausgewaehlten Kontakt und ausgewaehlte Feld ID speichern Iselis1 und Vlads1
+    // Save choosen and the field-ID created by vlads1 & iselis1
     $scope.selectContacts = function (Contact) {
       var contactList = new Array();
       if (window.localStorage.getItem("selectedContacts") != null) {
            contactList = JSON.parse(window.localStorage.getItem("selectedContacts"));
       }
-
 
       var existing = false;
       var selectedContact = JSON.parse(Contact.contact);
@@ -89,7 +92,6 @@ angular.module('starter.controllers', ['ngCordova'])
       }
 
       if (!existing) {
-
           var fieldId = Contact.id;
           for (var i = 0; i < contactList.length; i++) {
               var contactObj = JSON.parse(contactList[i]);
@@ -103,7 +105,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
     }
 
-    // Kontakt auswaehlen Iselis1 und Vlads1
+    // take the choosen contact and save it (in a JSON-Object) in the localStorage, created by Iselis1 und Vlads1
     $scope.pickContact = function (Contact, fieldId) {
         var localContact = {
             id: fieldId,
@@ -130,7 +132,6 @@ angular.module('starter.controllers', ['ngCordova'])
             document.getElementById($scope.buttonId).childNodes[0].nextSibling.setAttribute('src', obj.photos[0].value);
           }
 
-          //document.getElementById(id).childNodes[1].nextSibling.nodeValue = contact.displayName;
           var contactName = document.getElementById($scope.buttonId).childNodes[3];
               contactName.textContent = obj.displayName;
 
@@ -143,6 +144,7 @@ angular.module('starter.controllers', ['ngCordova'])
       }
     }
   }
+    //sets the choosen Button with the contact which is saved in the localStorage.. and has the same buttonId
     $scope.setContacttoButton = function (){
         $scope.ContactInLocalstorage = JSON.parse(window.localStorage.getItem("pickedContacts"));
 
@@ -154,7 +156,6 @@ angular.module('starter.controllers', ['ngCordova'])
             document.getElementById(id).childNodes[0].nextSibling.setAttribute('src', photo[0].value);
         }
 
-        //document.getElementById(id).childNodes[1].nextSibling.nodeValue = contact.displayName;
         var contactName = document.getElementById(id).childNodes[3];
             contactName.textContent = contact.displayName;
 
@@ -215,6 +216,7 @@ angular.module('starter.controllers', ['ngCordova'])
         });
     }
 
+    //highlights the choosen Contact in the contactList,  created zyssm4
     $scope.higlight = function(event){
     $scope.tester = event.target.parentElement.parentElement.parentElement.id;
     $scope.id = event.target.parentElement.parentElement.parentElement;
@@ -273,7 +275,7 @@ angular.module('starter.controllers', ['ngCordova'])
         ownMidataService.logout();
         $state.go('login'); };
     } else {
-    $state.go('login');
+      $state.go('login');
     }
 
     $scope.clickAction = function (event) {

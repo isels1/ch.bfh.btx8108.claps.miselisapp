@@ -5,17 +5,17 @@
 }
 
 .scroll {
-    height:100%;
+  height:100%;
 }
 
 .createMediView {
-    position: absolute;
-    left: 0%;
-    background-color:#008A9D;
-    font-size: 3vh;
-    color:white;
-    border: none;
-    border-radius: 5%;
+  position: absolute;
+  left: 0%;
+  background-color:#008A9D;
+  font-size: 3vh;
+  color:white;
+  border: none;
+  border-radius: 5%;
 }
 
 
@@ -26,20 +26,21 @@
 /*----------------------------------*/
 
 .leftNavigation {
-    height: 100%;
-    width: 15%;
-    float: left;
-    position:relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  width: 15%;
+  float: left;
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.content{
-    padding-top: 1%;
-    float:left;
-    width:70%;
 
+.content{
+  padding-top: 1%;
+  float:left;
+  width:70%;
 }
+
 .AddMedi{
   height: 6%;
   width: 6%;
@@ -47,6 +48,7 @@
   padding-top: 1%;
   content: url("../img/addCross.png");
 }
+
 .ColorBlindMode{
   height: 6%;
   width: 6%;
@@ -57,21 +59,21 @@
 }
 
 .rightNavigation {
-    height: 100%;
-    width: 15%;
-    float: right;
-    position:relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  width: 15%;
+  float: right;
+  position:relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menuButtons{
-    width: 8%;
-    height: 8%;
-    margin-left: 7%;
-    margin-top: 2%;
-    float: left;
+  width: 8%;
+  height: 8%;
+  margin-left: 7%;
+  margin-top: 2%;
+  float: left;
 }
 
 .medButton{
@@ -118,48 +120,44 @@
   float: left;
   max-width: 25%;
 }
- .colSize.bigger{
-    max-width: 10% !important;
-    text-align: center;
 
+ .colSize.bigger{
+  max-width: 10% !important;
+  text-align: center;
  }
 
- .mediPlanPopUp .popup{
-       width: 100%;
-       height: 100%;
-       border: none;
-       color: #FFF;
-     }
+.mediPlanPopUp .popup{
+  width: 100%;
+  height: 100%;
+  border: none;
+  color: #FFF;
+}
 
- .mediPlanPopUp .popup-head{
-       width: 100%;
-       height: 12%;
-       border: none;
-       color: #FFF;
-     }
+.mediPlanPopUp .popup-head{
+  width: 100%;
+  height: 12%;
+  border: none;
+  color: #FFF;
+}
 
- .mediPlanPopUp .popup-title{
-       color: #FFF;
-       font-size: 2vw;
-       border: none;
-     }
+.mediPlanPopUp .popup-title{
+  color: #FFF;
+  font-size: 2vw;
+  border: none;
+}
 
- .mediPlanPopUp .popup-sub-title{
-       font-size: 1.5vw;
-       color: #FFF;
-       border: none;
-     }
+.mediPlanPopUp .popup-sub-title{
+  font-size: 1.5vw;
+  color: #FFF;
+  border: none;
+}
 
- .mediPlanPopUp .popup-body{
-        width: 100%;
-        height: auto;
-        border: none;
-        color: #FFF;
-
-     }
-
-
-
+.mediPlanPopUp .popup-body{
+  width: 100%;
+  height: auto;
+  border: none;
+  color: #FFF;
+}
 
 .colSize.morning{
   min-width: 22.7%;
@@ -167,26 +165,25 @@
   margin-top: -2.1%;
   margin-left: -6.4%;
 }
+
 .colSize.noon{
   min-width: 22.8%;
   max-width: 22.8%;
   margin-top: -2.1%;
-
 }
+
 .colSize.evening{
   min-width: 22.7%;
   max-width: 22.7%;
   margin-top: -2.1%;
   margin-right: ;
-
 }
+
 .colSize.night{
   min-width: 22.78%;
   max-width: 22.78%;
   margin-top: -2.1%;
   margin-right: -0.6%;
-
-
 }
 
 .TextDefine{
@@ -196,8 +193,6 @@
   font-size: 1.5vw;
   margin-right: 6%;
 }
-
-
 
 .HeaderBlock{
   background-color: #FFFFFF;
@@ -234,7 +229,6 @@
 /*--PopUp MediPlan--*/
 /*------------------*/
 .toTakePopUp{
-
   float: left;
   margin-top: 5%;
   width: 100%;

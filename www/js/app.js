@@ -86,7 +86,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
     })
 
     //Side-Menus Views
-
     .state('menu.einstellungen', {
       url: '/einstellungen',
       views: {
@@ -106,35 +105,35 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.medicationCo
     })
 
     .state('menu.dashboard', {
-               url: '/weight',
-           views: {
-           'menuContent' :{
-           templateUrl: 'templates/dashboard.html',
-           controller : 'DashboardCtrl'
-           }}
-           })
+           url: '/weight',
+       views: {
+       'menuContent' :{
+       templateUrl: 'templates/dashboard.html',
+       controller : 'DashboardCtrl'
+       }}
+     })
 
 
     //Views
         .state('tel', {
-        url: '/tel',
-        templateUrl: 'templates/tel.html',
+          url: '/tel',
+          templateUrl: 'templates/tel.html',
           controller : 'telCtrl'
         })
         .state('medplan', {
-        url: '/medplan',
-        templateUrl: 'templates/medplan.html',
+          url: '/medplan',
+          templateUrl: 'templates/medplan.html',
           controller : 'medplanCtrl'
         })
         .state('createMedi', {
-        url: '/createMedi',
-        templateUrl: 'templates/createMedi.html',
+          url: '/createMedi',
+          templateUrl: 'templates/createMedi.html',
           controller : 'createMediCtrl'
         })
         .state('login', {
-               url: '/login',
-               templateUrl: 'templates/login.html',
-               controller: 'loginCtrl'
+          url: '/login',
+          templateUrl: 'templates/login.html',
+          controller: 'loginCtrl'
         });
 
 

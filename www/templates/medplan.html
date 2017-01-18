@@ -8,27 +8,25 @@
         <img class="navImg" src="img\ButtonHomeLeft.PNG"></img>
       </button>
     </div>
-
-        <button class="createMediView" ng-click="opencreateMedi()">
-             Medikament erfassen
-        </button>
-
+    <button class="createMediView" ng-click="opencreateMedi()">
+         Medikament erfassen
+    </button>
     <div class="content" ng-init="checkMode()">
-        <div class="col setMedPlan">
-          <div class="row setMedPlan">
-            <div class="col setMedPlan {{header.class}}" ng-repeat="header in header">{{header.title}}</div>
-          </div>
-          <div class="col  setMedPlan" ng-app='app' ng-controller="medplanCtrl" >
-            <div class="row  setMedPlan {{days.class}}" id='{{$index}}' ng-repeat="days in days"><label class="TextDefine">{{days.title}}</label>
+      <div class="col setMedPlan">
+        <div class="row setMedPlan">
+          <div class="col setMedPlan {{header.class}}" ng-repeat="header in header">{{header.title}}</div>
+        </div>
+        <div class="col  setMedPlan" ng-app='app' ng-controller="medplanCtrl" >
+          <div class="row  setMedPlan {{days.class}}" id='{{$index}}' ng-repeat="days in days"><label class="TextDefine">{{days.title}}</label>
             <div class="col  setMedPlan colSize {{time.class}}" id='{{$index}}' daytime="{{time.daytime}}" state="default" ng-repeat="time in time"   >{{time.text}}
               <img class="medButtonGray" id='{{$index}}' ng-click="showLocalStorage($event)"></img>
               <div my-dir></div>
             </div>
-            </div>
           </div>
+        </div>
       </div>
     </div>
-      <!--Header-->
+    <!--Header-->
     </div>
     <div class="rightNavigation">
       <button id="sideButtonright" class="navButton" ng-click="opentel()" >

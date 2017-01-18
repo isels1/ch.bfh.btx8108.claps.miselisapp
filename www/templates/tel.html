@@ -1,93 +1,90 @@
 <link href="css/styleTel.css" rel="stylesheet">
 
 <ion-view view-title="Telefonbuch">
-    <ion-content class="wrapper">
-        <!-- <div class="row1">-->
-        <!--NavCol-->
-        <div class="leftNavigation">
-            <button id="sideButtonleft" class="navButton" ng-click="openmedi()">
-                <img class="navImg" src="img\ButtonMediLeft.PNG"></img>
-            </button>
+  <ion-content class="wrapper">
+    <!-- <div class="row1">-->
+    <!--NavCol-->
+    <div class="leftNavigation">
+      <button id="sideButtonleft" class="navButton" ng-click="openmedi()">
+        <img class="navImg" src="img\ButtonMediLeft.PNG"></img>
+      </button>
+    </div>
+
+    <div class="editButtonContainer">
+      <button class="editButton" id="editButton1" ng-click="changeEditMode()">
+        Bearbeiten
+      </button>
+    </div>
+
+    <div class="content fixTelButtons" ng-init="loadContactFromLocal()">
+      <div class="row ColContainer">
+        <div class="col btn_size">
+          <button class="callButton" id="button1" data-toSet="true" ng-click="clickAction($event)">
+            <img class="imgTel" src="img/addCross.png"></img>
+            <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
+          </button>
         </div>
-
-        <div class="editButtonContainer">
-            <button class="editButton" id="editButton1" ng-click="changeEditMode()">
-                 Bearbeiten
-            </button>
+        <div class="col btn_size">
+          <button class="callButton" data-toSet="true" id="button2" ng-click="clickAction($event)">
+            <img class="imgTel" src="img/addCross.png"></img>
+            <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
+          </button>
         </div>
-
-        <div class="content fixTelButtons" ng-init="loadContactFromLocal()">
-            <div class="row ColContainer">
-                <div class="col btn_size">
-                    <button class="callButton" id="button1" data-toSet="true" ng-click="clickAction($event)">
-                        <img class="imgTel" src="img/addCross.png"></img>
-                        <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
-                    </button>
-                </div>
-                <div class="col btn_size">
-                    <button class="callButton" data-toSet="true" id="button2" ng-click="clickAction($event)">
-                        <img class="imgTel" src="img/addCross.png"></img>
-                        <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
-                    </button>
-                </div>
-                <div class="col btn_size">
-                    <button class="callButton" data-toSet="true" id="button3" ng-click="clickAction($event)">
-                        <img class="imgTel" src="img/addCross.png"></img>
-                        <span class="telLabel" >Kontakt hinzuf&uuml;gen</span>
-                    </button>
-                </div>
-            </div>
-            <!--Row 2 with Nav-->
-            <div class="row ">
-                <div class="col btn_size">
-                    <button class="callButton" data-toSet="true" id="button4" ng-click="clickAction($event) ">
-                        <img class="imgTel" src="img/addCross.png"></img>
-                        <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
-                    </button>
-                </div>
-                <div class="col btn_size">
-                    <button class="callButton" data-toSet="true" id="button5"  ng-click="clickAction($event) ">
-                        <img class="imgTel" src="img/addCross.png"></img>
-                        <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
-                    </button>
-                </div>
-                <div class="col btn_size">
-                    <button class="callButton" data-toSet="true" id="button6" ng-click="clickAction($event) ">
-                        <img class="imgTel" src="img/addCross.png"></img>
-                        <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
-                    </button>
-                </div>
-            </div>
-
-            <!--Row 3-->
-            <div class="row">
-                <div class="col btn_size">
-                    <button class="callButton" data-toSet="true" id="button7" ng-click="clickAction($event) ">
-                        <img class="imgTel" src="img/addCross.png"></img>
-                        <span class="telLabel" style='margin-left:-17%'>Hausarzt</span>
-                    </button>
-                </div>
-                <div class="col btn_size">
-                    <button class="callButton emergencyButton" id="emergencyButtonCall" data-toSet="false" ng-click="clickAction($event)">
-                        <img class="imgTel emergencyButton" src="img/NOTRUF.png"></img>
-                        <span class="telLabel emergencyButton" style='margin-left:-13%'>Notruf</span>
-                    </button>
-                </div>
-                <div class="col btn_size">
-                    <button class="callButton" data-toSet="true" id="button8"  ng-click="clickAction($event)">
-                        <img class="imgTel" src="img/addCross.png"></img>
-                        <span class="telLabel" style='margin-left:-12%'>Spitex</span>
-                    </button>
-                </div>
-            </div>
+        <div class="col btn_size">
+          <button class="callButton" data-toSet="true" id="button3" ng-click="clickAction($event)">
+            <img class="imgTel" src="img/addCross.png"></img>
+            <span class="telLabel" >Kontakt hinzuf&uuml;gen</span>
+          </button>
         </div>
-
-        <!--NavCol-->
-        <div class="rightNavigation">
-            <button id="sideButtonright" class="navButton" ng-click="openhome()">
-                <img class="navImg" src="img\HomeButtonRight.PNG"></img>
-            </button>
+      </div>
+      <!--Row 2 with Nav-->
+      <div class="row ">
+        <div class="col btn_size">
+          <button class="callButton" data-toSet="true" id="button4" ng-click="clickAction($event) ">
+            <img class="imgTel" src="img/addCross.png"></img>
+            <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
+          </button>
         </div>
-
-    </ion-content>
+        <div class="col btn_size">
+          <button class="callButton" data-toSet="true" id="button5"  ng-click="clickAction($event) ">
+            <img class="imgTel" src="img/addCross.png"></img>
+            <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
+          </button>
+        </div>
+        <div class="col btn_size">
+          <button class="callButton" data-toSet="true" id="button6" ng-click="clickAction($event) ">
+            <img class="imgTel" src="img/addCross.png"></img>
+            <span class="telLabel">Kontakt hinzuf&uuml;gen</span>
+          </button>
+        </div>
+      </div>
+      <!--Row 3-->
+      <div class="row">
+        <div class="col btn_size">
+          <button class="callButton" data-toSet="true" id="button7" ng-click="clickAction($event) ">
+            <img class="imgTel" src="img/addCross.png"></img>
+            <span class="telLabel" style='margin-left:-17%'>Hausarzt</span>
+          </button>
+        </div>
+        <div class="col btn_size">
+          <button class="callButton emergencyButton" id="emergencyButtonCall" data-toSet="false" ng-click="clickAction($event)">
+            <img class="imgTel emergencyButton" src="img/NOTRUF.png"></img>
+            <span class="telLabel emergencyButton" style='margin-left:-13%'>Notruf</span>
+          </button>
+        </div>
+        <div class="col btn_size">
+          <button class="callButton" data-toSet="true" id="button8"  ng-click="clickAction($event)">
+            <img class="imgTel" src="img/addCross.png"></img>
+            <span class="telLabel" style='margin-left:-12%'>Spitex</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--NavCol-->
+    <div class="rightNavigation">
+      <button id="sideButtonright" class="navButton" ng-click="openhome()">
+        <img class="navImg" src="img\HomeButtonRight.PNG"></img>
+      </button>
+    </div>
+  </ion-content>
 </ion-view>
